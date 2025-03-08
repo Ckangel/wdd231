@@ -1,3 +1,7 @@
+document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('menu').classList.toggle('active');
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-buttons button');
     const courseButtons = document.querySelectorAll('.course-button');

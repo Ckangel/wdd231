@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 /* General Styles */
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -9,30 +10,46 @@ body {
 
 .header-container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: auto;
+    margin-bottom: 10px;
+    background-color: #20639B;
+  }
+
+.header-container h1 {
+    font-size: 36px;
+    font-family: "Pacifico";
+    font-weight: 600;
+    color: #f9f379;
+    font-style: italic;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
+.profile-pic {
+    width: 80px; 
+    height: auto;
+    margin-right: 10px; 
+}
+  
 header {
-    background-color: #20639B; /* Darker Teal */
     color: #fff;
     padding: 10px 0;
-}
-
-header h1 {
-    margin: 0;
-    margin-left: 20px;
-}
-
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
     text-align: center;
 }
 
+nav {
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    justify-content: space-evenly;
+}
+
 nav ul li {
-    display: inline;
+    display: flex;
     margin: 0 10px;
 }
 
@@ -51,11 +68,21 @@ main {
     padding: 20px;
 }
 
+.menu {
+    display: none;
+    background-color:#333
+}
+
+.hamburger {
+    display: none;
+}
+
 .hero {
     background-color: #e0e0e0;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
     border-radius: 8px;
+    margin-left: 18px;
 }
 
 /* Content Area */
@@ -93,18 +120,20 @@ main {
     border-radius: 8px;
 }
 
-h2 {
+h3 {
     margin: 0;
     background-color: #20639B;
     color: #fff;
+    text-align: center;
     padding: 10px;
     border-radius: 8px;
 }
 
-
 .filter-buttons {
+    margin-top: 15px;
     margin-bottom: 15px;
     text-align: center;
+    color: #fff;
 }
 
 .filter-buttons button {
@@ -112,29 +141,39 @@ h2 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #ddd;
     color: #333;
+    background-color: #a05a2c;
     margin: 0 5px;
 }
 
 .filter-buttons button.active {
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
 }
 
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 10px;
 }
 
 .course-button {
-    background-color: #a05a2c; /* Brown */
+    background-color: #a05a2c;
     color: #fff;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.specific-cse210 {
+    color:#fff;
+    background-color: #333;
+}
+    
+.specific-wdd231 {
+    color:#fff;    
+    background-color: #333;
 }
 
 /* Footer Styles */
@@ -155,5 +194,5 @@ footer img {
 .profile-pic {
     width: 60px;
     height: 60px;
-    border-radius: 50%;
+    border-radius: 25%;
 }

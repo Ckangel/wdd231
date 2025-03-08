@@ -1,0 +1,49 @@
+/* Style for larger screens */
+#menu {
+    display: block;
+}
+
+#hamburger {
+    display: none;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #menu {
+        display: none;
+        position: absolute;
+        background-color: #f0f0f0;
+        padding: 10px;
+        top: 40px; /* Adjust based on button height */
+        left: 0;
+        width: 100%;
+    }
+
+    #hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        background-color: transparent;
+        border: none;
+    }
+
+    #menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #menu ul li {
+        margin-bottom: 10px;
+    }
+
+    #menu ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+/* Active state for menu */
+#menu.active {
+    display: block;
+}
