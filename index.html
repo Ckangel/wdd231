@@ -22,26 +22,29 @@
       </div>
       
       <button id="hamburger" aria-label="Toggle Menu">&#9776;</button>
-      <nav id="menu">
+      
+      <nav>
           <ul>
-            <li><a href="index.html" class="active">Home</a></li> 
-            <li><a href="#">Chamber</a></li>
-            <li><a href="https://github.com/Ckangel/wdd231" target="_blank">Github Profile</a></li>
-            <li><a href="https://www.linkedin.com/in/charles-ajeigbe-0a41b43/" target="_blank">LinkedIn</a></li>
+            <li><a href="index.html" class="nav-item">Home</a></li> 
+            <li><a href="#" class="nav-item">Chamber</a></li>
+            <li><a href="https://github.com/Ckangel/wdd231" class="nav-item" target="_blank">Github Profile</a></li>
+            <li><a href="https://www.linkedin.com/in/charles-ajeigbe-0a41b43/" class="nav-item" target="_blank">LinkedIn</a></li>
         </ul>
       </nav>
     </header>  
       <section class="hero">
         <h2>Home</h2>
       </section>
+
       <main class="content-area">
           <div class="card">
-            <h3>Course Work</h3>
+            <h2>Course Work</h2>
             <ul>
               <li>...</li>
               <li>...</li>
-              <li>...</li>
+              <li>...</li>              
             </ul>
+
           </div>
           <div class="card">
             <h3>Accra, Ghana</h3>
@@ -50,7 +53,7 @@
         </main>
           
           <section class="certificate-section">
-            <h3>Web and Computer Programing Certificate</h3>
+            <h2>Web and Computer Programing Certificate</h2>
             <div class="filter-buttons">
               <button data-filter="all" class="active">All</button>
               <button data-filter="cse">CSE</button>
@@ -67,12 +70,16 @@
             </div>
         
         </section>
-  
-      <footer>
-        <p>&copy; 2025 💕 Charles Kingsley Ajeigbe 💕 Tema - Ghana</p><span><img src="images/placeholder-flag.jpeg" alt="Ghana Flag"></span>
-        Last Updated: 2025-03-07
-      </footer>
-    </body>
+        <footer>
+          <div>
+            &copy; <span id="year"></span>💕 Charles Kingsley Ajeigbe 💕 Tema - Ghana
+            <span><img src="images/placeholder-flag.jpeg" alt="Ghana Flag"></span>
+          </div>
+          <div>
+            Last Update: <span id="last-modified"></span>
+          </div>
+        </footer>
+      </body>
     </html>
         
       
