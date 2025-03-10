@@ -16,23 +16,23 @@
         <script src="scripts/style.js" defer></script>
     </head>
     <body>
-    <header>
-      <div class="header-container">
-        <img src="images/placeholder-profile.jpg" alt="Profile Picture" class="profile-pic">
-        <h1>Charles K. Ajeigbe</h1>
-      </div>
-      
-      <button id="hamburger" aria-label="Toggle Menu">&#9776;</button>
-      
-      <nav>
-          <ul>
-            <li><a href="index.html" class="nav-item">Home</a></li> 
+      <header>
+        <div class="header-container">
+          <img src="images/placeholder-profile.jpg" alt="Profile Picture" class="profile-pic">
+          <h1>Charles K. Ajeigbe</h1>
+          <button id="hamburger" aria-label="Toggle Menu">&#9776;</button>
+        </div>
+        
+        <nav id="menu">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-item active">Home</a></li> 
             <li><a href="#" class="nav-item">Chamber</a></li>
-            <li><a href="https://github.com/Ckangel/wdd231" class="nav-item" target="_blank">Github Profile</a></li>
+            <li><a href="https://github.com/Ckangel/wdd231" class="nav-item" target="_blank">Github</a></li>
             <li><a href="https://www.linkedin.com/in/charles-ajeigbe-0a41b43/" class="nav-item" target="_blank">LinkedIn</a></li>
-        </ul>
-      </nav>
-    </header>  
+          </ul>
+        </nav>
+      </header>
+        
       <section class="hero">
         <h2>Home</h2>
       </section>
@@ -57,13 +57,14 @@
         </main>
           
           <section class="certificate-section">
-            <h2>Web and Computer Programing Certificate</h2>
+            <h2>Web and Computer Programming Certificate</h2>
             <div class="filter-buttons">
               <button data-filter="all" class="active">All</button>
               <button data-filter="cse">CSE</button>
               <button data-filter="wdd">WDD</button>
             </div>
           </section>
+          
           <section class="course-grid section">
             <div class="course-grid">
               <button class="course-button cse">CSE110</button>
@@ -74,7 +75,7 @@
               <button class="course-button wdd specific-wdd231">WDD231</button>
             </div>
           </section>
-          
+
         <footer>
           <div>
             &copy; <span id="year"></span>💕 Charles Kingsley Ajeigbe 💕 Tema - Ghana

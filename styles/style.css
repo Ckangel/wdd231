@@ -37,38 +37,84 @@ header {
     padding: 10px 0;
 }
 
+/* Navigation Styles */
 nav {
-	background-color: #36454f;
-}
-nav ul {
-	list-style-type: none;
-	display: flex;
-	flex-wrap: wrap;
-	max-width: 900px;
-	margin: 0 auto;
-	justify-content: space-around;
-	align-items: center;
-}
-
-nav a {
-	display: block;
-	color: #fff;
-	text-align: center;
-	padding: 1rem;
-	text-decoration: none;
-}
+    background-color: #36454f;
+    transition: 0.3s ease;
+  }
   
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+  .nav-links {
+    list-style: none;
+    gap: 5px;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    padding: 0;
+    color: #fff;
+  }
 
-main {
-    padding: 10px;
-}
+  .nav-links li {
+    margin: 0;
+  }
 
-
-.hamburger {
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s;
+  }
+  
+  #hamburger {
     display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+  }
+  
+  /* Active State */
+  .nav-item.active {
+    background-color: #20639B;
+    border-radius: 4px;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    #hamburger {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem 0;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .nav-links li {
+      margin: 0.5rem 0;
+    }
+  
+    .header-container {
+      justify-content: flex-start;
+      padding-left: 20px;
+    }
+  }
+  
+  main {
+    padding: 10px;
 }
 
 .hero {
@@ -85,12 +131,6 @@ main {
     flex-direction: row;
     gap: 20px;
     margin-bottom: 20px;
-}
-
-.boxstyle {
-    box-sizing: border-box;
-    border-color: #2196F3;
-    border-style: double;
 }
 
 .course-grid {
@@ -184,6 +224,7 @@ h3 {
 
 .filter-buttons button.active {
     background-color: #20639B;
+    color: white;
 }
 
 .course-grid {

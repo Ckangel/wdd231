@@ -1,148 +1,87 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const menu = document.getElementById('menu');
+    
     if (hamburger && menu) {
         hamburger.addEventListener('click', () => {
             menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
     }
 
-    // Course Data
-    const courses = [
-        {
-            subject: 'CSE',
-            number: 110,
-            title: 'Introduction to Programming',
-            credits: 2,
-            technology: ['Python'],
-            completed: true
-        },
-        {
-            subject: 'WDD',
-            number: 130,
-            title: 'Web Fundamentals',
-            credits: 2,
-            technology: ['HTML', 'CSS'],
-            completed: true
-        },
-        {
-            subject: 'CSE',
-            number: 111,
-            title: 'Programming with Functions',
-            credits: 2,
-            certificate: 'Web and Computer Programming',
-            description: 'CSE 111 students become more organized, efficient, and powerful computer programmers by learning to research and call functions written by others; to write, call , debug, and test their own functions; and to handle errors within functions. CSE 111 students write programs with functions to solve problems in many disciplines, including business, physical science, human performance, and humanities.',
-            technology: [
-                'Python'
-            ],
-            completed: true
-        },
-        {
-            subject: 'CSE',
-            number: 210,
-            title: 'Programming with Classes',
-            credits: 2,
-            certificate: 'Web and Computer Programming',
-            description: 'This course will introduce the notion of classes and objects. It will present encapsulation at a conceptual level. It will also work with inheritance and polymorphism.',
-            technology: [
-                'C#'
-            ],
-            completed: false
-        },
-        {
-            subject: 'WDD',
-            number: 131,
-            title: 'Dynamic Web Fundamentals',
-            credits: 2,
-            certificate: 'Web and Computer Programming',
-            description: 'This course builds on prior experience in Web Fundamentals and programming. Students will learn to create dynamic websites that use JavaScript to respond to events, update content, and create responsive user experiences.',
-            technology: [
-                'HTML',
-                'CSS',
-                'JavaScript'
-            ],
-            completed: true
-        },
-        {
-            subject: 'WDD',
-            number: 231,
-            title: 'Frontend Web Development I',
-            credits: 2,
-            certificate: 'Web and Computer Programming',
-            description: 'This course builds on prior experience with Dynamic Web Fundamentals and programming. Students will focus on user experience, accessibility, compliance, performance optimization, and basic API usage.',
-            technology: [
-                'HTML',
-                'CSS',
-                'JavaScript'
-            ],
-            completed: false
+    // Navigation
+    const currentPage = location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-item').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
         }
-    ]
+    });
 
-    // DOM Elements
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const coursesContainer = document.getElementById('courses-container');
-    const totalCreditsSpan = document.getElementById('total-credits');
-    let currentFilter = 'all';
+    // Course Data and Filtering
+    const courses = [/* your existing course data */];
 
-    // Filter Functions
-    const filterCourses = {
-        all: () => courses,
-        WDD: () => courses.filter(c => c.subject === 'WDD'),
-        CSE: () => courses.filter(c => c.subject === 'CSE')
+    const DOM = {
+        filterButtons: document.querySelectorAll('.filter-btn'),
+        coursesContainer: document.getElementById('courses-container'),
+        totalCredits: document.getElementById('total-credits'),
+        year: document.getElementById('year'),
+        lastModified: document.getElementById('last-modified')
     };
 
-    // Render Courses
+    // Filter Config
+    const filters = {
+        current: 'all',
+        types: {
+            all: () => courses,
+            WDD: () => courses.filter(c => c.subject === 'WDD'),
+            CSE: () => courses.filter(c => c.subject === 'CSE')
+        }
+    };
+
+    // Course Rendering
+    function createCourseCard(course) {
+        const card = document.createElement('div');
+        card.className = `course-card ${course.completed ? 'completed' : ''}`;
+        card.innerHTML = `
+            <h3>${course.subject} ${course.number}</h3>
+            <p>${course.title}</p>
+            <p>Credits: ${course.credits}</p>
+            <p>Technologies: ${course.technology.join(', ')}</p>
+            <p>Status: ${course.completed ? '✓ Completed' : 'In Progress'}</p>
+        `;
+        return card;
+    }
+
     function renderCourses() {
-        coursesContainer.innerHTML = '';
-        const filtered = filterCourses[currentFilter]();
-        
+        DOM.coursesContainer.innerHTML = '';
+        const filtered = filters.types[filters.current]();
         filtered.forEach(course => {
-            const card = document.createElement('div');
-            card.className = `course-card ${course.completed ? 'completed' : ''}`;
-            card.innerHTML = `
-                <h3>${course.subject} ${course.number}</h3>
-                <p>${course.title}</p>
-                <p>Credits: ${course.credits}</p>
-                <p>Technologies: ${course.technology.join(', ')}</p>
-                <p>Status: ${course.completed ? '✓ Completed' : 'In Progress'}</p>
-                `;
-                coursesContainer.appendChild(card);
+            DOM.coursesContainer.appendChild(createCourseCard(course));
         });
+        updateCredits();
     }
 
-    // Update Credits
     function updateCredits() {
-        const filtered = filterCourses[currentFilter]();
-        totalCreditsSpan.textContent = filtered.reduce((sum, course) => sum + course.credits, 0);
+        const total = filters.types[filters.current]()
+            .reduce((sum, course) => sum + course.credits, 0);
+        DOM.totalCredits.textContent = total;
     }
 
-    // Filter Button Events
-    filterButtons.forEach(button => {
+    // Filter Handlers
+    DOM.filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            currentFilter = this.dataset.filter;
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            filters.current = this.dataset.filter;
+            DOM.filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             renderCourses();
-            updateCredits();
         });
     });
 
-    // Navigation Links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-    });
+    // Footer
+    DOM.year.textContent = new Date().getFullYear();
+    DOM.lastModified.textContent = document.lastModified;
 
-    // Initial Render
+    // Initialization
     renderCourses();
-    updateCredits();
 });
-
-// Footer Information
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('last-modified').textContent = document.lastModified;
