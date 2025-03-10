@@ -94,6 +94,29 @@ main {
     padding: 1rem;
 }
 
+.card {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card caption {
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    color: #777;
+}
+
 .course-card {
     background: #f8f9fa;
     padding: 1.5rem;
@@ -145,7 +168,7 @@ h3 {
 }
 
 .filter-buttons button.active {
-    background-color: #fff;
+    background-color: #20639B;
 }
 
 .course-grid {

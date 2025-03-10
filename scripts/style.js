@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Introduction to Programming',
             credits: 2,
             technology: ['Python'],
-            completed: false
+            completed: true
         },
         {
             subject: 'WDD',
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Web Fundamentals',
             credits: 2,
             technology: ['HTML', 'CSS'],
-            completed: false
+            completed: true
         },
         {
             subject: 'CSE',
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             technology: [
                 'Python'
             ],
-            completed: false
+            completed: true
         },
         {
             subject: 'CSE',
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             technology: [
                 'C#'
             ],
-            completed: false
+            completed: true
         },
         {
             subject: 'WDD',
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'CSS',
                 'JavaScript'
             ],
-            completed: false
+            completed: true
         },
         {
             subject: 'WDD',
@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p>Credits: ${course.credits}</p>
                 <p>Technologies: ${course.technology.join(', ')}</p>
                 <p>Status: ${course.completed ? '✓ Completed' : 'In Progress'}</p>
-            `;
-            coursesContainer.appendChild(card);
+                `;
+                coursesContainer.appendChild(card);
         });
     }
 
