@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             technology: [
                 'C#'
             ],
-            completed: true
+            completed: false
         },
         {
             subject: 'WDD',

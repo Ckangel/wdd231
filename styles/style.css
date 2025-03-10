@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: auto;
+    padding: 5px;
     margin-bottom: 5px;
     background-color: #20639B;
   }
@@ -87,6 +87,12 @@ main {
     margin-bottom: 20px;
 }
 
+.boxstyle {
+    box-sizing: border-box;
+    border-color: #2196F3;
+    border-style: double;
+}
+
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -141,6 +147,15 @@ main {
     border-radius: 8px;
 }
 
+h2 {
+    margin: 0;
+    background-color: #20639B;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    border-radius: 8px;
+}
+
 h3 {
     margin: 0;
     background-color: #20639B;
@@ -189,17 +204,17 @@ h3 {
 
 .specific-cse210 {
     color:#fff;
-    background-color: #333;
+	background-color: #36454f;
 }
     
 .specific-wdd231 {
     color:#fff;    
-    background-color: #333;
+    background-color: #36454f;
 }
 
 
 /*  Media Query for Smaller Screens */
-@media (max-width: 320px) { 
+@media (max-width: 768px) { 
     .nav-links {
       display: none; 
       flex-direction: column;  
