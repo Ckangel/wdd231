@@ -1,10 +1,18 @@
 {
     "records": [
-        { "name": "John Doe", "address": "123 Main St", "phone": "123-456-7890", "website": "https://johndoe.com", "image": "john.jpg", "membershipLevel": "Gold" },
-        { "name": "Jane Smith", "address": "456 Elm St", "phone": "987-654-3210", "website": "https://janesmith.com", "image": "jane.jpg", "membershipLevel": "Silver" },
+        { "name": "John Tawiah", "address": "123 Main St", "phone": "123-456-7890", "website": "https://johndoe.com", "image": "images/lucozade.png", "membershipLevel": "Gold" },
+        { "name": "Alice Brown", "address": "789 Elm St", "phone": "456-789-1230", "website": "https://alicebrown.com", "image": "images/polytank.png", "membershipLevel": "Gold" },
+        { "name": "Jane Smith", "address": "456 Oak St", "phone": "789-123-4560", "website": "https://janesmith.com", "image": "images/omo.png.jpg", "membershipLevel": "Silver" },
+        { "name": "Charlie White", "address": "321 Pine St", "phone": "987-654-3210", "website": "https://charliewhite.com", "image": "images/made-in-ghan.png", "membershipLevel": "Silver" },
+        { "name": "Bob Johnson", "address": "654 Cedar St", "phone": "555-555-5555", "website": "https://bobjohnson.com", "image": "images/panadol.png", "membershipLevel": "Bronze" },
+        { "name": "Efo Larson", "address": "789 Elm St", "phone": "444-444-4444", "website": "https://efolarson.com", "image": "efo.jpg", "membershipLevel": "Gold" },
+        { "name": "John Doe", "address": "123 Main St", "phone": "333-333-3333", "website": "https://johndoe.com", "image": "john.jpg", "membershipLevel": "Gold" },
+        { "name": "Alice Brown", "address": "456 Elm St", "phone": "222-222-2222", "website": "https://alicebrown.com", "image": "alice.jpg", "membershipLevel": "Gold" },
+        { "name": "Jane Smith", "address": "789 Oak St", "phone": "111-111-1111", "website": "https://janesmith.com", "image": "jane.jpg", "membershipLevel": "Silver" },
+        { "name": "Charlie White", "address": "321 Pine St", "phone": "999-999-9999", "website": "https://charliewhite.com", "image": "charlie.jpg", "membershipLevel": "Silver" },
         { "name": "Bob Johnson", "address": "789 Oak St", "phone": "555-555-5555", "website": "https://bobjohnson.com", "image": "bob.jpg", "membershipLevel": "Bronze" },
-        { "name": "Alice Brown", "address": "321 Pine St", "phone": "444-444-4444", "website": "https://alicebrown.com", "image": "alice.jpg", "membershipLevel": "Gold" },
-        { "name": "Charlie White", "address": "654 Cedar St", "phone": "333-333-3333", "website": "https://charliewhite.com", "image": "charlie.jpg", "membershipLevel": "Silver" },
+        { "name": "Alonge Mensah", "address": "321 Pine St", "phone": "444-444-4444", "website": "https://alicebrown.com", "image": "alice.jpg", "membershipLevel": "Gold" },
+        { "name": "Charlie Balcky", "address": "654 Cedar St", "phone": "333-333-3333", "website": "https://charliewhite.com", "image": "charlie.jpg", "membershipLevel": "Silver" },
         { 
             "name": "New Member", "address": "123 New St", "phone": "111-111-1111", "website": "https://newmember.com", "image": "new.jpg", "membershipLevel": "Bronze"
         }
