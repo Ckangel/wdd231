@@ -1,0 +1,67 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+.responsive-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.responsive-nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.responsive-nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.hero {
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.members-section {
+  padding: 20px;
+}
+
+#members-container.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+#members-container.list {
+  display: block;
+}
+
+.member-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+footer {
+  text-align: center;
+  background-color: #333;
+  color: white;
+}
