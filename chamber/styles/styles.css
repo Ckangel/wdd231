@@ -29,6 +29,10 @@ header {
   color: white;
 }
 
+.nav active {
+  color: aqua;
+}
+
 .hero {
   background-color: #f4f4f4;
   text-align: center;
@@ -58,6 +62,7 @@ header {
 .member-card {
   border: 1px solid #ccc;
   padding: 10px;
+  border-color: aqua;
 }
 
 footer {
