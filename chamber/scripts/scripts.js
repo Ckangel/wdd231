@@ -129,4 +129,11 @@ function showErrorToast(message) {
   setTimeout(() => toast.remove(), 5000);
 }
 
+// Hamburgr menu Toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+  const nav = document.querySelector('.responsive-nav');
+  nav.classList.toggle('active');
+  document.body.classList.toggle('nav-active');
+});
+
 
