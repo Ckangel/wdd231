@@ -35,10 +35,10 @@ header {
   color: white;
 }
 
-.nav active {
-  color: aqua;
-  background-color: #f4f4f4;
+.responsive-nav ul li a.active {
   text-decoration: underline;
+  color: aqua;
+  font-weight: bold;
 }
 
 .hero {
@@ -73,6 +73,18 @@ header {
   border-color: aqua;
 }
 
+.member-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 footer {
   text-align: center;
   background-color: #333;
@@ -102,6 +114,12 @@ footer {
   max-height: 500px; /* Adjust based on content */
 }
 
+.events-container {
+  display: grid;
+  grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
 @media (max-width: 768px) {
   .hamburger {
       display: block;
@@ -124,4 +142,57 @@ footer {
       flex-direction: row;
       max-height: none;
   }
+}
+
+/* General Footer Styling */
+#footer {
+  background-color: #f2f2f2;
+  color: #151515;
+  padding: 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  width: 30%;
+}
+
+.footer-column h2 {
+  font-size: 1.5em;
+}
+
+.footer-column p {
+  margin: 10px 0;
+}
+
+.footer-column a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #333;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #0073e6;
 }
