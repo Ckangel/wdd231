@@ -20,6 +20,10 @@
     <link rel="icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="styles/styles.css">
+
+
+
+
 </head>
 <body>
         <!-- Header Section -->
@@ -57,24 +61,34 @@
                 </div>
         </section>
 
-        <!-- Information Section -->
-        <section class="info-section" aria-labelledby="info-heading">
-            <h2 id="info-heading">Information and Updates</h2>
-            <article class="events">
-                <h3>Upcoming Events</h3>
-                <!-- Events content placeholder -->
-            </article>
+         <!-- Information Section -->
+        
+         <h2 id="info-heading">Home</h2>
+            
+         <section class="info-section" aria-labelledby="info-heading">
+         <!-- Events -->
+          <div class="info-container">
+             <article class="info-events">
+             <h3>Events</h3>
+             <!-- Placeholder for events -->
+             <p>Upcoming events will be displayed here...</p>
+             </article>
 
-            <article class="weather">
-                <h3>Current Weather</h3>
-                <!-- Weather data placeholder -->
-            </article>
+         <!-- Current Weather -->
+             <article class="info-events">
+                 <h3>Current Weather</h3>
+                 <!-- Weather data will be dynamically inserted here -->
+                 <p>Loading current weather...</p>
+             </article>
 
-            <article class="forecast">
-                <h3>Weather Forecast</h3>
-                <!-- Forecast data placeholder -->
-            </article>
-        </section>
+         <!-- Weather Forecast -->
+             <article class="info-events">
+                 <h3>Weather Forecast</h3>
+             <!-- Forecast data will be dynamically inserted here -->
+                 <p>Loading forecast...</p>
+             </article>
+          </div>
+         </section>
 
         <!-- Members Section -->
         <section class="members-section" aria-labelledby="members-heading">
@@ -91,10 +105,9 @@
 
   <!-- Footer Section -->
   <footer aria-labelledby="footer-heading">
-    <h2 id="footer-heading">Contact Us</h2>
     <div class="footer-container">
         <!-- Left Column -->
-        <div class="footer-column">
+        <div class="left-column">
             Tema Ghana Chamber of Commerce<br />
             GN-1249-1666, 36 Microphone Street<br /> 
             Matakeko, Tema, Ghana<br />
@@ -102,22 +115,22 @@
             Phone: (233) 559-169-117
         </div>
 
-        <!-- Social Media Links -->
-        <div class="social-icons footer-column">
             <!-- Social media icons placeholder -->
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+            <div class="center-center">
+                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
+                <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
+            </div>
 
         <!-- Right Column -->
-         <div class="footer-column">
-            WDD231 Class Project<br />
-            Charles Kingsley Ajeigbe<br />
-            &copy; Tema Ghana Chamber of Commerce<br />
-            Last Modification:<br />
-         </div>
-    </div>
+         <div class="right-column">
+            <p>WDD231 Class Project</p>
+            <p>Charles Kingsley Ajeigbe</p>
+            <p><span id="currentyear"></span> Tema Ghana Chamber of Commerce</p>
+            <p id="lastModified"></p>         
+        </div>
+
+    </div> 
 </footer>
 
 <!-- JavaScript -->

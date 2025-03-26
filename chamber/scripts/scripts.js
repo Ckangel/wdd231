@@ -24,11 +24,14 @@ const WeatherAPI = (() => {
 
 // Spotlight Members
 // If adding members dynamically
-document.getElementById('members-container').addEventListener('click', (e) => {
-    if(e.target.closest('.member-card')) {
-      // Handle member card clicks
-    }
-  });
+const membersContainer = document.getElementById('members-container');
+if (membersContainer) {
+    membersContainer.addEventListener('click', (e) => {
+        if (e.target.closest('.member-card')) {
+            // Handle member card clicks
+        }
+    });
+}
 
 const MemberManager = (() => {
     let membersData = [];
@@ -72,27 +75,42 @@ const MemberManager = (() => {
 
 // Footer Date and Last Modified
 function updateFooter() {
-    const currentDate = new Date().toLocaleDateString();
-    const lastModified = document.lastModified;
+    const footerColumn = document.querySelector('.footer-column');
+    if (footerColumn) {
+        const lastChild = footerColumn.querySelector('p:last-child');
+        const secondLastChild = footerColumn.querySelector('p:nth-last-child(2)');
+        if (lastChild) lastChild.textContent = `Last Modified: ${lastModified}`;
+        if (secondLastChild) secondLastChild.textContent = `Current Date: ${currentDate}`;
+    }
 
     document.querySelector('.footer-column p:last-child').textContent = `Last Modified: ${lastModified}`;
     document.querySelector('.footer-column p:nth-last-child(2)').textContent = `Current Date: ${currentDate}`;
-}
-
-// Initialization
-document.addEventListener('DOMContentLoaded', () => {
+            const weatherElement = document.querySelector('.weather');
+            if (weatherElement) {
+                weatherElement.innerHTML = `
+                    <p>Temperature: ${data.main.temp}°F</p>
+                    <p>Description: ${data.weather[0].description}</p>
+                `;
+            }
     MemberManager.renderSpotlights();
 
     WeatherAPI.getCurrentWeather().then(data => {
         if (data) {
             document.querySelector('.weather').innerHTML = `
-                <p>Temperature: ${data.main.temp}°F</p>
+            const forecastElement = document.querySelector('.forecast');
+            if (forecastElement) {
+                forecastElement.innerHTML = forecastHtml;
+            }
                 <p>Description: ${data.weather[0].description}</p>
             `;
         }
-    });
-
-    WeatherAPI.getForecast().then(data => {
+    const hamburger = document.querySelector('.hamburger');
+    const responsiveNav = document.querySelector('.responsive-nav');
+    if (hamburger && responsiveNav) {
+        hamburger.addEventListener('click', () => {
+            responsiveNav.classList.toggle('active');
+        });
+    }
         if (data) {
             const forecastHtml = data.list.slice(0, 3).map(item => `
                 <p>${new Date(item.dt * 1000).toLocaleDateString()}: ${item.main.temp}°F</p>
@@ -104,13 +122,24 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFooter();
 
     // Hamburger Menu Toggle
-    document.querySelector('.hamburger').addEventListener('click', () => {
-        document.querySelector('.responsive-nav').classList.toggle('active');
-    });
-});
+    const hamburger = document.querySelector('.hamburger');
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            document.querySelector('.responsive-nav').classList.toggle('active');
+        });
+    }
+}
 
 // View Toggle Module
 const ViewManager = (() => {
+  const gridViewButton = document.getElementById('grid-view');
+  const listViewButton = document.getElementById('list-view');
+  if (gridViewButton) {
+      gridViewButton.addEventListener('click', () => ViewManager.toggleView('grid'));
+  }
+  if (listViewButton) {
+      listViewButton.addEventListener('click', () => ViewManager.toggleView('list'));
+  }
     const toggleView = (viewType) => {
       const container = document.getElementById('members-container');
       container.className = viewType;
@@ -176,4 +205,7 @@ const Navigation = (() => {
   
     return { init };
   })();
+
+  // Call fetchMembers to display members or spotlights
+fetchMembers();
   

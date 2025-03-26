@@ -6,6 +6,8 @@
     <title>Tema Ghana Chamber of Commerce</title>
     <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
     <meta name="author" content="Charles K. Ajeigbe">
+   
+   
     <!-- Ensure secure URL -->
     <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html" />
     <meta property="og:type" content="website" />
@@ -21,13 +23,18 @@
     <link rel="icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/min.css">
+    <link rel="stylesheet" href="styles/directory-small.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+
+    <script src="scripts/scripts.js" defer></script>
+
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="logo">
-            <img src="images/logo.png" alt="Chamber Logo" width="200">
-            <span class="logo-text">Tema Ghana Chamber of Commerce</span>
+            <img src="images/logo.png" alt="Chamber Logo" width="180">
         </div>
         <button class="hamburger" aria-expanded="false" aria-controls="nav-menu">
             <span class="sr-only">Menu</span>
@@ -50,55 +57,77 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-heading">
-            <h1 id="hero-heading">Tema Ghana Chamber of Commerce</h1>
-            <img src="images/hero.jpg" alt="Hero Image" width="1200" height="auto">
-            <div class="hero-content">
-                <button>Keynote Tickets</button>
-            </div>
-        </section>
+                <div class="call-to-action">
+                    <a href="join.html" class="cta-button">Join the Chamber of Commerce</a>
+                </div>
+                <img src="images/addressing-seminar.jpg" alt="Hero Image" loading="lazy" width="1200" height="auto">
+               
+         </section>
 
         <!-- Information Section -->
-        <section class="info-section" aria-labelledby="info-heading">
-            <h2 id="info-heading">Home</h2>
+      
+            <h1 id="info-heading">Home</h1>
+               <!-- Events -->
+            <div class="grid-container">
+                <section class="info-section" aria-labelledby="info-heading">
+                <div class="grid-item">
+                    <h2>Upcoming Events</h2>
+                   <ul>
+                    <li>Meet and Greet Business Breakfast - 03/30/2025</li>
+                    <li>Business After-Hours Networking Dinner - 04/09/2025</li>
+                    <li>Business Expo Exhibition - 04/12/2025</li>
+                    <li>Business Leadership Conference - 05/04/2025</li>
+                    <li>Business Excelence Awards Gala - 05/25/2025</li>
+                    </ul>
+                    </div>
+                </section> <!-- Closing the info-section -->
+                </div> <!-- Closing the grid-item div -->
+                <!-- Current Weather -->
 
-            <!-- Events -->
-             <div class="info-container">
-                <article class="events">
-                <h3>Events</h3>
-                <!-- Placeholder for events -->
-                <p>Upcoming events will be displayed here...</p>
-                </article>
+                <section class="weather-card">
+                    <div class="grid-item">
+                        <h2>Current Weather</h2>
+                        <p>Weather data will be dynamically inserted here</p>
+                        <p><img id="weather-icon" src="https://openweathermap.org" alt=" Current"></p>
+                        <p>Temperature: <span id="current-temp"></span></p>
+                        <p>Description: <span id="weather-desc"></span></p>
+                        <p>Chance of Rain: <span id="rain-chance"></span></p>
+                    </div>
+                </section>
+          
+            <section class="forecast-card">
+                <div class="grid-item">
+                    <h2>Weather Forecast</h2>
+                    <p><img id="forecast-icon" src="https://openweathermap.org" alt="Forecast"></p>
+                    <ul>
+                        <li>Tomorrow: <span id="forecast-day1"></span></li>
+                        <li>Day After Tomorrow: <span id="forecast-day2"></span></li>
+                        <li>Three Days: <span id="forecast-day3"></span></li>
+                        <li>Four Days: <span id="forecast-day4"></span></li>
+                        <li>Five Days: <span id="forecast-day5"></span></li>
+                    </ul>
+                    </div>
+        </section>
+        <!-- Removed unmatched closing div -->
 
-            <!-- Current Weather -->
-                <article class="weather">
-                    <h3>Current Weather</h3>
-                    <!-- Weather data will be dynamically inserted here -->
-                    <p>Loading current weather...</p>
-                </article>
+        <!-- Members Spotlight Section class view toggle -->
+       <div class="view-toggle">
+        <button id="grid-view">Grid View</button>
+        <button id="list-view">List View</button>
+        </div>
 
-            <!-- Weather Forecast -->
-                <article class="forecast">
-                    <h3>Weather Forecast</h3>
-                <!-- Forecast data will be dynamically inserted here -->
-                    <p>Loading forecast...</p>
-                </article>
-             </div>
-            </section>
-
-        <!-- Members Spotlight Section -->
-            <section class="members-section" aria-labelledby="members-heading">
-                <h2 id="members-heading">Spotlight Members</h2>
-                <!-- Spotlight cards will be dynamically inserted here -->
-                <div id="members-container" class="grid"></div>
+        <section class="members-section" aria-labelledby="members-heading">
+            <h2 id="members-heading">Spotlight Members</h2>
+            <!-- Spotlight cards will be dynamically inserted here -->
+            <div id="spotlights" class="spotlights-container grid"></div>
         </section>
     </main>
 
 <!-- Footer Section -->
   <footer aria-labelledby="footer-heading">
-    <h2 id="footer-heading">Contact Us</h2>
     <div class="footer-container">
         <!-- Left Column -->
-        <div class="footer-column">
+        <div class="left-column">
             Tema Ghana Chamber of Commerce<br />
             GN-1249-1666, 36 Microphone Street<br /> 
             Matakeko, Tema, Ghana<br />
@@ -106,26 +135,26 @@
             Phone: (233) 559-169-117
         </div>
 
-        <!-- Social Media Links -->
-        <div class="social-icons footer-column">
             <!-- Social media icons placeholder -->
-            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+            <div class="center-column">
+                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
+                <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
+            </div>
 
         <!-- Right Column -->
-         <div class="footer-column">
-            WDD231 Class Project<br />
-            Charles Kingsley Ajeigbe<br />
-            &copy; Tema Ghana Chamber of Commerce<br />
-            Last Modification:<br />
-         </div>
-    </div>
+         <div class="right-column">
+            <p>WDD231 Class Project</p>
+            <p>Charles Kingsley Ajeigbe</p>
+            <p><span id="currentyear"></span> Tema Ghana Chamber of Commerce<br /></p>
+            <p id="lastModified"></p>         
+        </div>
+
+    </div> 
 </footer>
 
 <!-- JavaScript -->
-<script src="scripts/scripts.js"></script>
+<script src="scripts/home.js"></script>
 </body>
 </html>
 
