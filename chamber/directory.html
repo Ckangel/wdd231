@@ -22,21 +22,28 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Chamber Logo" width="200">
-        </div>
-        <button class="hamburger" aria-label="Menu">☰</button>
-        <nav class="responsive-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="directory.html" class="active">Directory</a></li>
-                <li><a href="#">Join</a></li>
-                <li><a href="#">Discover</a></li>
-            </ul>
-        </nav>
-    </header>
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <img src="images/logo.png" alt="Chamber Logo" width="200">
+                <span class="logo-text">Tema Ghana Chamber of Commerce</span>
+            </div>
+            <button class="hamburger" aria-expanded="false" aria-controls="nav-menu">
+                <span class="sr-only">Menu</span>
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </button>
+            <nav class="responsive-nav" id="nav-menu">
+                <!-- Navigation items -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html" class="active">Directory</a></li>
+                    <li><a href="#">Join</a></li>
+                    <li><a href="#">Discover</a></li>
+                </ul>
+            </nav>
+        </header>
 
     <main>
         <!-- Hero Section -->
@@ -73,10 +80,12 @@
         <section class="members-section" aria-labelledby="members-heading">
             <h2 id="members-heading">Our Members</h2>
             <div class="toggle-view">
-                <button id="grid-view">Grid View</button>
-                <button id="list-view">List View</button>
-            </div>
-            <div id="members-container" class="grid"></div>
+                <button id="grid-view" aria-label="Grid view">Grid</button>
+                <button id="list-view" aria-label="List view">List</button>
+              </div>
+              <div class="members-grid">
+                <!-- Member cards will be dynamically inserted here -->
+             </div>              
         </section>
     </main>
 
@@ -86,24 +95,27 @@
     <div class="footer-container">
         <!-- Left Column -->
         <div class="footer-column">
-            <p>Tema Ghana Chamber of Commerce, GN-1249-1666, 36 Microphone Street, Matakeko, Tema, Ghana</p>
-            <p>Email: info@temaghanachamber.com | Phone: (233) 559-169-117</p>
+            Tema Ghana Chamber of Commerce<br />
+            GN-1249-1666, 36 Microphone Street<br /> 
+            Matakeko, Tema, Ghana<br />
+            Email: info@temaghanachamber.com<br /> 
+            Phone: (233) 559-169-117
         </div>
 
-        <!-- Center Column -->
-        <div class="footer-column">            
-        <!-- Social media icons placeholder -->
-            <a href="images/youtube-play.png" class="social-icon"><i class="fab fa-youtube"></i></a>
-            <a href="images/twitterx.png" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="images/linkedin.png" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <!-- Social Media Links -->
+        <div class="social-icons footer-column">
+            <!-- Social media icons placeholder -->
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
         </div>
 
         <!-- Right Column -->
          <div class="footer-column">
-            <p>WDD231 Class Project</p>
-            <p>Charles Kingsley Ajeigbe</p>
-            <p>&copy; Tema Ghana Chamber of Commerce</p>
-            <p>Last Modification:</p>
+            WDD231 Class Project<br />
+            Charles Kingsley Ajeigbe<br />
+            &copy; Tema Ghana Chamber of Commerce<br />
+            Last Modification:<br />
          </div>
     </div>
 </footer>

@@ -27,9 +27,16 @@
     <header>
         <div class="logo">
             <img src="images/logo.png" alt="Chamber Logo" width="200">
+            <span class="logo-text">Tema Ghana Chamber of Commerce</span>
         </div>
-        <button class="hamburger" aria-label="Menu">☰</button>
-        <nav class="responsive-nav">
+        <button class="hamburger" aria-expanded="false" aria-controls="nav-menu">
+            <span class="sr-only">Menu</span>
+            <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+            </div>
+        </button>
+        <nav class="responsive-nav" id="nav-menu">
+            <!-- Navigation items -->
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="directory.html">Directory</a></li>
@@ -52,16 +59,14 @@
 
         <!-- Information Section -->
         <section class="info-section" aria-labelledby="info-heading">
-            <div class="home">
-                <h2 id="info-heading">Home</h2>
-           </div>    
+            <h2 id="info-heading">Home</h2>
 
             <!-- Events -->
-            <section class="events-container">
+             <div class="info-container">
                 <article class="events">
                 <h3>Events</h3>
                 <!-- Placeholder for events -->
-                <p>Upcoming events will be displayed here.</p>
+                <p>Upcoming events will be displayed here...</p>
                 </article>
 
             <!-- Current Weather -->
@@ -77,47 +82,50 @@
                 <!-- Forecast data will be dynamically inserted here -->
                     <p>Loading forecast...</p>
                 </article>
-                </section>
+             </div>
             </section>
 
         <!-- Members Spotlight Section -->
-        <section class="members-section" aria-labelledby="members-heading">
-            <h2 id="members-heading">Spotlight Members</h2>
-            <!-- Spotlight cards will be dynamically inserted here -->
-            <div id="members-container" class="grid"></div>
+            <section class="members-section" aria-labelledby="members-heading">
+                <h2 id="members-heading">Spotlight Members</h2>
+                <!-- Spotlight cards will be dynamically inserted here -->
+                <div id="members-container" class="grid"></div>
         </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer aria-labelledby="footer-heading">
-        <h2 id="footer-heading">Contact Us</h2>
-        <div class="footer-container">
-            <!-- Left Column -->
-            <div class="footer-column">
-                <p>Tema Ghana Chamber of Commerce, GN-1249-1666, 36 Microphone Street, Matakeko, Tema, Ghana</p>
-                <p>Email: info@temaghanachamber.com | Phone: (233) 559-169-117</p>
-            </div>
-
-            <!-- Center Column -->
-            <div class="footer-column">            
-            <!-- Social media icons placeholder -->
-                <a href="images/youtube-play.png" class="social-icon"><i class="fab fa-youtube"></i></a>
-                <a href="images/twitterx.png" class="social-icon"><i class="fab fa-twitter"></i></a>
-                <a href="images/linkedin.png" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-
-            <!-- Right Column -->
-             <div class="footer-column">
-                <p>WDD231 Class Project</p>
-                <p>Charles Kingsley Ajeigbe</p>
-                <p>&copy; Tema Ghana Chamber of Commerce</p>
-                <p>Last Modification:</p>
-             </div>
+<!-- Footer Section -->
+  <footer aria-labelledby="footer-heading">
+    <h2 id="footer-heading">Contact Us</h2>
+    <div class="footer-container">
+        <!-- Left Column -->
+        <div class="footer-column">
+            Tema Ghana Chamber of Commerce<br />
+            GN-1249-1666, 36 Microphone Street<br /> 
+            Matakeko, Tema, Ghana<br />
+            Email: info@temaghanachamber.com<br /> 
+            Phone: (233) 559-169-117
         </div>
-    </footer>
 
-    <!-- JavaScript -->
-    <script src="scripts/scripts.js"></script>
+        <!-- Social Media Links -->
+        <div class="social-icons footer-column">
+            <!-- Social media icons placeholder -->
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <!-- Right Column -->
+         <div class="footer-column">
+            WDD231 Class Project<br />
+            Charles Kingsley Ajeigbe<br />
+            &copy; Tema Ghana Chamber of Commerce<br />
+            Last Modification:<br />
+         </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="scripts/scripts.js"></script>
 </body>
 </html>
 
