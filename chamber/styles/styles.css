@@ -650,6 +650,7 @@ footer {
 }
 /* Responsive Design for Mobile Devices */
 @media (max-width: 599px) {
-  #hamburger {
-      display: block !important;
+    #hamburger {
+        display: block !important;
+    }
   }
