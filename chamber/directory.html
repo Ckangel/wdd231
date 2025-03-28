@@ -6,105 +6,119 @@
     <title>Tema Ghana Chamber of Commerce</title>
     <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
     <meta name="author" content="Charles K. Ajeigbe">
+    <!-- Facebook Open Graph meta tags -->
     <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Tema Ghana Chamber of Commerce" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tema Ghana Chamber of Commerce Directory Page" />
     <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation." />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="627" />
     <meta property="og:image:alt" content="Tema Ghana Chamber of Commerce Headquarters" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:title" content="Tema Ghana Chamber of Commerce" />
-    <meta property="og:type" content="website" />
     <meta property="og:image" content="https://example.com/path/to/image.jpg" />
+    
     <link rel="icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="styles/styles.css">
-
-
-
-
+    <script src="scripts/scripts.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
         <!-- Header Section -->
         <header>
             <div class="logo">
-                <img src="images/logo.png" alt="Chamber Logo" width="200">
+                <img src="images/logo.png" alt="Chamber Logo" loading="lazy">
                 <span class="logo-text">Tema Ghana Chamber of Commerce</span>
             </div>
-            <button class="hamburger" aria-expanded="false" aria-controls="nav-menu">
-                <span class="sr-only">Menu</span>
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
-                </div>
-            </button>
-            <nav class="responsive-nav" id="nav-menu">
-                <!-- Navigation items -->
-                <ul>
+            <div class="menu-toggle-small">
+                <button id="menu-toggle-button">☰</button>
+            </div> 
+    
+        <nav class="responsive-nav" id="nav-menu">
+            <!-- Navigation items -->
+                <ul id="nav-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="directory.html" class="active">Directory</a></li>
                     <li><a href="#">Join</a></li>
                     <li><a href="#">Discover</a></li>
                 </ul>
             </nav>
+            
+            <button id="theme-toggle-button">
+                <img src="images/dark.png" alt="Toggle Theme">
+            </button>
+
         </header>
 
     <main>
         <!-- Hero Section -->
-        <h1>Tema Ghana Chamber of Commerce</h1>
+      
         <section class="hero" aria-labelledby="hero-heading">
                         <h2 id="hero-heading">Chamber Directory</h2>
                         <img src="images/chamber-members.jpg" alt="Chamber Directory" width="1200" height="auto">
                 <div class="hero-content">
                     <button>Keynote Tickets</button>
-                
-                </div>
+                </div> 
         </section>
 
          <!-- Information Section -->
         
-         <h2 id="info-heading">Home</h2>
-            
-         <section class="info-section" aria-labelledby="info-heading">
-         <!-- Events -->
-          <div class="info-container">
-             <article class="info-events">
-             <h3>Events</h3>
-             <!-- Placeholder for events -->
-             <p>Upcoming events will be displayed here...</p>
-             </article>
+         <h1>Directory</h1> 
+                     
+          <div class="container">
+            <section class="events">
+                <h2>Upcoming Events</h2>
+                <ul>
+                    <li>Meet and Greet Business Breakfast - 03/30/2025</li>
+                    <li>Business After-Hours Networking Dinner - 04/09/2025</li>
+                    <li>Business Expo Exhibition - 04/12/2025</li>
+                    <li>Business Leadership Conference - 05/04/2025</li>
+                    <li>Business Excelence Awards Gala - 05/25/2025</li>
+                </ul>
+            </section>
 
          <!-- Current Weather -->
-             <article class="info-events">
-                 <h3>Current Weather</h3>
-                 <!-- Weather data will be dynamically inserted here -->
-                 <p>Loading current weather...</p>
-             </article>
+             <section class="curent-weather">
+                 <h2>Current Weather</h2>
+                 <div class="weather-card">
+                    <p><img id="weather-icon" src="https://openweathermap.org" alt=" Current"></p>
+                    <p>Temperature: <span id="current-temp"></span></p>
+                    <p>Description: <span id="weather-desc"></span></p>
+                    <p>Chance of Rain: <span id="rain-chance"></span></p>
+                 </div>
+                 </section>
 
          <!-- Weather Forecast -->
-             <article class="info-events">
-                 <h3>Weather Forecast</h3>
-             <!-- Forecast data will be dynamically inserted here -->
-                 <p>Loading forecast...</p>
-             </article>
+             <section class="forecast">
+                 <h2>Weather Forecast</h2>
+                 <div>
+                    <ul>
+                        <li>Day 1 - <span id="day1-temp"></span></li>
+                        <li>Day 2 - <span id="day2-temp"></span></li>
+                        <li>Day 3 - <span id="day3-temp"></span></li>
+                    </ul>
+                 </div>
+             </section>
           </div>
-         </section>
 
-        <!-- Members Section -->
-        <section class="members-section" aria-labelledby="members-heading">
-            <h2 id="members-heading">Our Members</h2>
-            <div class="toggle-view">
-                <button id="grid-view" aria-label="Grid view">Grid</button>
-                <button id="list-view" aria-label="List view">List</button>
-              </div>
-              <div class="members-grid">
-                <!-- Member cards will be dynamically inserted here -->
-             </div>              
-        </section>
+        <div class="view-toggle">
+            <button id="grid-view">Grid View</button>
+            <button id="list-view">List View</button>
+        </div>
+            <section class="spotlights-header">
+                <h2>Spotlight Members</h2>
+                <div id="spotlights" class="spotlights-container"></div>
+            </section>
+            <section class="members" id="members">
+                <!-- Member information will be displayed here -->
+            </section>
     </main>
 
   <!-- Footer Section -->
-  <footer aria-labelledby="footer-heading">
+<footer>
     <div class="footer-container">
         <!-- Left Column -->
         <div class="left-column">
@@ -116,7 +130,7 @@
         </div>
 
             <!-- Social media icons placeholder -->
-            <div class="center-center">
+            <div class="center-column">
                 <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
                 <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
                 <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
@@ -126,14 +140,16 @@
          <div class="right-column">
             <p>WDD231 Class Project</p>
             <p>Charles Kingsley Ajeigbe</p>
-            <p><span id="currentyear"></span> Tema Ghana Chamber of Commerce</p>
-            <p id="lastModified"></p>         
-        </div>
-
-    </div> 
+            <div>
+                &copy; <span id="currentyear"></span> Tema Ghana Chamber of Commerce
+            </div>
+            <div>
+                Last Modified: <span id="lastModified"></span>         
+            </div>
+        </div> <!-- Closing footer-container div -->
+    </div> <!-- Properly closing footer-container -->
 </footer>
-
-<!-- JavaScript -->
-<script src="scripts/scripts.js"></script>
 </body>
 </html>
+
+<!-- End of HTML Document -->

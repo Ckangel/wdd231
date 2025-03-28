@@ -40,9 +40,9 @@ const weatherDesc = document.querySelector('#weather-desc');
 const rainChance = document.querySelector('#rain-chance');
 
 // Correct the API URL
-const myLat = "6.6070"; // Latitude for Ho, Ghana
-const myLong = "0.4710"; // Longitude for Ho, Ghana
-const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
+    const apiKey = "f069271b520638efcd4604e88d66432"; 
+    const myLat = "6.6070";
+    const myLong = "-0.021474086331179875"; 
 const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
 
 async function apiFetch() {
@@ -199,8 +199,3 @@ document.getElementById('list-view')?.addEventListener('click', () => {
 
 // Call fetchMembers to display members or spotlights
 fetchMembers();
-
-
-const API_KEY = '';
-    const LOCATION = 'Tema, Ghana';
-    const UNITS = 'imperial';
