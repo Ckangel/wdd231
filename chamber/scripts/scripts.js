@@ -62,12 +62,12 @@ const WeatherAPI = (() => {
       const card = document.createElement('article');
       card.className = 'member-card';
       card.innerHTML = `
-        <img src=${member.image} alt=${member.name} loading=lazy>
-        <h3>${member.name}</h3>
-        <p>${member.address}</p>
-        <p><a href=tel:${member.phone}>${member.phone}</a></p>
-        <p><a href=${member.website} target=_blank>Visit Site</a></p>
-        <p>Membership Level: ${member.membershipLevel}</p>
+      <img src=${member.image} alt=${member.name} loading=lazy>
+      <h3>${member.name}</h3>
+      <p>${member.address}</p>
+      <p><a href=tel:${member.phone}>${member.phone}</a></p>
+      <p><a href=${member.website} target=_blank>Visit Site</a></p>
+      <p>Membership Level: ${member.membershipLevel}</p>
       `;
       return card;
     };
