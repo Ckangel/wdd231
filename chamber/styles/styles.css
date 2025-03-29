@@ -1,4 +1,4 @@
-hero-heading/* Define CSS variables */
+/* Define CSS variables */
 :root {
   --primary-color: rgb(23, 214, 248);
   --secondary-color: #096680;
@@ -34,7 +34,7 @@ header {
   padding: 2rem;
   background-color: #00BFFF;
   overflow: hidden;
-  color: var(--Text-Color);
+  color: var(--text-color);
 }
 
 .logo {
@@ -114,7 +114,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: var(--Secondary-Color);
+  background-color: var(--secondary-color);
   transform: scale(1.05);
   border-radius: 4px;
   color: var(--Text-Color);
@@ -275,7 +275,7 @@ main{
   grid-column: span 2; /* Spans across two columns */
 }
 
-.curent-weather,
+.current-weather,
 .forecast {
   grid-column: span 1; /* Each spans one column */
 }
