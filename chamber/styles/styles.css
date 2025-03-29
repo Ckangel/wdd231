@@ -21,7 +21,7 @@ body {
   background-color: #f4f4f4;
 }
 body {
-  font-family: 'Montserrat', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   box-sizing: border-box;
   padding: 0px;
   margin: 0px;
@@ -271,6 +271,22 @@ main{
   gap: 10px; /* Adds spacing between grid items */
 }
 
+.grid-container > div {
+  padding: 20px;
+  background-color: var(--Background-Color);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto; /* Center the grid */
+  max-width: 1200px; /* Max width for larger screens */
+}
+
 .events {
   grid-column: span 2; /* Spans across two columns */
 }
@@ -462,33 +478,71 @@ main{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.forecast ul li span{
+.forecast ul li span {
   font-weight: bold;
-}
-
+  border-radius: 4px;
+  padding: 0.5rem;
+  background-color: var(--Primary-Color);
+  color: var(--Text-Color);
+  
+/* View Toggle button styles */
 .view-toggle {
-  display: flex;
-  justify-content: center;
-  margin-top: 4rem;
+ margin-bottom: 20px;
+ text-align: center;
 }
 
 .view-toggle button {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+  padding: 8px 16px;
   background-color: var(--Primary-Color);
+  margin: 0.5px;
+  border: 1px solid var(--Primary-Color);
   color: var(--Text-Color);
-  border: none;
-  font-size: 1.01rem;
-  font-weight: bold;
+  cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s ease-out;
+  transition: all 0.3s ease;
 }
 
 .view-toggle button:hover {
-  background-color: var(--Secondary-Color);
+  background-color: var(--Secondary-Color);  
 }
 
+.view toggle button.active {
+  background-color: var(--Secondary-Color);
+  color: var(--Text-Color);
+  border: 1px solid var(--Primary-Color);
+}
+
+/* Membershio level badges */
+.membership-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: var(--Primary-Color);
+  color: var(--Text-Color);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 5px;
+  margin-top: 0.5rem;
+}
+
+/* Membership level colors */
+.gold {
+  background-color: #FFD700; /* Gold */
+  color: #000; /* Black text */
+}
+
+.silver {
+  background-color: #C0C0C0; /* Silver */
+  color: #000; /* Black text */
+}
+
+.bronze {
+  background-color: #CD7F32; /* Bronze */
+  color: #000; /* Black text */
+}
+
+/* Members styles */
 .members {
   width: 95%;
   display: grid;
@@ -539,8 +593,34 @@ main{
   margin-bottom: 1rem;
 }
 
+.members.list .member-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.members.list .member-card img {
+  width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+.members.list .member-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 
+.members.list .member-card p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
 
+.members.list .member-card a {
+  color: var(--Primary-Color);
+  text-decoration: none;
+  font-size: 1rem;
+}
+/* Footer styles */
 footer {
   background-color: #00BFFF;
   color: var(--Text-Color);
@@ -551,7 +631,6 @@ footer {
   bottom: 0;
   width: 100%;
 }
-/* Footer Styles */ 
 
 /* Footer Container */
 .footer-container {
@@ -559,6 +638,7 @@ footer {
   justify-content: space-between; /* Distribute columns evenly */
   align-items: center; /* Align items vertically */
   padding: 20px;
+  background-color: #00BFFF; /* Background color for footer */
   flex-wrap: wrap; /* Ensure columns wrap on smaller screens */
 }
 
@@ -634,6 +714,7 @@ footer {
     border-radius: 0; /* No rounded corners for desktop view */
   }
 }
+
 /* Responsive Design for Tablet Devices */
 @media (max-width: 1024px) and (min-width: 769px) {
   .menu-toggle-small {
@@ -648,9 +729,11 @@ footer {
     border-radius: 0; /* No rounded corners for desktop view */
   }
 }
+
 /* Responsive Design for Mobile Devices */
 @media (max-width: 599px) {
     #hamburger {
         display: block !important;
     }
+}
   }
