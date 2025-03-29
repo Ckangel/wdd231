@@ -485,12 +485,6 @@ main{
   background-color: var(--Primary-Color);
   color: var(--Text-Color);
   
-/* View Toggle button styles */
-.view-toggle {
- margin-bottom: 20px;
- text-align: center;
-}
-
 .view-toggle button {
   padding: 8px 16px;
   background-color: var(--Primary-Color);
@@ -512,7 +506,7 @@ main{
   border: 1px solid var(--Primary-Color);
 }
 
-/* Membershio level badges */
+/* Membership level badges */
 .membership-badge {
   display: inline-block;
   padding: 3px 8px;
