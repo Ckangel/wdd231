@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema Ghana Chamber of Commerce Join Page</title>
+    <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
+    <meta name="author" content="Charles K. Ajeigbe">
+   
+    <!-- Ensure secure URL -->
+    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tema Ghana Chamber of Commerce">    
+    <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation.">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="627">
+    <meta property="og:image:alt" content="Tema Ghana Chamber of Commerce Headquarters">
+    <meta property="og:image:type" content="images/hero-image.jpg">
+    <meta property="og:image" content="images/hero-image.jpg">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/home.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<head>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Chamber Logo" width="180">
+            <span class="comp-name">Tema Ghana Chamber of Commerce</span>
+        </div>
+        <div class="menu-toggle-small">
+            <button id="menu-toggle-button">☰</button>        
+            </div>
+        <nav class="responsive-nav" id="nav-menu">
+            <!-- Navigation items -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html">Directory</a></li>
+                <li><a href="join.html" class="active">Join</a></li>
+                <li><a href="#">Discover</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        /* Membership Cards Grid */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        /* Card Styles */
+        .membership-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        /* Animation for cards */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animation for cards */
+        .membership-card:nth-child(1) { animation-delay: 0.2s; }
+        .membership-card:nth-child(2) { animation-delay: 0.4s; }
+        .membership-card:nth-child(3) { animation-delay: 0.6s; }
+        .membership-card:nth-child(4) { animation-delay: 0.8s; }
+        .membership-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .membership-card h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .membership-card .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2ecc71;
+            margin: 15px 0;
+        }
+
+        .membership-card ul {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .membership-card ul li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .membership-card ul li:before {
+            content: "✓";
+            color: #2ecc71;
+            position: absolute;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* Highlight animation for featured card */
+        .featured {
+            position: relative;
+            border: 2px solid #f1c40f;
+        }
+
+        .featured:after {
+            content: "Popular";
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #f1c40f;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Form Styles */
+        .membership-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 40px auto;
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.8s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .required:after {
+            content: " *";
+            color: #e74c3c;
+        }
+    </style>
+</head>
+    
+<body>
+    <div class="container">
+        <h1>Choose Your Membership</h1>
+        
+        <div class="cards-container">
+            <div class="membership-card">
+                <h2>Non-Profit membership level</h2>
+                <div class="price">$0.00/month</div>
+                <ul>
+                    <li>All basic features</li>
+                    <li>Priority support</li>
+                    <li>Advanced resources</li>
+                    <li>Monthly webinars</li>
+                </ul>
+                <button class="btn">Select Plan</button>
+            </div>
+
+            <div class="membership-card">
+                <h2>Bronze level membership</h2>
+                <div class="price">$9.99/month</div>
+                <ul>
+                    <li>Access to basic features</li>
+                    <li>Email support</li>
+                    <li>Limited resources</li>
+                </ul>
+                <button class="btn">Select Plan</button>
+            </div>
+            
+            
+            <div class="membership-card featured">
+                <h2>Silver Level membership</h2>
+                <div class="price">$19.99/month</div>
+                <ul>
+                    <li>All basic features</li>
+                    <li>Priority support</li>
+                    <li>Advanced resources</li>
+                    <li>Monthly webinars</li>
+                </ul>
+                <button class="btn">Select Plan</button>
+            </div>
+            
+            <div class="membership-card">
+                <h2>Gold level membership</h2>
+                <div class="price">$49.99/month</div>
+                <ul>
+                    <li>All professional features</li>
+                    <li>24/7 dedicated support</li>
+                    <li>Unlimited resources</li>
+                    <li>Custom solutions</li>
+                    <li>Personal account manager</li>
+                </ul>
+                <button class="btn">Select Plan</button>
+            </div>
+        </div>
+        
+        <form id="membershipForm" class="membership-form" action="thankyou.html" method="GET">
+            <h2>Sign Up</h2>
+            <div class="form-group">
+                <label for="firstName" class="required">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName" class="required">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email" class="required">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="mobile" class="required">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="business" class="required">Business Name</label>
+                <input type="text" id="business" name="business" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="plan">Membership Plan</label>
+                <select id="plan" name="plan">
+                    <option value="non-profit">Non-Profit</option>
+                    <option value="bronze">Bronze</option>
+                    <option value="silver" selected>Silver</option>
+                    <option value="gold">Gold</option>
+                </select>
+            </div>
+            
+            <input type="hidden" id="currentDate" name="currentDate">
+            
+            <button type="submit" class="btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Set current date in hidden field
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            document.getElementById('currentDate').value = now.toISOString();
+            
+            // Add subtle pulsing animation to featured card
+            const featuredCard = document.querySelector('.featured');
+            if (featuredCard) {
+                setInterval(() => {
+                    featuredCard.style.boxShadow = 0 6px 12px rgba(241, 196, 15, ${0.3 + Math.random() * 0.2});
+                }, 2000);
+            }
+            
+            // Form validation
+            const form = document.getElementById('membershipForm');
+            form.addEventListener('submit', function(e) {
+                // Additional validation can be added here if needed
+                // If everything is valid, the form will submit to thankyou.html
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Display submitted information
+            document.getElementById('displayFirstName').textContent = urlParams.get('firstName') || 'Not provided';
+            document.getElementById('displayLastName').textContent = urlParams.get('lastName') || 'Not provided';
+            document.getElementById('displayEmail').textContent = urlParams.get('email') || 'Not provided';
+            document.getElementById('displayMobile').textContent = urlParams.get('mobile') || 'Not provided';
+            document.getElementById('displayBusiness').textContent = urlParams.get('business') || 'Not provided';
+            
+            // Format plan name
+            const plan = urlParams.get('plan') || 'basic';
+            let planName = 'Non-profit';
+            if (plan === 'bronze') planName = 'Bronze';
+            if (plan === 'slver') planName = 'Silver';
+            else if (plan === 'gold') planName = 'Gold';
+
+            document.getElementById('displayPlan').textContent = planName;
+            
+            // Format date
+            const dateString = urlParams.get('currentDate');
+            if (dateString) {
+                const date = new Date(dateString);
+                document.getElementById('displayDate').textContent = date.toLocaleString();
+            } else {
+                document.getElementById('displayDate').textContent = new Date().toLocaleString();
+            }
+            
+            // Create confetti effect
+            createConfetti();
+        });
+        
+        function createConfetti() {
+            const colors = ['#f1c40f', '#2ecc71', '#3498db', '#9b59b6', '#e74c3c'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+    </script>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- Left Column -->
+        <div class="left-column">
+            Tema Ghana Chamber of Commerce<br />
+            GN-1249-1666, 36 Microphone Street<br /> 
+            Matakeko, Tema, Ghana<br />
+            Email: info@temaghanachamber.com<br /> 
+            Phone: (233) 559-169-117
+        </div>
+
+            <!-- Social media icons placeholder -->
+            <div class="center-column">
+                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
+                <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
+            </div>
+
+        <!-- Right Column -->
+         <div class="right-column">
+            <p>WDD231 Class Project</p>
+            <p>Charles Kingsley Ajeigbe</p>
+            <p>@<span id="currentyear"></span> Tema Ghana Chamber of Commerce</p>
+            <p id="lastModified"></p>         
+        </div>
+    </div> 
+</footer>
+</body>
+</html>
+
+<!-- End of HTML Document -->
