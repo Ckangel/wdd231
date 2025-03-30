@@ -20,17 +20,16 @@
     <link rel="icon" href="images/favicon.ico">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     
-    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/join.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/scripts.js" defer></script>
-    <script src="scripts/home.js" defer></script>
+    <script src="scripts/join.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <head>
     <!-- Header Section -->
-    <header>
         <div class="logo">
             <img src="images/logo.png" alt="Chamber Logo" width="180">
             <span class="comp-name">Tema Ghana Chamber of Commerce</span>
@@ -47,378 +46,162 @@
                 <li><a href="#">Discover</a></li>
             </ul>
         </nav>
-    </header>
+        <header>
+            <h1>Chamber of Commerce Membership</h1>
+        </header>
     
-    <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-
-        /* Membership Cards Grid */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .cards-container,
-        .membership-form {
-            display: grid;
-            grid-column-start: membership-form;
-            grid-auto-columns: max-content;
-
-        }
-
-        /* Card Styles */
-        .membership-card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
-        }
-
-        /* Animation for cards */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Staggered animation for cards */
-        .membership-card:nth-child(1) { animation-delay: 0.2s; }
-        .membership-card:nth-child(2) { animation-delay: 0.4s; }
-        .membership-card:nth-child(3) { animation-delay: 0.6s; }
-        .membership-card:nth-child(4) { animation-delay: 0.8s; }
-        .membership-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .membership-card h2 {
-            color: #3498db;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .membership-card .price {
-            font-size: 24px;
-            font-weight: bold;
-            color: #2ecc71;
-            margin: 15px 0;
-        }
-
-        .membership-card ul {
-            list-style-type: none;
-            margin-bottom: 20px;
-        }
-
-        .membership-card ul li {
-            padding: 5px 0;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .membership-card ul li:before {
-            content: "✓";
-            color: #2ecc71;
-            position: absolute;
-            left: 0;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            text-align: center;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .btn:hover {
-            background: #2980b9;
-        }
-
-        /* Highlight animation for featured card */
-        .featured {
-            position: relative;
-            border: 2px solid #f1c40f;
-        }
-
-        .featured:after {
-            content: "Popular";
-            position: absolute;
-            top: -10px;
-            right: 20px;
-            background: #f1c40f;
-            color: white;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        /* Form Styles */
-        .membership-form {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 40px auto;
-            opacity: 0;
-            animation: fadeIn 1s forwards 0.8s;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .required:after {
-            content: " *";
-            color: #e74c3c;
-        }
-    </style>
-</head>
+        <main class="form-container">
+            <form id="membership-form" action="thankyou.html" method="GET">
+                <h2>Membership Application Form</h2>
+                
+                <div class="form-group">
+                    <label for="first-name">First Name*</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="last-name">Last Name*</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">Title/Position</label>
+                    <input type="text" id="title" name="title">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Cell Phone*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="organization">Business/Organization Name*</label>
+                    <input type="text" id="organization" name="organization" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="membership-level">Membership Level*</label>
+                    <select id="membership-level" name="membership-level" required>
+                        <option value="">Select a level</option>
+                        <option value="non-profit">Non-Profit ($100/year)</option>
+                        <option value="bronze">Bronze ($200/year)</option>
+                        <option value="silver">Silver ($400/year)</option>
+                        <option value="gold">Gold ($600/year)</option>
+                    </select>
+                </div>
+                
+                <input type="hidden" id="submit-date" name="submit-date">
+                
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
     
-<body>
-    <div class="container">
-        <h1>Choose Your Membership</h1>
-        
-        <div class="cards-container">
-            <div class="membership-card">
-                <h2>Non-Profit membership level</h2>
-                <div class="price">$0.00/month</div>
-                <ul>
-                    <li>All basic features</li>
-                    <li>Priority support</li>
-                    <li>Advanced resources</li>
-                    <li>Monthly webinars</li>
-                </ul>
-                <button class="btn">Select Plan</button>
+            <div class="membership-cards">
+                <h2>Membership Levels</h2>
+                
+                <div class="card non-profit animate-card">
+                    <h3>Non-Profit</h3>
+                    <p class="price">$100/year</p>
+                    <p>Basic membership for non-profit organizations</p>
+                    <button class="learn-more" data-modal="non-profit-modal">Learn More</button>
+                </div>
+                
+                <div class="card bronze animate-card">
+                    <h3>Bronze</h3>
+                    <p class="price">$200/year</p>
+                    <p>Entry-level business membership</p>
+                    <button class="learn-more" data-modal="bronze-modal">Learn More</button>
+                </div>
+                
+                <div class="card silver animate-card">
+                    <h3>Silver</h3>
+                    <p class="price">$400/year</p>
+                    <p>Mid-tier business membership</p>
+                    <button class="learn-more" data-modal="silver-modal">Learn More</button>
+                </div>
+                
+                <div class="card gold animate-card">
+                    <h3>Gold</h3>
+                    <p class="price">$600/year</p>
+                    <p>Premium business membership</p>
+                    <button class="learn-more" data-modal="gold-modal">Learn More</button>
+                </div>
             </div>
-
-            <div class="membership-card">
-                <h2>Bronze level membership</h2>
-                <div class="price">$9.99/month</div>
+        </main>
+    
+        <!-- Modal Dialogs -->
+        <div id="non-profit-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Non-Profit Membership Benefits</h3>
                 <ul>
-                    <li>Access to basic features</li>
-                    <li>Email support</li>
-                    <li>Limited resources</li>
+                    <li>Listing in member directory</li>
+                    <li>Access to member-only resources</li>
+                    <li>Monthly newsletter</li>
+                    <li>10% discount on chamber events</li>
+                    <li>1 free training workshop per year</li>
                 </ul>
-                <button class="btn">Select Plan</button>
-            </div>
-            
-            
-            <div class="membership-card featured">
-                <h2>Silver Level membership</h2>
-                <div class="price">$19.99/month</div>
-                <ul>
-                    <li>All basic features</li>
-                    <li>Priority support</li>
-                    <li>Advanced resources</li>
-                    <li>Monthly webinars</li>
-                </ul>
-                <button class="btn">Select Plan</button>
-            </div>
-            
-            <div class="membership-card">
-                <h2>Gold level membership</h2>
-                <div class="price">$49.99/month</div>
-                <ul>
-                    <li>All professional features</li>
-                    <li>24/7 dedicated support</li>
-                    <li>Unlimited resources</li>
-                    <li>Custom solutions</li>
-                    <li>Personal account manager</li>
-                </ul>
-                <button class="btn">Select Plan</button>
+                <p><strong>Price:</strong> $100/year</p>
             </div>
         </div>
-        
-        <form id="membershipForm" class="membership-form" action="thankyou.html" method="GET">
-            <h2>Sign Up</h2>
-            <div class="form-group">
-                <label for="firstName" class="required">First Name</label>
-                <input type="text" id="firstName" name="firstName" required>
+    
+        <div id="bronze-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Bronze Membership Benefits</h3>
+                <ul>
+                    <li>All Non-Profit benefits plus:</li>
+                    <li>Business listing with logo</li>
+                    <li>15% discount on chamber events</li>
+                    <li>2 free training workshops per year</li>
+                    <li>Access to business networking events</li>
+                    <li>Quarterly spotlight opportunity</li>
+                </ul>
+                <p><strong>Price:</strong> $200/year</p>
             </div>
-            
-            <div class="form-group">
-                <label for="lastName" class="required">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required>
+        </div>
+    
+        <div id="silver-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Silver Membership Benefits</h3>
+                <ul>
+                    <li>All Bronze benefits plus:</li>
+                    <li>20% discount on chamber events</li>
+                    <li>4 free training workshops per year</li>
+                    <li>Priority listing in directory</li>
+                    <li>Monthly spotlight opportunity</li>
+                    <li>Free basic website listing</li>
+                    <li>2 free event sponsorships per year</li>
+                </ul>
+                <p><strong>Price:</strong> $400/year</p>
             </div>
-            
-            <div class="form-group">
-                <label for="email" class="required">Email</label>
-                <input type="email" id="email" name="email" required>
+        </div>
+    
+        <div id="gold-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Gold Membership Benefits</h3>
+                <ul>
+                    <li>All Silver benefits plus:</li>
+                    <li>25% discount on chamber events</li>
+                    <li>Unlimited training workshops</li>
+                    <li>Premium placement in directory</li>
+                    <li>Bi-weekly spotlight opportunity</li>
+                    <li>Enhanced website listing with photos</li>
+                    <li>4 free event sponsorships per year</li>
+                    <li>VIP access to exclusive events</li>
+                    <li>Featured in chamber marketing materials</li>
+                </ul>
+                <p><strong>Price:</strong> $600/year</p>
             </div>
-            
-            <div class="form-group">
-                <label for="mobile" class="required">Mobile Number</label>
-                <input type="tel" id="mobile" name="mobile" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="business" class="required">Business Name</label>
-                <input type="text" id="business" name="business" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="plan">Membership Plan</label>
-                <select id="plan" name="plan">
-                    <option value="non-profit">Non-Profit</option>
-                    <option value="bronze">Bronze</option>
-                    <option value="silver" selected>Silver</option>
-                    <option value="gold">Gold</option>
-                </select>
-            </div>
-            
-            <input type="hidden" id="currentDate" name="currentDate">
-            
-            <button type="submit" class="btn">Submit Application</button>
-        </form>
-    </div>
-
-    <script>
-        // Set current date in hidden field
-        document.addEventListener('DOMContentLoaded', function() {
-            const now = new Date();
-            document.getElementById('currentDate').value = now.toISOString();
-            
-            // Add subtle pulsing animation to featured card
-            const featuredCard = document.querySelector('.featured');
-            if (featuredCard) {
-                setInterval(() => {
-                    featuredCard.style.boxShadow = 0 6px 12px rgba(241, 196, 15, ${0.3 + Math.random() * 0.2});
-                }, 2000);
-            }
-            
-            // Form validation
-            const form = document.getElementById('membershipForm');
-            form.addEventListener('submit', function(e) {
-                // Additional validation can be added here if needed
-                // If everything is valid, the form will submit to thankyou.html
-            });
-        });
-    </script>
-</body>
-</html>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            
-            // Display submitted information
-            document.getElementById('displayFirstName').textContent = urlParams.get('firstName') || 'Not provided';
-            document.getElementById('displayLastName').textContent = urlParams.get('lastName') || 'Not provided';
-            document.getElementById('displayEmail').textContent = urlParams.get('email') || 'Not provided';
-            document.getElementById('displayMobile').textContent = urlParams.get('mobile') || 'Not provided';
-            document.getElementById('displayBusiness').textContent = urlParams.get('business') || 'Not provided';
-            
-            // Format plan name
-            const plan = urlParams.get('plan') || 'basic';
-            let planName = 'Non-profit';
-            if (plan === 'bronze') planName = 'Bronze';
-            if (plan === 'slver') planName = 'Silver';
-            else if (plan === 'gold') planName = 'Gold';
-
-            document.getElementById('displayPlan').textContent = planName;
-            
-            // Format date
-            const dateString = urlParams.get('currentDate');
-            if (dateString) {
-                const date = new Date(dateString);
-                document.getElementById('displayDate').textContent = date.toLocaleString();
-            } else {
-                document.getElementById('displayDate').textContent = new Date().toLocaleString();
-            }
-            
-            // Create confetti effect
-            createConfetti();
-        });
-        
-        function createConfetti() {
-            const colors = ['#f1c40f', '#2ecc71', '#3498db', '#9b59b6', '#e74c3c'];
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = Math.random() * 10 + 5 + 'px';
-                confetti.style.height = confetti.style.width;
-                confetti.style.animationDelay = Math.random() * 5 + 's';
-                document.body.appendChild(confetti);
-                
-                // Remove confetti after animation
-                setTimeout(() => {
-                    confetti.remove();
-                }, 5000);
-            }
-        }
-    </script>
-
+        </div>
+    
+        <script src="script.js"></script>
 <!-- Footer Section -->
 <footer>
     <div class="footer-container">
@@ -449,5 +232,3 @@
 </footer>
 </body>
 </html>
-
-<!-- End of HTML Document -->
