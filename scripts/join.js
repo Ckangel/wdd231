@@ -65,6 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Redirect to thank you page with form data
-        window.location.href = thankyou.html?${params.toString()};
+        window.location.href = `thankyou.html?${params.toString()}`;
     });
 });

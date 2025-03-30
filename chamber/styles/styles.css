@@ -10,7 +10,6 @@
   --headline-color-on-white: var(--accent1-color);
   --headline-color-on-color: var(--secondary-color);
   --paragraph-background-color: var(--primary-color);
-}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -484,7 +483,8 @@ main{
   padding: 0.5rem;
   background-color: var(--Primary-Color);
   color: var(--Text-Color);
-  
+}
+
 .view-toggle button {
   padding: 8px 16px;
   background-color: var(--Primary-Color);

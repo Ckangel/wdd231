@@ -23,12 +23,10 @@
     <link rel="stylesheet" href="styles/join.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/scripts.js" defer></script>
     <script src="scripts/join.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<head>
+<header>
     <!-- Header Section -->
         <div class="logo">
             <img src="images/logo.png" alt="Chamber Logo" width="180">
@@ -37,7 +35,7 @@
         <div class="menu-toggle-small">
             <button id="menu-toggle-button">☰</button>        
             </div>
-        <nav class="responsive-nav" id="nav-menu">
+        <div class="responsive-nav" id="nav-menu">
             <!-- Navigation items -->
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -45,11 +43,11 @@
                 <li><a href="join.html" class="active">Join</a></li>
                 <li><a href="#">Discover</a></li>
             </ul>
-        </nav>
-        <header>
-            <h1>Chamber of Commerce Membership</h1>
-        </header>
-    
+        </div>
+</header>
+<body>
+            <h1>Apply for Chamber of Commerce Membership</h1>
+         
         <main class="form-container">
             <form id="membership-form" action="thankyou.html" method="GET">
                 <h2>Membership Application Form</h2>
@@ -66,7 +64,7 @@
                 
                 <div class="form-group">
                     <label for="title">Title/Position</label>
-                    <input type="text" id="title" name="title">
+                    <input type="textarea" id="title" name="title">
                 </div>
                 
                 <div class="form-group">
@@ -207,11 +205,11 @@
     <div class="footer-container">
         <!-- Left Column -->
         <div class="left-column">
-            Tema Ghana Chamber of Commerce<br />
-            GN-1249-1666, 36 Microphone Street<br /> 
-            Matakeko, Tema, Ghana<br />
-            Email: info@temaghanachamber.com<br /> 
-            Phone: (233) 559-169-117
+            Tema Ghana Chamber of Commerce&gt;
+            GN-1249-1666, 36 Microphone Street&gt; 
+            Matakeko, Tema, Ghana&gt;
+            Email: info@temaghanachamber.com&gt; 
+            Phone: (233) 559-169-117&gt;
         </div>
 
             <!-- Social media icons placeholder -->
@@ -226,7 +224,7 @@
             <p>WDD231 Class Project</p>
             <p>Charles Kingsley Ajeigbe</p>
             <p>@<span id="currentyear"></span> Tema Ghana Chamber of Commerce</p>
-            <p id="lastModified"></p>         
+            <p>Last Modified:<span id="lastModified"></span></p>         
         </div>
     </div> 
 </footer>
