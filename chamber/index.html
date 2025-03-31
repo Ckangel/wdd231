@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema Ghana Chamber of Commerce</title>
+    <title>Tema Ghana Chamber of Commerce - Home</title>
     <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
     <meta name="author" content="Charles K. Ajeigbe">
    
     <!-- Ensure secure URL -->
-    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html">
+    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/index.html">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Tema Ghana Chamber of Commerce">    
     <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation.">
@@ -22,13 +22,12 @@
     
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/scripts.js" defer></script>
     <script src="scripts/home.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="home">
     <!-- Header Section -->
     <header>
         <div class="logo">
@@ -63,7 +62,8 @@
 
         <!-- Information Section -->
              
-        <div class="grid-container">
+        <div class="container">
+
           <section class="events">
               <h2>Upcoming Events</h2>
               <ul>
@@ -82,7 +82,7 @@
                   <p>Description: <span id="weather-desc"></span></p>
                   <p>Chance of Rain: <span id="rain-chance"></span></p>
                </div>
-               </section>
+            </section>
 
        <!-- Weather Forecast -->
            <section class="forecast">
@@ -96,28 +96,18 @@
                </div>
            </section>
         </div>
-        
-        <div class="view-toggle">
-            <button id="grid-view">Grid View</button>
-            <button id="list-view">List View</button>
-        </div>
 
-          <section class="spotlights-header">
-              <h2>Spotlight Members</h2>
-              <div id="spotlights" class="spotlights-container"></div>
-          </section>
-
-          <section class="members" id="members">
-            <!-- Member information will be displayed here -->
-          </section>
-        
+        <section class="spotlights-header">
+            <h2>Spotlight Members</h2>
+            <div id="spotlights" class="spotlights-container"></div>
+        </section>
   </main>
 
 <!-- Footer Section -->
 <footer>
     <div class="footer-container">
         <!-- Left Column -->
-        <div class="left-column">
+        <div class="left">
             Tema Ghana Chamber of Commerce<br />
             GN-1249-1666, 36 Microphone Street<br /> 
             Matakeko, Tema, Ghana<br />
@@ -126,14 +116,14 @@
         </div>
 
             <!-- Social media icons placeholder -->
-            <div class="center-column">
+            <div class="center">
                 <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
                 <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
                 <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
             </div>
 
         <!-- Right Column -->
-         <div class="right-column">
+         <div class="right">
             <p>WDD231 Class Project</p>
             <p>Charles Kingsley Ajeigbe</p>
             <p>@<span id="currentyear"></span> Tema Ghana Chamber of Commerce</p>

@@ -18,11 +18,6 @@ const themeToggleButton = document.getElementById('theme-toggle-button');
             }
         });
 
-                document.getElementById('menu-toggle-button').addEventListener('click', () => {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('show'); // Add or remove the 'show' class
-        });
-
 // toggle the menu
 document.getElementById('menu-toggle-button').addEventListener('click', function() {
     const navLinks = document.getElementById('nav-links');
@@ -45,9 +40,9 @@ const weatherDesc = document.querySelector('#weather-desc');
 const rainChance = document.querySelector('#rain-chance');
 
 // Correct the API URL
-    const apiKey = "f069271b520638efcd4604e88d66432"; 
-    const myLat = "6.6070";
-    const myLong = "-0.021474086331179875"; 
+const myLat = "6.6070"; // Latitude for Ho, Ghana
+const myLong = "0.4710"; // Longitude for Ho, Ghana
+const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
 const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
 
 async function apiFetch() {
@@ -81,32 +76,14 @@ function displayResults(data) {
     rainChance.textContent = `${data.clouds.all}%`; // % Cloudiness roughly indicates rain likelihood
 }
 
-async function fetchWeather() {
-    const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Tema,GH&units=metric&appid=YOUR_API_KEY');
-    const data = await response.json();
-
-    document.getElementById('current-temp').textContent = `${data.main.temp}°C`;
-    document.getElementById('weather-desc').textContent = data.weather[0].description;
-    document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-}
-fetchWeather();async function fetchWeather() {
-    const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=Tema,GH&units=metric&appid=YOUR_API_KEY');
-    const data = await response.json();
-
-    document.getElementById('current-temp').textContent = `${data.main.temp}°C`;
-    document.getElementById('weather-desc').textContent = data.weather[0].description;
-    document.getElementById('weather-icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-}
-fetchWeather();
-
 // Fetch the weather data
 apiFetch();
 
 // Forecast for the next three days
 async function fetchWeatherForecast() {
-    const apiKey = "f069271b520638efcd4604e88d66432"; 
-    const myLat = "6.6070";
-    const myLong = "-0.021474086331179875";
+    const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
+    const myLat = "6.6070"; // Latitude for Ho, Ghana
+    const myLong = "0.4710"; // Longitude for Ho, Ghana
     const myURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
 
     try {
@@ -135,6 +112,8 @@ function capitalizeWords(str) {
 }
 
 fetchWeatherForecast();
+
+
 
 
 async function fetchMembers() {
@@ -176,26 +155,6 @@ function displayMembers(members) {
         membersContainer.appendChild(memberCard);
     });
 }
-
-async function fetchSpotlightMembers() {
-    const response = await fetch('data/members.json');
-    const members = await response.json();
-
-    const spotlightContainer = document.getElementById('spotlights');
-    spotlightContainer.innerHTML = ''; // Clear existing content
-
-    members.forEach(member => {
-        const spotlight = document.createElement('div');
-        spotlight.className = 'spotlight-card';
-        spotlight.innerHTML = `
-            <img src="${member.image}" alt="${member.name}">
-            <h3>${member.name}</h3>
-            <p>${member.description}</p>
-        `;
-        spotlightContainer.appendChild(spotlight);
-    });
-}
-fetchSpotlightMembers();
 
 function displaySpotlights(members) {
     const spotlightContainer = document.getElementById('spotlights');
@@ -242,3 +201,54 @@ document.getElementById('list-view')?.addEventListener('click', () => {
 
 // Call fetchMembers to display members or spotlights
 fetchMembers();
+
+
+// Open Modals
+document.querySelectorAll('.modal-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-target');
+        const modal = document.getElementById(modalId);
+        modal.showModal();
+    });
+});
+
+// Close Modals with "X" Button
+document.querySelectorAll('.close-modal-x').forEach(button => {
+    button.addEventListener('click', () => {
+        button.closest('dialog').close();
+    });
+});
+
+// Accessibility (Close Modal with Escape Key)
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        document.querySelectorAll('dialog[open]').forEach(modal => {
+            modal.close();
+        });
+    }
+});
+
+
+// Populate the timestamp field with the current date and time
+document.addEventListener("DOMContentLoaded", () => {
+    const timestampField = document.getElementById("timestamp");
+    const now = new Date();
+    timestampField.value = now.toISOString(); // Use ISO format for consistency
+});
+
+
+ const myInfo = new URLSearchParams(window.location.search);
+
+document.querySelector('#results').innerHTML = `
+<p>Name: ${myInfo.get('firstName')} ${myInfo.get('lastName')}</p>
+<p>Email: ${myInfo.get('email')}</p>
+<p>Phone: ${myInfo.get('mobile')}</p>
+<p>Business Name: ${myInfo.get('businessName')}</p>
+
+`;
+
+ // Display the timestamp
+ const timestamp = myInfo.get('timestamp');
+ if (timestamp) {
+     document.querySelector('#timestamp-display').textContent = `Form Submitted At: ${new Date(timestamp).toLocaleString()}`;
+ }

@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Close modal when X is clicked
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            btn.closest('.modal').style.display = 'none';
+closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.modal').style.display = 'none';
         });
     });
     
