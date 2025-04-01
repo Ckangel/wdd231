@@ -130,11 +130,10 @@ nav ul {
 }
 
 .call-to-action a {
-    line-height: 2.5rem;
+    line-height: 0cqb;
     background: var(--Secondary-Color);
     color: #333;
     font-weight: bold;
-    opacity: 1;
 }
 
 /* Grid Layout for Events, Weather, and Forecast */
