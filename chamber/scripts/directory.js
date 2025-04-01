@@ -349,3 +349,10 @@ document.addEventListener('DOMContentLoaded', () => {
     WeatherAPI.getCurrentWeather().then(updateWeatherDisplay);
     WeatherAPI.getForecast().then(updateForecastDisplay);
 });
+
+// Form Validation
+const form = document.getElementById('contact-form');
+const errorMessage = document.getElementById('error-message');
+const successMessage = document.getElementById('success-message');
+const emailField = document.getElementById('email');
+const mobileField = document.getElementById('mobile');
