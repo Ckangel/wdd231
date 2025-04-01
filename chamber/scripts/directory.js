@@ -1,10 +1,3 @@
-const currentYear = new Date().getFullYear();
-document.getElementById('currentyear').textContent = currentYear;
-
-const lastModified = document.lastModified;
-document.getElementById('lastModified').textContent = lastModified;
-
-
 const themeToggleButton = document.getElementById('theme-toggle-button');
 
         themeToggleButton.addEventListener('click', () => {
@@ -30,7 +23,6 @@ document.getElementById('menu-toggle-button').addEventListener('click', function
         menuButton.textContent = '✖';
     }
 });
-
 
 // Select HTML elements in the document
 const currentTemp = document.querySelector('#current-temp');
@@ -356,3 +348,10 @@ const errorMessage = document.getElementById('error-message');
 const successMessage = document.getElementById('success-message');
 const emailField = document.getElementById('email');
 const mobileField = document.getElementById('mobile');
+
+const currentYear = new Date().getFullYear();
+document.getElementById('currentyear').textContent = currentYear;
+
+const lastModified = document.lastModified;
+document.getElementById('lastModified').textContent = lastModified;
+

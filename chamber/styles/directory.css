@@ -130,7 +130,7 @@ nav ul {
 }
 
 .call-to-action a {
-    line-height: 0cqb;
+    line-height: 1.5rem;
     background: var(--Secondary-Color);
     color: #333;
     font-weight: bold;
@@ -163,6 +163,15 @@ nav ul {
   /* Spotlight Members Section */
   .spotlights-header {
     margin-top: 40px;
+  }
+
+  h2, 
+  h3 {
+    font-size: 2rem;
+    color: var(--Primary-Color);
+    background-color: #00BFFF;
+    text-align: center;
+    margin-bottom: 20px;
   }
   
   .spotlights-container {
