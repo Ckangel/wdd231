@@ -9,7 +9,7 @@
     <!-- Facebook Open Graph meta tags -->
     <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html" />
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tema Ghana Chamber of Commerce Directory Page" />
+    <meta property="og:title" content="Tema Ghana Chamber of Commerce - Directory Page" />
     <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation." />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="627" />
@@ -24,9 +24,8 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="directory.css">
     <link rel="stylesheet" href="directory-small.css">
-    <script src="scripts/scripts.js" defer></script>
+    <link rel="stylesheet" href="min.css">
     <script src="scripts/directory.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -34,8 +33,11 @@
 <!-- Header Section -->
  <header>
     <div class="logo">
-        <img src="images/logo.png" alt="Chamber Logo" loading="lazy">
-        <span class="logo-text">Tema Ghana Chamber of Commerce</span>
+        <img src="images/logo.png" alt="Chamber Business Logo" loading="lazy">
+    </div>
+    <div class="comp-name">
+        <p class="company">Tema Ghana</p>
+        <p>Chamber of Commerce</p>
     </div>
     <div class="menu-toggle-small">
         <button id="menu-toggle-button">☰</button>
@@ -55,23 +57,22 @@
         <img src="images/dark.png" alt="Toggle Theme">
     </button>
  </header>
-         <!-- Hero Section -->
+ 
+ <!-- Hero Section -->
       
         <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-text">
                 <button>Keynote Tickets</button>
             </div> 
-                        <h2 id="hero-heading">Chamber Directory</h2>
-                        <img src="images/chamber-members.jpg" alt="Chamber Directory" width="1200" height="auto">
+            <img src="images/images/hero-image.jpg" alt="Chamber Directory" width="1200" height="auto">
                 
         </section>
 
     <main>
          <!-- Information Section -->
-        
          <h1>Directory</h1> 
                      
-          <div class="grid-container">
+          <div class="container">
             <section class="events">
                 <h2>Upcoming Events</h2>
                 <ul>
@@ -106,7 +107,7 @@
             </section>
         </div>
         <section class="spotlights-header">
-            <h2>Spotlight Members</h2>
+            <h2>Chamber Members</h2>
             <div id="spotlights" class="spotlights-container"></div>
         </section>
                     
@@ -144,8 +145,8 @@
             <div>
                 Last Modified: <span id="lastModified"></span>         
             </div>
-        </div> <!-- Closing footer-container div -->
-    </div> <!-- Properly closing footer-container -->
+        </div> 
+    </div> 
 </footer>
 </body>
 </html>

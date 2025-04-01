@@ -1,12 +1,12 @@
-:root{
-    --Primary-Color: #263238;
-    --Secondary-Color: #455a64;
-    --Background-Color: #d4dfe4;
-    --Text-Color: #fff;
-}
+:root {
+    --primary: #00BFFF;
+    --secondary: #096680;
+    --text: #333;
+    --bg: #f4f4f4;
+  }
 
 body {
-    font-family: 'Montserrat', 'Open Sans', 'Poppins', 'Roboto', sans-serif;
+    font-family: 'Poppins', 'Roboto', sans-serif;
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
@@ -39,12 +39,12 @@ header {
 }
 
 .comp-name .company{
-    line-height: 2.9rem;
+    line-height: 1.9rem;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
-.comp-name p{
+.comp-name p {
     margin: 0px;
     padding: 0.1rem;
     font-size: 0.7rem;
@@ -137,6 +137,72 @@ nav ul {
     opacity: 1;
 }
 
+/* Grid Layout for Events, Weather, and Forecast */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .events {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .current-weather,
+  .forecast {
+    background-color: #e8f6ff;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .weather-card img {
+    width: 50px;
+  }
+  
+  /* Spotlight Members Section */
+  .spotlights-header {
+    margin-top: 40px;
+  }
+  
+  .spotlights-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .member-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  .member-card img {
+    width: 100%;
+  }
+  
+  .member-card h3 {
+    font-size: 1.2em;
+  }
+  
+  .member-card p {
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width:768px) {
+      .container {
+          grid-template-columns: repeat(1, minmax(200px, auto));
+      }
+  
+      .spotlights-container {
+          grid-template-columns: repeat(1, minmax(200px, auto));
+      }
+  }
+  
+
 .join-main {
     margin: 2rem;
     display: flex;
@@ -159,18 +225,20 @@ nav ul {
     background-color: var(--Background-Color);
     }
 
-    label{
+    .join-main form h1 {
         display: block;
         font-size: 1.1rem;
         color: var(--Primary-Color);
         padding-top: 0.2rem;
     }
-    h2{
+
+    h2 {
         font-size: 1.5rem;
         color: var(--Primary-Color);
         /* border-bottom: 1px solid var(--Primary-Color); */
         /* text-align: center; */
     }
+
     input[type=text],
     input[type=tel],
     input[type=date],
@@ -320,7 +388,6 @@ dialog h3{
     }
 }
 
-
 /* Close Button (Red "X") */
 .close-modal-x {
     position: absolute;
@@ -377,7 +444,6 @@ main{
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
     gap: 1rem;
-    /* margin-top: 2rem; */
     margin: 0.5rem 0;
 }
 
@@ -499,8 +565,6 @@ main{
     /* position: absolute; */
 }
 
-
-
 .forecast {
     background-color: var(--Background-Color);
     width: 25%;
@@ -595,17 +659,17 @@ main{
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.member-card h3, p{
+.member-card h3, p {
     /* display: flex; */
     color: var(--Primary-Color);
 }
 
-.member-card p, a{
+.member-card p, a {
     color: var(--Primary-Color);
     text-decoration: none;
 }
 
-.member-card hr{
+.member-card hr {
     /* color: var(--Primary-Color); */
     border: 2px solid var(--Primary-Color);
 }
@@ -621,7 +685,7 @@ main{
     display: block;
 }
 
-.members.list{
+.members.list .member-card {
     width: 100%;
     margin-bottom: 1rem;
 }
@@ -651,7 +715,6 @@ footer p {
 footer .left {
     font-weight: bold;
 }
-
 
 footer .center {
     display: flex;

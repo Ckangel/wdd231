@@ -3,51 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema Ghana Chamber of Commerce Join Page</title>
+    <title>Tema Ghana Chamber of Commerce - Join</title>
     <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
     <meta name="author" content="Charles K. Ajeigbe">
-   
-    <!-- Ensure secure URL -->
-    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html">
+    <!-- Facebook Open Graph meta tags -->
+    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html" />
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tema Ghana Chamber of Commerce">    
-    <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation.">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="627">
-    <meta property="og:image:alt" content="Tema Ghana Chamber of Commerce Headquarters">
-    <meta property="og:image:type" content="images/hero-image.jpg">
-    <meta property="og:image" content="images/hero-image.jpg">
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta property="og:title" content="Tema Ghana Chamber of Commerce Directory Page" />
+    <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:alt" content="Tema Ghana Chamber of Commerce Headquarters" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image" content="https://example.com/path/to/image.jpg" />
     
-    <link rel="stylesheet" href="styles/join.css">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <script src="scripts/join.js" defer></script>
-    <script src="scripts/scripts.js" defer></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="normalize.css">
+    <!-- <link rel="stylesheet" href="directory.css"> -->
+    <link rel="stylesheet" href="directory-small.css">
+    <link rel="stylesheet" href="min.css">
+    <link rel="stylesheet" href="join.css">
+    <link rel="stylesheet" href="home.css"> 
+    <script src="scripts/directory.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<header>
-    <!-- Header Section -->
-        <div class="logo">
-            <img src="images/logo.png" alt="Chamber Logo" width="180">
-            <span class="comp-name">Tema Ghana Chamber of Commerce</span>
-        </div>
-        <div class="menu-toggle-small">
-            <button id="menu-toggle-button">☰</button>        
-            </div>
-        <div class="responsive-nav" id="nav-menu">
-            <!-- Navigation items -->
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html" class="active">Join</a></li>
-                <li><a href="#">Discover</a></li>
-            </ul>
-        </div>
-</header>
-<body>
-            <h1>Apply for Chamber of Commerce Membership</h1>
+<body class="home">
+<!-- Header Section -->
+ <header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Chamber Business Logo" loading="lazy">
+    </div>
+    <div class="comp-name">
+        <p class="company">Tema Ghana</p>
+        <p>Chamber of Commerce</p>
+    </div>
+    <div class="menu-toggle-small">
+        <button id="menu-toggle-button">☰</button>
+    </div> 
+    
+    <nav class="responsive-nav" id="nav-menu">
+    <!-- Navigation items -->
+     <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html" class="active">Join</a></li>
+        <li><a href="#">Discover</a></li>
+    </ul>
+    </nav>
+    
+    <button id="theme-toggle-button">
+        <img src="images/dark.png" alt="Toggle Theme">
+    </button>
+ </header>
+         <!-- Hero Section -->
+      
+        <!-- <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-text">
+                <button>Keynote Tickets</button>
+            </div> 
+            <img src="images/hero-image.jpg" alt="Chamber Directory" width="1200" height="auto"> 
+        </section> -->
+                
+        <h1>Apply for Chamber of Commerce Membership</h1>
          
         <main class="form-container">
             <form id="membership-form" action="thankyou.html" method="GET">

@@ -40,9 +40,9 @@ const weatherDesc = document.querySelector('#weather-desc');
 const rainChance = document.querySelector('#rain-chance');
 
 // Correct the API URL
-const myLat = "6.6070"; // Latitude for Ho, Ghana
-const myLong = "0.4710"; // Longitude for Ho, Ghana
-const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
+const myLat = "5.76709"; // Latitude for Tema, Ghana
+const myLong = "-0.01277"; // Longitude for Tema, Ghana
+const apiKey = "f069271b520638efcd4604e88d664323"; // Use your actual API key
 const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
 
 async function apiFetch() {
@@ -81,9 +81,9 @@ apiFetch();
 
 // Forecast for the next three days
 async function fetchWeatherForecast() {
-    const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
-    const myLat = "6.6070"; // Latitude for Ho, Ghana
-    const myLong = "0.4710"; // Longitude for Ho, Ghana
+    const apiKey = "f069271b520638efcd4604e88d664323"; // Use your actual API key
+    const myLat = "5.76709"; // Latitude for Tema, Ghana
+    const myLong = "-0.01277"; // Longitude for Tema, Ghana
     const myURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
 
     try {
@@ -252,3 +252,100 @@ document.querySelector('#results').innerHTML = `
  if (timestamp) {
      document.querySelector('#timestamp-display').textContent = `Form Submitted At: ${new Date(timestamp).toLocaleString()}`;
  }
+
+ // Weather API Module
+const WeatherAPI = (() => {
+    const API_KEY = 'f069271b520638efcd4604e88d664323';
+    const LOCATION = 'Tema, Ghana';
+    const UNITS = 'imperial';
+
+    async function fetchWeatherData(endpoint) {
+        const url = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${LOCATION}&units=${UNITS}&appid=${API_KEY}`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return await response.json();
+        } catch (error) {
+            console.error(`Weather API error: ${error.message}`);
+            return null;
+        }
+    }
+
+    return {
+        getCurrentWeather: () => fetchWeatherData('weather'),
+        getForecast: () => fetchWeatherData('forecast')
+    };
+})();
+
+// Spotlight Members Module
+const MemberManager = (() => {
+    let membersData = [];
+
+    async function fetchMembers() {
+        try {
+            const response = await fetch('members.json');
+            if (!response.ok) throw new Error('Failed to load members');
+            const data = await response.json();
+            return data.records.filter(member => ['gold', 'silver'].includes(member.membershipLevel));
+        } catch (error) {
+            console.error('Members error:', error);
+            return [];
+        }
+    }
+
+    function createMemberCard(member) {
+        const card = document.createElement('div');
+        card.className = 'member-card';
+        card.innerHTML = `
+            <img src="${member.image}" alt="${member.name} business logo">
+            <h3>${member.name}</h3>
+            <p>Address: ${member.address}</p>
+            <p>Phone: <a href="tel:${member.phone}">${member.phone}</a></p>
+            <p>Website: <a href="${member.website}" target="_blank">Visit Site</a></p>
+            <p>Membership Level: ${member.membershipLevel}</p>
+        `;
+        return card;
+    }
+
+    async function renderSpotlights() {
+        membersData = await fetchMembers();
+        const container = document.getElementById('spotlights');
+        container.innerHTML = '';
+        const randomMembers = membersData.sort(() => Math.random() - 0.5).slice(0, 3);
+        randomMembers.forEach(member => container.appendChild(createMemberCard(member)));
+    }
+
+    return { renderSpotlights };
+})();
+
+// Update Weather Display
+function updateWeatherDisplay(data) {
+    if (data) {
+        document.getElementById('current-temp').textContent = `${data.main.temp}°F`;
+        document.getElementById('weather-desc').textContent = data.weather[0].description;
+        document.getElementById('rain-chance').textContent = `${data.clouds.all}%`;
+        document.getElementById('weather-icon').src =
+            `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+    }
+}
+
+// Update Forecast Display
+function updateForecastDisplay(data) {
+    if (data) {
+        const forecastDays = data.list.slice(0, 3);
+        forecastDays.forEach((day, index) => {
+            document.getElementById(`day${index + 1}-temp`).textContent =
+                `${day.main.temp}°F`;
+        });
+    }
+}
+
+// Initialization
+document.addEventListener('DOMContentLoaded', () => {
+    // Render Spotlight Members
+    MemberManager.renderSpotlights();
+
+    // Fetch and Display Weather Data
+    WeatherAPI.getCurrentWeather().then(updateWeatherDisplay);
+    WeatherAPI.getForecast().then(updateForecastDisplay);
+});
