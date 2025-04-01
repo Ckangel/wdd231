@@ -1,292 +1,254 @@
-// Weather Module
-const WeatherAPI = (() => {
-    const API_KEY = 'f069271b520638efcd4604e88d664323';
-    const LOCATION = 'Tema, Ghana';
-    const UNITS = 'imperial';
-  
-    const fetchWeatherData = async (endpoint) => {
-      const url = `https://api.openweathermap.org/data/2.5/${endpoint}?q=${LOCATION}&units=${UNITS}&appid=${API_KEY}`;
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        return await response.json();
-      } catch (error) {
-        console.error(`Weather API error: ${error.message}`);
-        return null;
-      }
-    };
-  
-    const updateWeatherDisplay = async () => {
-      const currentWeather = await fetchWeatherData('weather');
-      const forecast = await fetchWeatherData('forecast');
-      
-      if (currentWeather) {
-        const weatherElement = document.querySelector('.weather');
-        if (weatherElement) {
-          weatherElement.innerHTML = `
-            <p>Temperature: ${currentWeather.main.temp}°F</p>
-            <p>Description: ${currentWeather.weather[0].description}</p>
-          `;
-        }
-      }
-      
-      if (forecast) {
-        const forecastHtml = forecast.list.slice(0, 3).map(item => `
-          <p>${new Date(item.dt * 1000).toLocaleDateString()}: ${item.main.temp}°F</p>
-        `).join('');
-        const forecastElement = document.querySelector('.forecast');
-        if (forecastElement) {
-          forecastElement.innerHTML = forecastHtml;
-        }
-      }
-    };
-  
-    return { updateWeatherDisplay };
-  })();
-  
-  // Spotlight Members
-  const MemberManager = (() => {
-    const fetchMembers = async () => {
-      try {
-        const response = await fetch('members.json');
-        if (!response.ok) throw new Error('Failed to load members');
-        const data = await response.json();
-        return data.records.filter(member => ['gold', 'silver'].includes(member.membershipLevel));
-      } catch (error) {
-        console.error('Members error:', error);
-        return [];
-      }
-    };
-  
-    const createMemberCard = (member) => {
-      const card = document.createElement('article');
-      card.className = 'member-card';
-      card.innerHTML = `
-      <img src=${member.image} alt=${member.name} loading=lazy>
-      <h3>${member.name}</h3>
-      <p>${member.address}</p>
-      <p><a href=tel:${member.phone}>${member.phone}</a></p>
-      <p><a href=${member.website} target=_blank>Visit Site</a></p>
-      <p>Membership Level: ${member.membershipLevel}</p>
-      `;
-      return card;
-    };
-  
-    const renderSpotlights = async () => {
-      const membersData = await fetchMembers();
-      const container = document.getElementById('members-container');
-      if (container) {
-        container.innerHTML = '';
-        const randomMembers = membersData.sort(() => Math.random() - 0.5).slice(0, 3);
-        randomMembers.forEach(member => container.appendChild(createMemberCard(member)));
-      }
-    };
-  
-    return { renderSpotlights };
-  })();
-  
-  // Footer Date and Last Modified
-  const updateFooter = () => {
-    const footerColumn = document.querySelector('.footer-column');
-    if (footerColumn) {
-      const lastChild = footerColumn.querySelector(':last-child');
-      const secondLastChild = footerColumn.querySelector(':nth-last-child(2)');
-      const lastModified = document.lastModified;
-      const currentDate = new Date().toLocaleDateString();
-      if (lastChild) lastChild.textContent = `Last Modified: ${lastModified}`;
-      if (secondLastChild) secondLastChild.textContent = `Current Date: ${currentDate}`;
-    }
-  };
-  
-  // View Toggle Module
-  const ViewManager = (() => {
-    const toggleView = (viewType) => {
-      const container = document.getElementById('members-container');
-      if (container) {
-        container.className = viewType;
-        document.querySelectorAll('.toggle-view button').forEach(btn => 
-          btn.classList.toggle('active-view', btn.id === `${viewType}-view`)
-        );
-        localStorage.setItem('viewPreference', viewType);
-      }
-    };
-  
-    const initView = () => {
-      const savedView = localStorage.getItem('viewPreference') || 'grid';
-      toggleView(savedView);
-    };
-  
-    return { toggleView, initView };
-  })();
-  
-  // Member Display Module
-  const MemberDisplay = (() => {
-    const createMemberCard = (member, isListView) => {
-      const card = document.createElement('article');
-      card.className = `member-card ${isListView ? 'list-view' : ''}`;
-      card.innerHTML = `
-        <div>
-          <img src=${member.image} alt=${member.name} loading=lazy>
-          <div class=member-info>
-            <h3>${member.name}</h3>
-            <p><i class=fas fa-map-marker-alt></i> ${member.address}</p>
-            <p><i class=fas fa-phone></i> <a href=tel:${member.phone}>${member.phone}</a></p>
-            <p><i class=fas fa-globe></i> <a href=${member.website} target=_blank>Website</a></p>
-            <p class=membership-badge>${member.membershipLevel} Member</p>
-          </div>
-        </div>
-      `;
-      return card;
-    };
-  
-    const renderMembers = (members, viewType) => {
-      const container = document.getElementById('members-container');
-      if (container) {
-        container.replaceChildren(...members.map(member => 
-          createMemberCard(member, viewType === 'list')
-        ));
-      }
-    };
-  
-    return { renderMembers };
-  })();
-  
-  // Responsive Navigation
-  const Navigation = (() => {
-    const init = () => {
-      const hamburger = document.querySelector('.hamburger');
-      const nav = document.querySelector('.responsive-nav');
-      if (hamburger && nav) {
-        hamburger.addEventListener('click', () => {
-          nav.classList.toggle('active');
-          hamburger.setAttribute('aria-expanded', nav.classList.contains('active'));
-        });
-      }
-    };
-    return {init};
-  })();
-  
-  // Initialization
-  document.addEventListener('DOMContentLoaded', () => {
-    WeatherAPI.updateWeatherDisplay();
-    MemberManager.renderSpotlights();
-    updateFooter();
-    ViewManager.initView();
-    Navigation.init();
-  });
+const currentYear = new Date().getFullYear();
+document.getElementById('currentyear').textContent = currentYear;
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const gridViewBtn = document.getElementById('grid-view');
-    const listViewBtn = document.getElementById('list-view');
-    const container = document.getElementById('members-container');
-    
-    // Default to grid view
-    let currentView = 'grid';
-    gridViewBtn.classList.add('active');
-    
-    // Sample data (replace with actual fetch from member.json)
-    const memberData = {
-        "records": [
-            { "name": "John Tawiah", "address": "123 Main St", "phone": "123-456-7890", "website": "https://lucozade.com", "image": "images/lucozade.png", "membershipLevel": "Gold" },
-            { "name": "Alice Brown", "address": "789 Elm St", "phone": "456-789-1230", "website": "http://www.polytankgh.com/", "image": "images/polytank.png", "membershipLevel": "Gold" },
-            { "name": "Jane Smith", "address": "456 Oak St", "phone": "789-123-4560", "website": "https://www.unilever.com/", "image": "images/omo.png", "membershipLevel": "Silver" },
-            { "name": "Charlie White", "address": "321 Pine St", "phone": "987-654-3210", "website": "https://www.gsa.gov.gh/made-in-ghana/", "image": "images/made-in-ghana.png", "membershipLevel": "Silver" },
-            { "name": "Bob Johnson", "address": "654 Cedar St", "phone": "555-555-5555", "website": "https://www.haleon.com", "image": "images/panadol.png", "membershipLevel": "Bronze" },
-            { "name": "Efo Larson", "address": "789 Elm St", "phone": "444-444-4444", "website": "https://www.diageo.com/en/", "image": "images/alvaro1.png", "membershipLevel": "Gold" },
-            { "name": "John Doe", "address": "123 Main St", "phone": "333-333-3333", "website": "https://thebftonline.com", "image": "images/b-and-ft.png", "membershipLevel": "Gold" },
-            { "name": "Alice Brown", "address": "456 Elm St", "phone": "222-222-2222", "website": "https://belaqua.com.gh", "image": "images/belaqua.png", "membershipLevel": "Gold" },
-            { "name": "Jane Smith", "address": "789 Oak St", "phone": "111-111-1111", "website": "https://compughana.com", "image": "images/compu-ghana.png", "membershipLevel": "Silver" },
-            { "name": "Charlie White", "address": "321 Pine St", "phone": "999-999-9999", "website": "https://velowestafrica.com/pixel/", "image": "images/coral-dilux.png", "membershipLevel": "Silver" },
-            { "name": "Bob Johnson", "address": "789 Oak St", "phone": "555-555-5555", "website": "https://devtraco.com/", "image": "images/devtraco-ltd.png", "membershipLevel": "Bronze" },
-            { "name": "Alonge Mensah", "address": "321 Pine St", "phone": "444-444-4444", "website": "https://ecobank.com/", "image": "images/ecobank.png", "membershipLevel": "Gold" },
-            { "name": "Charlie Balcky", "address": "654 Cedar St", "phone": "333-333-3333", "website": "https://www.goldentreeghana.com", "image": "images/golden-tree.png", "membershipLevel": "Silver" },
-            { "name": "New Member", "address": "123 New St", "phone": "111-111-1111", "website": "https://www.b5plusgroup.com/", "image": "images/b5-group.png", "membershipLevel": "Bronze" }
-        ]
-    };
-    
-    // In a real implementation, you would fetch this data:
-    // fetch('member.json')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         renderMembers(data.records, currentView);
-    //         // ... rest of the code
-    //     })
-    
-    // For this demo, we'll use the sample data directly
-    renderMembers(memberData.records, currentView);
-    
-    // Add event listeners for view toggle
-    gridViewBtn.addEventListener('click', () => {
-        if (currentView !== 'grid') {
-            currentView = 'grid';
-            renderMembers(memberData.records, currentView);
-            gridViewBtn.classList.add('active');
-            listViewBtn.classList.remove('active');
-        }
-    });
-    
-    listViewBtn.addEventListener('click', () => {
-        if (currentView !== 'list') {
-            currentView = 'list';
-            renderMembers(memberData.records, currentView);
-            listViewBtn.classList.add('active');
-            gridViewBtn.classList.remove('active');
-        }
-    });
-    
-    function renderMembers(members, viewType) {
-        container.innerHTML = '';
-        container.className = `${viewType}-view`;
-        
-        members.forEach(member => {
-            const memberElement = viewType === 'grid' ? createGridCard(member) : createListItem(member);
-            container.appendChild(memberElement);
+const lastModified = document.lastModified;
+document.getElementById('lastModified').textContent = lastModified;
+
+
+const themeToggleButton = document.getElementById('theme-toggle-button');
+
+        themeToggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+
+            // Update the button image based on the current mode
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggleButton.innerHTML = '<img src="images/light.png" alt="Light Mode Icon">';
+            } else {
+                themeToggleButton.innerHTML = '<img src="images/dark.png" alt="Dark Mode Icon">';
+            }
         });
-    }
-    
-    function createGridCard(member) {
-        const card = document.createElement('div');
-        card.className = 'member-card';
-        
-        const membershipClass = member.membershipLevel.toLowerCase();
-        
-        card.innerHTML = `
-            <img src="${member.image || 'https://via.placeholder.com/250x180'}" alt="${member.name}" onerror="this.src='https://via.placeholder.com/250x180'">
-            <h3>
-                ${member.name}
-                <span class="membership-badge ${membershipClass}">${member.membershipLevel}</span>
-            </h3>
-            <div class="member-info">
-                <p><strong>Address:</strong> ${member.address}</p>
-                <p><strong>Phone:</strong> ${member.phone}</p>
-            </div>
-            <a href="${member.website}" class="website-link" target="_blank" rel="noopener noreferrer">${new URL(member.website).hostname}</a>
-        `;
-        
-        return card;
-    }
-    
-    function createListItem(member) {
-        const item = document.createElement('div');
-        item.className = 'list-item';
-        
-        const membershipClass = member.membershipLevel.toLowerCase();
-        
-        item.innerHTML = `
-            <img src="${member.image || 'https://via.placeholder.com/150x150'}" alt="${member.name}" onerror="this.src='https://via.placeholder.com/150x150'">
-            <div class="info">
-                <h3>
-                    ${member.name}
-                    <span class="membership-badge ${membershipClass}">${member.membershipLevel}</span>
-                </h3>
-                <div class="member-details">
-                    <p><strong>Address:</strong> ${member.address}</p>
-                    <p><strong>Phone:</strong> ${member.phone}</p>
-                    <p><strong>Website:</strong> <a href="${member.website}" class="website-link" target="_blank" rel="noopener noreferrer">${member.website}</a></p>
-                </div>
-            </div>
-        `;
-        
-        return item;
+
+// toggle the menu
+document.getElementById('menu-toggle-button').addEventListener('click', function() {
+    const navLinks = document.getElementById('nav-links');
+    const menuButton = document.getElementById('menu-toggle-button');
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+        menuButton.textContent = '☰';
+    } else {
+        navLinks.style.display = 'flex';
+        menuButton.textContent = '✖';
     }
 });
+
+
+// Select HTML elements in the document
+const currentTemp = document.querySelector('#current-temp');
+const weatherIcon = document.querySelector('#weather-icon');
+const captionDesc = document.querySelector('figcaption');
+const weatherDesc = document.querySelector('#weather-desc');
+const rainChance = document.querySelector('#rain-chance');
+
+// Correct the API URL
+const myLat = "6.6070"; // Latitude for Ho, Ghana
+const myLong = "0.4710"; // Longitude for Ho, Ghana
+const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
+const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
+
+async function apiFetch() {
+    try {
+        const response = await fetch(myURL); // Use corrected URL
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data); // Check your fetched data here
+            displayResults(data); // Call the function to display data
+        } else {
+            throw new Error(await response.text());
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function displayResults(data) {
+    // Update temperature
+    currentTemp.innerHTML = `${data.main.temp} °C`;
+
+    // Update weather icon and description
+    const iconSrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+    const desc = data.weather[0].description;
+
+    weatherIcon.setAttribute('src', iconSrc);
+    weatherIcon.setAttribute('alt', desc);
+    weatherDesc.textContent = desc; // Update description
+
+    // Update chance of rain (use 'clouds.all' for a rough estimate as OpenWeatherMap doesn't provide exact rain probability in some plans)
+    rainChance.textContent = `${data.clouds.all}%`; // % Cloudiness roughly indicates rain likelihood
+}
+
+// Fetch the weather data
+apiFetch();
+
+// Forecast for the next three days
+async function fetchWeatherForecast() {
+    const apiKey = "7eb0cb04810073133b438b91b586be8e"; // Use your actual API key
+    const myLat = "6.6070"; // Latitude for Ho, Ghana
+    const myLong = "0.4710"; // Longitude for Ho, Ghana
+    const myURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
+
+    try {
+        const response = await fetch(myURL);
+        const data = await response.json();
+
+        // Update the forecast for the next three days
+        document.getElementById('day1-temp').textContent = `${Math.round(data.list[0].main.temp)}º C`;
+        document.getElementById('day2-temp').textContent = `${Math.round(data.list[8].main.temp)}º C`;
+        document.getElementById('day3-temp').textContent = `${Math.round(data.list[16].main.temp)}º C`;
+
+        // Display all weather events for the current weather
+        const weatherDesc = data.list[0].weather.map(event => capitalizeWords(event.description)).join(', ');
+        document.getElementById('weather-desc').textContent = weatherDesc;
+
+        // Display the chance of rain
+        document.getElementById('rain-chance').textContent = `${Math.round(data.list[0].pop * 100)}%`;
+
+    } catch (error) {
+        console.error('Error fetching weather forecast:', error);
+    }
+}
+
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, char => char.toUpperCase());
+}
+
+fetchWeatherForecast();
+
+
+
+
+async function fetchMembers() {
+    try {
+        const response = await fetch('data/members.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const members = await response.json();
+        if (document.body.classList.contains('home')) {
+            displaySpotlights(members);
+        } else {
+            displayMembers(members);
+        }
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+
+function displayMembers(members) {
+    const membersContainer = document.getElementById('members');
+    if (!membersContainer) return; // Ensure the container exists
+    membersContainer.innerHTML = '';
+
+    members.forEach(member => {
+        const memberCard = document.createElement('div');
+        memberCard.classList.add('member-card');
+        memberCard.innerHTML = `
+            <h3>${member.name}</h3>
+            <p class="address">${member.address}</p>
+            <hr>
+            <img src="images/${member.image}" alt="${member.name}" loading="lazy">
+            <div>
+                <p><strong>Phone:</strong> ${member.phone}</p>
+                <p><strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+                <p><strong>Membership Level:</strong> ${member.membershipLevel}</p>
+            </div>
+        `;
+        membersContainer.appendChild(memberCard);
+    });
+}
+
+function displaySpotlights(members) {
+    const spotlightContainer = document.getElementById('spotlights');
+    if (!spotlightContainer) return; // Ensure the container exists
+    spotlightContainer.innerHTML = '';
+
+    // Filter gold (membershipLevel 1) and silver (membershipLevel 2) members
+    const spotlightMembers = members.filter(member => member.membershipLevel === 1 || member.membershipLevel === 2);
+
+    // Randomly select two or three members
+    const selectedMembers = [];
+    const numberOfSpotlights = Math.min(spotlightMembers.length, 3);
+    while (selectedMembers.length < numberOfSpotlights) {
+        const randomIndex = Math.floor(Math.random() * spotlightMembers.length);
+        const selectedMember = spotlightMembers.splice(randomIndex, 1)[0];
+        selectedMembers.push(selectedMember);
+    }
+
+    // Display the selected members
+    selectedMembers.forEach(member => {
+        const memberCard = document.createElement('div');
+        memberCard.classList.add('spotlight-card');
+        memberCard.innerHTML = `
+            <h3>${member.name}</h3>
+            <img src="images/${member.image}" alt="${member.name}" loading="lazy">
+            <p><strong>Phone:</strong> ${member.phone}</p>
+            <p><strong>Address:</strong> ${member.address}</p>
+            <p><strong>Website:</strong> <a href="${member.website}" target="_blank">${member.website}</a></p>
+            <p><strong>Membership Level:</strong> ${member.membershipLevel === 1 ? 'Gold' : 'Silver'}</p>
+        `;
+        spotlightContainer.appendChild(memberCard);
+    });
+}
+
+document.getElementById('grid-view')?.addEventListener('click', () => {
+    document.getElementById('members').classList.add('grid');
+    document.getElementById('members').classList.remove('list');
+});
+
+document.getElementById('list-view')?.addEventListener('click', () => {
+    document.getElementById('members').classList.add('list');
+    document.getElementById('members').classList.remove('grid');
+});
+
+// Call fetchMembers to display members or spotlights
+fetchMembers();
+
+
+// Open Modals
+document.querySelectorAll('.modal-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const modalId = trigger.getAttribute('data-target');
+        const modal = document.getElementById(modalId);
+        modal.showModal();
+    });
+});
+
+// Close Modals with "X" Button
+document.querySelectorAll('.close-modal-x').forEach(button => {
+    button.addEventListener('click', () => {
+        button.closest('dialog').close();
+    });
+});
+
+// Accessibility (Close Modal with Escape Key)
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        document.querySelectorAll('dialog[open]').forEach(modal => {
+            modal.close();
+        });
+    }
+});
+
+
+// Populate the timestamp field with the current date and time
+document.addEventListener("DOMContentLoaded", () => {
+    const timestampField = document.getElementById("timestamp");
+    const now = new Date();
+    timestampField.value = now.toISOString(); // Use ISO format for consistency
+});
+
+
+ const myInfo = new URLSearchParams(window.location.search);
+
+document.querySelector('#results').innerHTML = `
+<p>Name: ${myInfo.get('firstName')} ${myInfo.get('lastName')}</p>
+<p>Email: ${myInfo.get('email')}</p>
+<p>Phone: ${myInfo.get('mobile')}</p>
+<p>Business Name: ${myInfo.get('businessName')}</p>
+
+`;
+
+ // Display the timestamp
+ const timestamp = myInfo.get('timestamp');
+ if (timestamp) {
+     document.querySelector('#timestamp-display').textContent = `Form Submitted At: ${new Date(timestamp).toLocaleString()}`;
+ }

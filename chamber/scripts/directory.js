@@ -272,7 +272,6 @@ const WeatherAPI = (() => {
 // Spotlight Members Module
 const MemberManager = (() => {
     let membersData = [];
-
     async function fetchMembers() {
         try {
             const response = await fetch('members.json');
