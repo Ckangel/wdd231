@@ -50,54 +50,6 @@ function displayWeatherResults(data) {
 // Weather data for Tema
 fetchWeatherData("5.76709", "-0.01277", "f069271b520638efcd4604e88d664323");
 
-// Joining page functionalities
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('submit-date').value = new Date().toISOString().split('T')[0];
-
-    const modalBtns = document.querySelectorAll('.learn-more');
-    modalBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const modalId = btn.getAttribute('data-modal');
-            document.getElementById(modalId).style.display = 'block';
-        });
-    });
-
-    // Close modals
-    const closeBtns = document.querySelectorAll('.close');
-    closeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            btn.closest('.modal').style.display = 'none';
-        });
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal')) {
-            e.target.style.display = 'none';
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.style.display = 'none';
-            });
-        }
-    });
-
-    // Form submission
-    const form = document.getElementById('membership-form');
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const params = new URLSearchParams();
-        formData.forEach((value, key) => {
-            if (value && form.elements[key].required) {
-                params.append(key, value);
-            }
-        });
-        window.location.href = `thankyou.html?${params.toString()}`;
-    });
-});
 
 // Fetch members and spotlights
 async function fetchMembers() {
@@ -187,6 +139,54 @@ document.getElementById('list-view')?.addEventListener('click', () => {
 // Call fetchMembers to display members or spotlights
 fetchMembers();
 
+// Joining page functionalities
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('submit-date').value = new Date().toISOString().split('T')[0];
+
+    const modalBtns = document.querySelectorAll('.learn-more');
+    modalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-modal');
+            document.getElementById(modalId).style.display = 'block';
+        });
+    });
+
+    // Close modals
+    const closeBtns = document.querySelectorAll('.close');
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.closest('.modal').style.display = 'none';
+        });
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+
+    // Form submission
+    const form = document.getElementById('membership-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const params = new URLSearchParams();
+        formData.forEach((value, key) => {
+            if (value && form.elements[key].required) {
+                params.append(key, value);
+            }
+        });
+        window.location.href = `thankyou.html?${params.toString()}`;
+    });
+});
 
 // Open Modals
 document.querySelectorAll('.modal-trigger').forEach(trigger => {

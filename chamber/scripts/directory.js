@@ -31,7 +31,6 @@ document.getElementById('menu-toggle-button').addEventListener('click', function
     }
 });
 
-
 // Select HTML elements in the document
 const currentTemp = document.querySelector('#current-temp');
 const weatherIcon = document.querySelector('#weather-icon');
@@ -42,7 +41,7 @@ const rainChance = document.querySelector('#rain-chance');
 // Correct the API URL
 const myLat = "5.76709"; // Latitude for Tema, Ghana
 const myLong = "-0.01277"; // Longitude for Tema, Ghana
-const apiKey = "f069271b520638efcd4604e88d664323"; // Use your actual API key
+const apiKey = "f069271b520638efcd4604e88d664323"; 
 const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
 
 async function apiFetch() {
@@ -158,7 +157,7 @@ function displayMembers(members) {
 
 function displaySpotlights(members) {
     const spotlightContainer = document.getElementById('spotlights');
-    if (!spotlightContainer) return; // Ensure the container exists
+    if (!spotlightContainer) return; // Ensure the container exist
     spotlightContainer.innerHTML = '';
 
     // Filter gold (membershipLevel 1) and silver (membershipLevel 2) members

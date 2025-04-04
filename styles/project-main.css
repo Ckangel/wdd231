@@ -1,0 +1,197 @@
+:root {
+    --primary-color:#6f42c1;
+    --primary-color-light:#6f42c1;
+    --secondary-color:#f8f9fa;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --dark-color: #343a40;
+    --link-color:  #007bff;;
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #343a40;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    margin-left: 50px;
+}
+
+/* Header Styles */
+header,
+footer {
+    background-color: #6f42c1;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.logo img {
+    max-width: 100px;
+    border-radius: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Styles */
+main {
+    padding: 20px;
+}
+ 
+h2 {
+    font-family: 'Alegreya', 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    color: #ffffff;
+    background-color: darkgrey;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-family: 'Alegreya', 'Roboto', sans-serif;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 1em;
+}
+
+.wireframe img {
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 15px;
+    margin-left: 170px;
+}
+
+/* Paragraph and List Styles */
+p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.5;
+    padding: 1px;
+    border-radius: 15px;
+    border: 1px solid #343a40;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+ 
+  /* Footer Container */
+  .footer-container {
+    display: flex;
+    justify-content: space-between; /* Distribute columns evenly */
+    align-items: center; /* Align items vertically */
+    padding: 20px;
+    background-color: #00BFFF; /* Background color for footer */
+    flex-wrap: wrap; /* Ensure columns wrap on smaller screens */
+  }
+  
+  /* Individual Columns */
+  .footer-container > div {
+    flex: 1; /* Make all columns take equal space */
+    text-align: center; /* Center-align content within each column */
+    padding: 10px;
+  }
+  
+  /* Left Column Specific Styling */
+  .left-column {
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Center Column Specific Styling */
+  .center-column {
+    text-align: center; /* Align content to the center */
+  }
+  
+  /* Right Column Specific Styling */
+  .right-column {
+    text-align: right; /* Align text to the right */
+  }
+  /* Responsive Design for Smaller Screens */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column; /* Stack columns vertically on smaller screens */
+      align-items: center; /* Center-align items in the column */
+    }
+    .footer-container > div {
+      text-align: center; /* Center-align text in all columns on smaller screens */
+      margin-bottom: 10px; /* Add space between stacked columns */
+    }
+  }
+  /* Responsive Design for Mobile Devices */
+  @media (max-width: 768px) {
+    .menu-toggle-small {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    .menu-toggle-small img {
+      width: 30px;
+      height: auto;
+    }
+    nav ul {
+      display: none; /* Hide the navigation links by default */
+      flex-direction: column; /* Stack links vertically */
+      position: absolute; /* Position the menu absolutely */
+      top: 60px; /* Adjust based on header height */
+      right: 0; /* Align to the right side */
+      background-color: var(--Primary-Color); /* Background color for dropdown */
+      padding: 1rem; /* Add padding around the dropdown */
+      border-radius: 8px; /* Rounded corners for dropdown */
+    }
+    nav ul.show {
+      display: flex; /* Show the menu when toggled */
+    }
+  }
+  /* Responsive Design for Desktop Devices */
+  @media (min-width: 769px) {
+    .menu-toggle-small {
+      display: none; /* Hide the menu toggle button on larger screens */
+    }
+    nav ul {
+      display: flex; /* Show the navigation links on larger screens */
+      flex-direction: row; /* Align links in a row */
+      position: static; /* Reset position for desktop view */
+      background-color: transparent; /* Transparent background for desktop */
+      padding: 0; /* Remove padding for desktop view */
+      border-radius: 0; /* No rounded corners for desktop view */
+    }
+  }
+  
+  /* Responsive Design for Tablet Devices */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .menu-toggle-small {
+      display: none; /* Hide the menu toggle button on larger screens */
+    }
+    nav ul {
+      display: flex; /* Show the navigation links on larger screens */
+      flex-direction: row; /* Align links in a row */
+      position: static; /* Reset position for desktop view */
+      background-color: transparent; /* Transparent background for desktop */
+      padding: 0; /* Remove padding for desktop view */
+      border-radius: 0; /* No rounded corners for desktop view */
+    }
+  }
+  
+  /* Responsive Design for Mobile Devices */
+  @media (max-width: 599px) {
+      #hamburger {
+          display: block !important;
+      }
+  }
+}
