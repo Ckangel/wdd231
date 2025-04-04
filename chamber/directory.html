@@ -22,13 +22,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/directory.css">
-    <link rel="stylesheet" href="styles/directory-small.css">
     <link rel="stylesheet" href="styles/min.css">
-    <script src="scripts/directory.js" defer></script>
-    <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/chamber.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
@@ -56,7 +53,7 @@
     </nav>
     
     <button id="theme-toggle-button">
-        <img src="images/dark.png" alt="Toggle Theme">
+        <img src="images/dark.png" alt="Toggle Theme" width="20px" height="auto">
     </button>
  </header>
  
@@ -66,8 +63,7 @@
             <div class="hero-text">
                 <button>Keynote Tickets</button>
             </div> 
-            <img src="images/images/hero-image.jpg" alt="Chamber Directory" width="1200" height="auto">
-                
+            <img src="images/images/hero-image.jpg" alt="Chamber Directory" width="1200" height="auto">     
         </section>
 
     <main>
@@ -90,10 +86,12 @@
             <section class="current-weather">
                 <h2>Current Weather</h2>
                 <div class="weather-card">
-                    <p><img id="weather-icon" src="https://openweathermap.org" alt=" Current"></p>
-                    <p>Temperature: <span id="current-temp"></span></p>
-                    <p>Description: <span id="weather-desc"></span></p>
-                    <p>Chance of Rain: <span id="rain-chance"></span></p>
+                    <ul>
+                        <li><p><img id="weather-icon" src="https://openweathermap.org" alt=" Current"></p></li>
+                        <li><p>Temperature: <span id="current-temp"></span></p></li>
+                        <li><p>Description: <span id="weather-desc"></span></p></li>
+                        <li><p>Chance of Rain: <span id="rain-chance"></span></p></li>
+                    </ul>
                 </div>
             </section>
             
@@ -108,16 +106,20 @@
                     </div>
             </section>
         </div>
-        <section class="spotlights-header">
-            <h2>Chamber Members</h2>
-            <div id="spotlights" class="spotlights-container"></div>
-        </section>
-                    
-        <div class="view-toggle">
-            <button id="grid-view">Grid View</button>
-            <button id="list-view">List View</button>
+    <!-- Members Section -->
+     <section id="members-container" class="members grid">
+        <div class="member-card">
         </div>
-    </main>
+     </section>
+    <div class="view-toggle">
+        <button id="grid-view">Grid View</button>
+        <button id="list-view">List View</button>
+    </div>
+    <section class="members" id="members">
+    <!-- Member information will be displayed here -->
+    </section>
+</main>
+    
   <!-- Footer Section -->
 <footer>
     <div class="footer-container">

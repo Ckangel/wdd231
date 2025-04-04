@@ -1,57 +1,36 @@
+// main.js
+
+// Update the current year and last modified date
 const currentYear = new Date().getFullYear();
 document.getElementById('currentyear').textContent = currentYear;
-
 const lastModified = document.lastModified;
 document.getElementById('lastModified').textContent = lastModified;
 
-
+// Theme toggle functionality
 const themeToggleButton = document.getElementById('theme-toggle-button');
+themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    themeToggleButton.innerHTML = document.body.classList.contains('dark-mode') ?
+        '<img src="images/light.png" alt="Light Mode Icon">' :
+        '<img src="images/dark.png" alt="Dark Mode Icon">';
+});
 
-        themeToggleButton.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-
-            // Update the button image based on the current mode
-            if (document.body.classList.contains('dark-mode')) {
-                themeToggleButton.innerHTML = '<img src="images/light.png" alt="Light Mode Icon">';
-            } else {
-                themeToggleButton.innerHTML = '<img src="images/dark.png" alt="Dark Mode Icon">';
-            }
-        });
-
-// toggle the menu
+// Toggle the menu
 document.getElementById('menu-toggle-button').addEventListener('click', function() {
     const navLinks = document.getElementById('nav-links');
     const menuButton = document.getElementById('menu-toggle-button');
-    if (navLinks.style.display === 'flex') {
-        navLinks.style.display = 'none';
-        menuButton.textContent = '☰';
-    } else {
-        navLinks.style.display = 'flex';
-        menuButton.textContent = '✖';
-    }
+    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    menuButton.textContent = navLinks.style.display === 'flex' ? '✖' : '☰';
 });
 
-
-// Select HTML elements in the document
-const currentTemp = document.querySelector('#current-temp');
-const weatherIcon = document.querySelector('#weather-icon');
-const captionDesc = document.querySelector('figcaption');
-const weatherDesc = document.querySelector('#weather-desc');
-const rainChance = document.querySelector('#rain-chance');
-
-// Correct the API URL
-const myLat = "5.76709"; // Latitude for Tema, Ghana
-const myLong = "-0.01277"; // Longitude for Tema, Ghana
-const apiKey = "f069271b520638efcd4604e88d664323"; // Use your actual API key
-const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
-
-async function apiFetch() {
+// Weather fetching functions and variables
+async function fetchWeatherData(lat, long, apiKey) {
+    const myURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
     try {
-        const response = await fetch(myURL); // Use corrected URL
+        const response = await fetch(myURL);
         if (response.ok) {
             const data = await response.json();
-            console.log(data); // Check your fetched data here
-            displayResults(data); // Call the function to display data
+            displayWeatherResults(data);
         } else {
             throw new Error(await response.text());
         }
@@ -60,62 +39,67 @@ async function apiFetch() {
     }
 }
 
-function displayResults(data) {
-    // Update temperature
-    currentTemp.innerHTML = `${data.main.temp} °C`;
-
-    // Update weather icon and description
+function displayWeatherResults(data) {
+    document.querySelector('#current-temp').innerHTML = `${data.main.temp} °C`;
     const iconSrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-    const desc = data.weather[0].description;
-
-    weatherIcon.setAttribute('src', iconSrc);
-    weatherIcon.setAttribute('alt', desc);
-    weatherDesc.textContent = desc; // Update description
-
-    // Update chance of rain (use 'clouds.all' for a rough estimate as OpenWeatherMap doesn't provide exact rain probability in some plans)
-    rainChance.textContent = `${data.clouds.all}%`; // % Cloudiness roughly indicates rain likelihood
+    document.querySelector('#weather-icon').setAttribute('src', iconSrc);
+    document.querySelector('#weather-desc').textContent = data.weather[0].description;
+    document.querySelector('#rain-chance').textContent = `${data.clouds.all}%`;
 }
 
-// Fetch the weather data
-apiFetch();
+// Weather data for Tema
+fetchWeatherData("5.76709", "-0.01277", "f069271b520638efcd4604e88d664323");
 
-// Forecast for the next three days
-async function fetchWeatherForecast() {
-    const apiKey = "f069271b520638efcd4604e88d664323"; // Use your actual API key
-    const myLat = "5.76709"; // Latitude for Tema, Ghana
-    const myLong = "-0.01277"; // Longitude for Tema, Ghana
-    const myURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLong}&appid=${apiKey}&units=metric`; // Metric for Celsius
+// Joining page functionalities
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('submit-date').value = new Date().toISOString().split('T')[0];
 
-    try {
-        const response = await fetch(myURL);
-        const data = await response.json();
+    const modalBtns = document.querySelectorAll('.learn-more');
+    modalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modalId = btn.getAttribute('data-modal');
+            document.getElementById(modalId).style.display = 'block';
+        });
+    });
 
-        // Update the forecast for the next three days
-        document.getElementById('day1-temp').textContent = `${Math.round(data.list[0].main.temp)}º C`;
-        document.getElementById('day2-temp').textContent = `${Math.round(data.list[8].main.temp)}º C`;
-        document.getElementById('day3-temp').textContent = `${Math.round(data.list[16].main.temp)}º C`;
+    // Close modals
+    const closeBtns = document.querySelectorAll('.close');
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btn.closest('.modal').style.display = 'none';
+        });
+    });
 
-        // Display all weather events for the current weather
-        const weatherDesc = data.list[0].weather.map(event => capitalizeWords(event.description)).join(', ');
-        document.getElementById('weather-desc').textContent = weatherDesc;
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    });
 
-        // Display the chance of rain
-        document.getElementById('rain-chance').textContent = `${Math.round(data.list[0].pop * 100)}%`;
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
 
-    } catch (error) {
-        console.error('Error fetching weather forecast:', error);
-    }
-}
+    // Form submission
+    const form = document.getElementById('membership-form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const params = new URLSearchParams();
+        formData.forEach((value, key) => {
+            if (value && form.elements[key].required) {
+                params.append(key, value);
+            }
+        });
+        window.location.href = `thankyou.html?${params.toString()}`;
+    });
+});
 
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
-}
-
-fetchWeatherForecast();
-
-
-
-
+// Fetch members and spotlights
 async function fetchMembers() {
     try {
         const response = await fetch('data/members.json');
@@ -133,6 +117,7 @@ async function fetchMembers() {
     }
 }
 
+// Member display functionality
 function displayMembers(members) {
     const membersContainer = document.getElementById('members');
     if (!membersContainer) return; // Ensure the container exists

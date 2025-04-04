@@ -400,7 +400,7 @@ dialog h3{
     background-color: var(--Primary-Color);
     color: var(--Text-Color);
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     border-radius: 8px;
     transition: background-color 0.3s ease-out;
@@ -437,7 +437,7 @@ main{
     padding: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Adjust the width as needed */
+    width: 60%; /* Adjust the width as needed */
 }
 
 .spotlight-card img {
@@ -545,7 +545,6 @@ main{
 }
 
 .current-weather img {
-    /* padding-left: -3em; */
     width: 90px;
     /* position: absolute; */
 }
@@ -628,7 +627,7 @@ main{
 .members {
     width: 95%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
     margin: 1.3rem;
     justify-content: center;
@@ -636,6 +635,7 @@ main{
 }
 
 .member-card {
+    border: 1px solid #ccc;
     justify-content: center;
     align-items: center;
     background-color: var(--Background-Color);
@@ -697,7 +697,8 @@ footer p {
     color: black;
 }
 
-footer .left {
+footer .left
+footer .right {
     font-weight: bold;
 }
 

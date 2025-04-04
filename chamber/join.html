@@ -22,11 +22,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/join.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/directory.css">
     <link rel="stylesheet" href="styles/directory-small.css">
-    <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/min.css">
     <script src="scripts/directory.js" defer></script>
     <script src="scripts/scripts.js" defer></script>
@@ -58,171 +56,131 @@
     </nav>
     
     <button id="theme-toggle-button">
-        <img src="images/dark.png" alt="Toggle Theme">
+        <img src="images/dark.png" alt="Toggle Theme" width="20px" height="auto">
     </button>
  </header>
-         <!-- Hero Section -->
-      
-        <!-- <section class="hero" aria-labelledby="hero-heading">
-            <div class="hero-text">
-                <button>Keynote Tickets</button>
-            </div> 
-            <img src="images/hero-image.jpg" alt="Chamber Directory" width="1200" height="auto"> 
-        </section> -->
-                
-        <h1>Apply for Chamber of Commerce Membership</h1>
-         
-        <main class="form-container">
-            <form id="membership-form" action="thankyou.html" method="GET">
-                <h2>Membership Application Form</h2>
-                
-                <div class="form-group">
-                    <label for="first-name">First Name*</label>
-                    <input type="text" id="first-name" name="first-name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="last-name">Last Name*</label>
-                    <input type="text" id="last-name" name="last-name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="title">Title/Position</label>
-                    <textarea id="title" name="title"></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email*</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Cell Phone*</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="organization">Business/Organization Name*</label>
-                    <input type="text" id="organization" name="organization" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="membership-level">Membership Level*</label>
-                    <select id="membership-level" name="membership-level" required>
-                        <option value="">Select a level</option>
-                        <option value="non-profit">Non-Profit ($100/year)</option>
-                        <option value="bronze">Bronze ($200/year)</option>
-                        <option value="silver">Silver ($400/year)</option>
-                        <option value="gold">Gold ($600/year)</option>
-                    </select>
-                </div>
-                
-                <input type="hidden" id="submit-date" name="submit-date">
-                
-                <button type="submit" class="submit-btn">Submit Application</button>
-            </form>
-    
-            <div class="membership-cards">
-                <h2>Membership Levels</h2>
-                
-                <div class="card non-profit animate-card">
-                    <h3>Non-Profit</h3>
-                    <p class="price">$100/year</p>
-                    <p>Basic membership for non-profit organizations</p>
-                    <button class="learn-more" data-modal="non-profit-modal">Learn More</button>
-                </div>
-                
-                <div class="card bronze animate-card">
-                    <h3>Bronze</h3>
-                    <p class="price">$200/year</p>
-                    <p>Entry-level business membership</p>
-                    <button class="learn-more" data-modal="bronze-modal">Learn More</button>
-                </div>
-                
-                <div class="card silver animate-card">
-                    <h3>Silver</h3>
-                    <p class="price">$400/year</p>
-                    <p>Mid-tier business membership</p>
-                    <button class="learn-more" data-modal="silver-modal">Learn More</button>
-                </div>
-                
-                <div class="card gold animate-card">
-                    <h3>Gold</h3>
-                    <p class="price">$600/year</p>
-                    <p>Premium business membership</p>
-                    <button class="learn-more" data-modal="gold-modal">Learn More</button>
-                </div>
-            </div>
-        </main>
-    
-        <!-- Modal Dialogs -->
-        <div id="non-profit-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Non-Profit Membership Benefits</h3>
-                <ul>
-                    <li>Listing in member directory</li>
-                    <li>Access to member-only resources</li>
-                    <li>Monthly newsletter</li>
-                    <li>10% discount on chamber events</li>
-                    <li>1 free training workshop per year</li>
-                </ul>
-                <p><strong>Price:</strong> $100/year</p>
-            </div>
+ <main class="join-main">
+    <!-- <h1>Join the Chamber</h1> -->
+
+    <form method="GET" action="thankyou.html">
+        <h2>Membership Application Form</h2>
+        <p><span class="required">*</span> Indicates a required field</p>
+        <label for="firstName">First Name: <span class="required">*</span>
+            <input type="text" id="firstName" name="firstName" title="Your First Name" required autocomplete="given-name">
+        </label>
+        <label for="lastName">Last Name: <span class="required">*</span>
+            <input type="text" id="lastName" name="lastName" title="Your Last Name" required autocomplete="family-name">
+        </label>
+        <label for="orgTitle">Organizational Title: <span class="required">*</span>
+            <input type="text" id="orgTitle" name="orgTitle" title="Your Title in the Organization" autocomplete="organization-title" pattern="[A-Za-z\\-\\s]{7,}" required>
+        </label>
+        <label for="email">Email: <span class="required">*</span>
+            <input type="email" id="email" name="email" title="Your Email" required autocomplete="email" placeholder="example@gmail.com">
+        </label>
+        <label for="mobile">Mobile Phone: <span class="required">*</span>
+            <input type="tel" id="mobile" name="mobile" title="Your Phone Number" required autocomplete="tel">
+        </label>
+        <label for="businessName">Business/Organization Name: <span class="required">*</span>
+            <input type="text" id="businessName" name="businessName" title="Your Business Name" required autocomplete="organization">
+        </label>
+        <label for="membership">Membership Level: <span class="required">*</span>
+            <select id="membership" name="membership">
+                <option value="np">Non-Profit</option>
+                <option value="bronze">Bronze</option>
+                <option value="silver">Silver</option>
+                <option value="gold">Gold</option>
+            </select>
+        </label>
+        <label for="description">Business/Organization Description:
+            <textarea id="description" name="description" title="Describe Your Business" required rows="4"></textarea>
+        </label>
+        <input type="hidden" id="timestamp" name="timestamp">
+        <input type="submit" value="Submit Application">
+    </form>
+
+    <!-- Membership Level Cards -->
+    <div class="membership-cards">
+        <h2>Membership Levels</h2>
+        <div class="card" tabindex="0">
+            <h3>Non-Profit</h3>
+            <!-- <p>No cost membership for non-profit organizations.</p> -->
+            <button class="modal-trigger" data-target="modal-np">Learn More</button>
         </div>
-    
-        <div id="bronze-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Bronze Membership Benefits</h3>
-                <ul>
-                    <li>All Non-Profit benefits plus:</li>
-                    <li>Business listing with logo</li>
-                    <li>15% discount on chamber events</li>
-                    <li>2 free training workshops per year</li>
-                    <li>Access to business networking events</li>
-                    <li>Quarterly spotlight opportunity</li>
-                </ul>
-                <p><strong>Price:</strong> $200/year</p>
-            </div>
+        <div class="card" tabindex="0">
+            <h3>Bronze</h3>
+            <!-- <p>Basic membership with access to events.</p> -->
+            <button class="modal-trigger" data-target="modal-bronze">Learn More</button>
         </div>
-    
-        <div id="silver-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Silver Membership Benefits</h3>
-                <ul>
-                    <li>All Bronze benefits plus:</li>
-                    <li>20% discount on chamber events</li>
-                    <li>4 free training workshops per year</li>
-                    <li>Priority listing in directory</li>
-                    <li>Monthly spotlight opportunity</li>
-                    <li>Free basic website listing</li>
-                    <li>2 free event sponsorships per year</li>
-                </ul>
-                <p><strong>Price:</strong> $400/year</p>
-            </div>
+        <div class="card" tabindex="0">
+            <h3>Silver</h3>
+            <!-- <p>Includes training and advertising discounts.</p> -->
+            <button class="modal-trigger" data-target="modal-silver">Learn More</button>
         </div>
-    
-        <div id="gold-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Gold Membership Benefits</h3>
-                <ul>
-                    <li>All Silver benefits plus:</li>
-                    <li>25% discount on chamber events</li>
-                    <li>Unlimited training workshops</li>
-                    <li>Premium placement in directory</li>
-                    <li>Bi-weekly spotlight opportunity</li>
-                    <li>Enhanced website listing with photos</li>
-                    <li>4 free event sponsorships per year</li>
-                    <li>VIP access to exclusive events</li>
-                    <li>Featured in chamber marketing materials</li>
-                </ul>
-                <p><strong>Price:</strong> $600/year</p>
-            </div>
+        <div class="card" tabindex="0">
+            <h3>Gold</h3>
+            <!-- <p>Top-tier benefits including premium advertising.</p> -->
+            <button class="modal-trigger" data-target="modal-gold">Learn More</button>
         </div>
-    
+    </div>
+
+    <!-- Modals using <dialog> -->
+    <dialog id="modal-np">
+        <button class="close-modal-x" aria-label="Close">&times;</button>
+        <h3>Non-Profit Membership Benefits</h3>
+        <ul>
+            <li>Access to events</li>
+            <li>Basic membership directory listing</li>
+            <li>No cost</li>
+        </ul>
+    </dialog>
+    <dialog id="modal-bronze">
+        <button class="close-modal-x" aria-label="Close">&times;</button>
+        <h3>Bronze Membership Benefits</h3>
+        <ul>
+            <li>Access to all events</li>
+            <li>Business spotlight opportunities</li>
+            <li>Discounted event fees</li>
+        </ul>
+    </dialog>
+    <dialog id="modal-silver">
+        <button class="close-modal-x" aria-label="Close">&times;</button>
+        <h3>Silver Membership Benefits</h3>
+        <ul>
+            <li>Includes Bronze benefits</li>
+            <li>Access to advanced training sessions</li>
+            <li>Advertising discounts</li>
+        </ul>
+    </dialog>
+    <dialog id="modal-gold">
+        <button class="close-modal-x" aria-label="Close">&times;</button>
+        <h3>Gold Membership Benefits</h3>
+        <ul>
+            <li>Includes Silver benefits</li>
+            <li>Premium advertising opportunities</li>
+            <li>Priority event registrations and sponsorship opportunities</li>
+        </ul>
+    </dialog>
+</main>    
+    <script>
+        // JavaScript to handle modal functionality
+        document.querySelectorAll('.modal-trigger').forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.getAttribute('data-target');
+                document.getElementById(target).showModal();
+            });
+        });
+
+        document.querySelectorAll('.close-modal-x').forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('dialog').close();
+            });
+        });
+
+        // Set the current year and last modified date
+        document.getElementById('currentyear').textContent = new Date().getFullYear();
+        document.getElementById('lastModified').textContent = document.lastModified;
+    </script>
+
 <!-- Footer Section -->
 <footer>
     <div class="footer-container">

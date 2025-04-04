@@ -22,23 +22,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/directory.css">
     <link rel="stylesheet" href="styles/directory-small.css">
     <link rel="stylesheet" href="styles/min.css">
-    <script src="scripts/directory.js" defer></script>
-    <script src="scripts/scripts.js" defer></script>
+    <script src="scripts/main.js" defer></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body class="home">
 <!-- Header Section -->
  <header>
     <div class="logo">
-        <figure>
         <img src="images/logo.png" alt="Chamber Business Logo" loading="lazy">
-        <figcaption>Tema Ghana Chamber of Commerce</figcaption>
-    </figure>
+        <p>Tema Ghana Chamber of Commerce</p>
     </div>
     <div class="menu-toggle-small">
         <button id="menu-toggle-button">☰</button>
@@ -55,20 +51,20 @@
     </nav>
     
     <button id="theme-toggle-button">
-        <img src="images/dark.png" alt="Toggle Theme">
+        <img src="images/dark.png" alt="Toggle Theme" width="20px" height="auto">
     </button>
+
  </header>
-    <!-- Main Content -->
     <main>
         <!-- Hero Section -->
          <h1>Tema Ghana Chamber of Commerce</h1>
-        <section class="hero" aria-labelledby="hero-heading">
-            <div class="call-to-action">
-                <a href="join.html" class="cta-button">Join the Chamber of Commerce</a>
-            </div>
-            <img src="images/hero-image.jpg" alt="Hero Image" loading="lazy">
-               
-        </section>
+         <div class="hero" aria-labelledby="hero-heading"></div>
+         <div class="call-to-action">
+            <a href="join.html" class="cta-button">Join the Chamber of Commerce</a>
+        </div>
+    <div class="hero-image">
+            <img src="images/hero-image.jpg" alt="Hero Image" loading="lazy" width="600" height="400">
+        </div>
         
             <!-- Information Section -->
             <h1>Home</h1> 
@@ -111,8 +107,7 @@
                <h2>Spotlight Members</h2>
                <div id="spotlights" class="spotlights-container"></div>
            </section>
-                       
-       </main>
+    </main>
   <!-- Footer Section -->
   <footer>
     <div class="footer-container">
