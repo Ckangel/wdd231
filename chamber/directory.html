@@ -2,62 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tema Ghana Chamber of Commerce</title>
-    <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
-    <meta name="author" content="Charles K. Ajeigbe">
-    <!-- Facebook Open Graph meta tags -->
-    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Directory page for chamber page where it promotes attractions and events in Greater Accra Region, Ghana.">
+    <meta name="author" content="Charles Kingsley Ajeigbe">  
+    <meta property="og:title" content="Tema Ghana Chamber of Commerce - Discover Page">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tema Ghana Chamber of Commerce - Directory Page" />
-    <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation." />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="627" />
-    <meta property="og:image:alt" content="Tema Ghana Chamber of Commerce Headquarters" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image" content="https://example.com/path/to/image.jpg" />
-    
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta property="og:image" content="https://ckangel.github.io/wdd231/images/#.webp">
+    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/discover.html">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/directory-small.css">
-    <link rel="stylesheet" href="styles/min.css">
-    <script src="scripts/scripts.js" defer></script>
-    <script src="scripts/main.js" defer></script>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css">    
+    <script src="scripts/main.js" defer></script>     
+    <link rel="icon" href="favicon.ico">  
 </head>
+<body>
+    <header>                           
+        <img src="images/logo.png" alt="Chamber Logo" class="logo" loading="lazy" width="200px" height="auto">
+        <div id="logo-text">
+            <h1>Tema Ghana Chamber of Commerce</h1>
+        </div>
+                    
+        <button class="menu-toggle">☰</button>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html" title="Home" target="_blank">Home</a></li>
+                <li><a href="directory.html" class="active" title="Directory" target="_blank">Directory</a></li>
+                <li><a href="join.html" title="Join" target="_blank">Join</a></li>
+                <li><a href="discover.html" target="_blank" title="Discover">Discover</a></li>
+            </ul>
 
-<body class="home">
-<!-- Header Section -->
- <header>
-    <div class="logo">
-            <img src="images/logo.png" alt="Chamber Business Logo" loading="lazy">
-            <p>Tema Ghana Chamber of Commerce</p>
-    </div>
-    <div class="menu-toggle-small">
-        <button id="menu-toggle-button">☰</button>
-    </div> 
-    
-    <nav class="responsive-nav" id="nav-menu">
-    <!-- Navigation items -->
-     <ul id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="directory.html" class="active">Directory</a></li>
-        <li><a href="join.html">Join</a></li>
-        <li><a href="discover.html">Discover</a></li>
-    </ul>
-    </nav>
-    
-    <button id="theme-toggle-button">
-        <img src="images/dark.png" alt="Toggle Theme" width="20px" height="auto">
-    </button>
- </header>
- 
+            <button id="theme-toggle-button">
+                <img src="images/dark.png" alt="Toggle Theme" width="15px" height="auto" loading="lazy">
+            </button>
+        </nav>      
+       
+    </header>
+
  <!-- Hero Section -->
       
         <section class="hero" aria-labelledby="hero-heading">
@@ -73,92 +55,96 @@
          <!-- Information Section -->
          <h1>Directory</h1> 
                      
-          <div class="container">
-            <section class="events">
-                <h2>Upcoming Events</h2>
-                <ul>
-                    <li>Meet and Greet Business Breakfast - 04/05/2025</li>
-                    <li>Business After-Hours Networking Dinner - 04/09/2025</li>
-                    <li>Business Expo Exhibition - 04/12/2025</li>
-                    <li>Business Leadership Conference - 05/04/2025</li>
-                    <li>Business Excelence Awards Gala - 05/25/2025</li>
-                </ul>
-            </section>
+         <div id="events">
+            <h3>Upcoming Events</h3>
+            <ul>
+                <li>Meet and Greet Business Breakfast - 04/05/2025</li>
+                <li>Business After-Hours Networking Dinner - 04/09/2025</li>
+                <li>Business Expo Exhibition - 04/12/2025</li>
+                <li>Business Leadership Conference - 05/04/2025</li>
+                <li>Business Excelence Awards Gala - 05/25/2025</li>
+            </ul>
+        </div>
 
-         <!-- Current Weather -->
-            <section class="current-weather">
-                <h2>Current Weather</h2>
-                <div class="weather-card">
-                    <ul>
-                        <li><p><img id="weather-icon" src="https://openweathermap.org" alt=" Current"></p></li>
-                        <li><p>Temperature: <span id="current-temp"></span></p></li>
-                        <li><p>Description: <span id="weather-desc"></span></p></li>
-                        <li><p>Chance of Rain: <span id="rain-chance"></span></p></li>
-                    </ul>
-                </div>
-            </section>
-            
-            <section class="forecast">
-                    <h2>Weather Forecast</h2>
-                    <div>
-                        <ul>
-                            <li>Day 1 - <span id="day1-temp"></span></li>
-                            <li>Day 2 - <span id="day2-temp"></span></li>
-                            <li>Day 3 - <span id="day3-temp"></span></li>
-                        </ul>
-                    </div>
-            </section>
+        <div id="current-weather">
+            <h3>Current Weather</h3>
+            <img id="weather-icon" src="images/weather-icon.webp" alt="Weather icon">
+            <div>
+                <p><span id="current-temp"></span></p>
+                <p id="description"></p>
+                <p id="high-temp"></p>
+                <p id="low-temp"></p>
+                <p id="humidity"></p>
+                <p id="sunrise"></p>
+                <p id="sunset"></p>
+        </div>
+        
+        </div> <!-- Closing current-weather div -->
+
+        <div id="weather-forecast">
+            <h3>Weather Forecast</h3>
+            <p id="today"></p>
+            <p id="next-day"></p>
+            <p id="next-day2"></p>
         </div>
 
     <!-- Members Section -->
-<section id="members-container" class="members grid">
-    <!-- Member cards will be dynamically added here -->
-</section>
-
-<section id="view-toggle">
-    <button id="grid-view">Grid View</button>
-    <button id="list-view">List View</button>
-</section>
-
-<!-- Spotlight Section -->
-<section class="spotlights-header">
-    <h2>Spotlight Members</h2>
-    <div id="spotlights" class="spotlights-container"></div>
-</section>
-</main>
-    
-  <!-- Footer Section -->
-<footer>
-    <div class="footer-container">
-        <!-- Left Column -->
-        <div class="left">
-            Tema Ghana Chamber of Commerce
-            GN-1249-1666, 36 Microphone Street
-            Matakeko, Tema, Ghana
-            Email: info@temaghanachamber.com
-            Phone: (233) 559-169-117
+    <main>
+        <div id="menu-buttons">
+            <button id="menu-grid">Grid</button>
+            <button id="menu-list">List</button>
         </div>
+        <section id="cards" class="grid">
+            <div class="card">
+                <img src="images/member1.jpg" alt="Member 1" loading="lazy" width="100%" height="auto">
+                <h2>Member 1</h2>
+                <p>Member 1 Description</p>
+            </div>
+            <div class="card">
+                <img src="images/member2.jpg" alt="Member 2" loading="lazy" width="100%" height="auto">
+                <h2>Member 2</h2>
+                <p>Member 2 Description</p>
+            </div>
+            <div class="card">
+                <img src="images/member3.jpg" alt="Member 3" loading="lazy" width="100%" height="auto">
+                <h2>Member 3</h2>
+                <p>Member 3 Description</p>
+            </div>
+                
+        </section>
+    </main> 
 
-            <!-- Social media icons placeholder -->
-            <div class="center">
-                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
-                <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
-                <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
-            </div>
-
-        <!-- Right Column -->
-         <div class="right">
-            <p>WDD231 Class Project</p>
-            <p>Charles Kingsley Ajeigbe</p>
-            <div>
-                &copy; <span id="currentyear"></span> Tema Ghana Chamber of Commerce
-            </div>
-            <div>
-                Last Modified: <span id="lastModified"></span>         
-            </div>
-        </div> 
-    </div> 
+  <!-- Footer Section -->
+  <footer>
+    <div id="first-footer-info">
+        <p>Tema Ghana Chamber of Commerce</p>
+        <p>36, Microphone Street, Afienya</p>
+        <p>Tema Ghana</p>
+        <p>info@temaghanachamber.com</p>
+        <p>+233 559 169 117</p>
+    </div>
+    <nav id="footer-social">
+        <a href="https://www.youtube.com/" target="_blank">
+            <img src="images/youtube-play.png" alt="YouTube logo">
+        </a>
+        <a href="https://x.com/home" target="_blank">
+            <img src="images/twitterx.png" alt="X (Twitter) logo">
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+            <img src="images/facebook_color.webp" alt="Facebook logo">
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+            <img src="images/linkedin.png" alt="LinkedIn logo">
+        </a>
+    </nav>
+    <div id="second-footer-info">
+        <p>WDD231 Class Project</p>
+        <p>Charles Kingsley Ajeigbe</p>
+        <p>&copy; <span id="year"></span>Tema Ghana Chamber of Commerce</p>
+        <p><span id="lastModified"></span></p>
+    </div>
 </footer>
+</main> 
 </body>
 </html>
 

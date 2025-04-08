@@ -2,165 +2,100 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Tema Ghana Chamber of Commerce</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tema Ghana Chamber of Commerce - Join</title>
-    <meta name="description" content="Tema Ghana Chamber of Commerce is a business organization that promotes and protects the interests of businesses in Tema, Ghana.">
-    <meta name="author" content="Charles K. Ajeigbe">
-    <!-- Facebook Open Graph meta tags -->
-    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/directory.html">
+    <meta name="description" content="Join page for chamber page where it promotes attractions and events in Greater Accra Region, Ghana.">
+    <meta name="author" content="Charles Kingsley Ajeigbe">  
+    <meta property="og:title" content="Tema Ghana Chamber of Commerce - Discover Page">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tema Ghana Chamber of Commerce Directory Page">
-    <meta property="og:description" content="Promoting business excellence in Tema, Ghana through collaboration and innovation.">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="627">
-    <meta property="og:image:alt" content="Tema Ghana Chamber of Commerce Headquarters">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image" content="https://example.com/path/to/image.jpg">
-    
-    <link rel="icon" href="images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta property="og:image" content="https://ckangel.github.io/wdd231/images/#.webp">
+    <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/discover.html">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/directory-small.css">
-    <link rel="stylesheet" href="styles/min.css">
-    <script src="scripts/directory.js" defer></script>
-    <script src="scripts/scripts.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css">    
+    <script src="scripts/main.js" defer></script>     
+    <link rel="icon" href="favicon.ico">  
 </head>
-
-<body class="home">
-<!-- Header Section -->
- <header>
-    <div class="logo">
-        <figure>
-            <img src="images/logo.png" alt="Chamber Business Logo" loading="lazy">
-            <figcaption>Tema Ghana Chamber of Commerce</figcaption>
-        </figure>
-    </div>
-
-    <div class="menu-toggle-small">
-        <button id="menu-toggle-button">☰</button>
-    </div> 
-    
-    <nav class="responsive-nav" id="nav-menu">
-    <!-- Navigation items -->
-     <ul id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="directory.html">Directory</a></li>
-        <li><a href="join.html" class="active">Join</a></li>
-        <li><a href="discover.html">Discover</a></li>
-    </ul>
-    </nav>
-    
-    <button id="theme-toggle-button">
-        <img src="images/dark.png" alt="Toggle Theme" width="20px" height="auto">
-    </button>
- </header>
- <main class="join-main">
-    <!-- <h1>Join the Chamber</h1> -->
-
-    <form method="GET" action="thankyou.html">
-        <h2>Membership Application Form</h2>
-        <p><span class="required">*</span> Indicates a required field</p>
-        <label for="firstName">First Name: <span class="required">*</span>
-            <input type="text" id="firstName" name="firstName" title="Your First Name" required autocomplete="given-name">
-        </label>
-        <label for="lastName">Last Name: <span class="required">*</span>
-            <input type="text" id="lastName" name="lastName" title="Your Last Name" required autocomplete="family-name">
-        </label>
-        <label for="orgTitle">Organizational Title: <span class="required">*</span>
-            <input type="text" id="orgTitle" name="orgTitle" title="Your Title in the Organization" autocomplete="organization-title" pattern="[A-Za-z\\-\\s]{7,}" required>
-        </label>
-        <label for="email">Email: <span class="required">*</span>
-            <input type="email" id="email" name="email" title="Your Email" required autocomplete="email" placeholder="example@gmail.com">
-        </label>
-        <label for="mobile">Mobile Phone: <span class="required">*</span>
-            <input type="tel" id="mobile" name="mobile" title="Your Phone Number" required autocomplete="tel">
-        </label>
-        <label for="businessName">Business/Organization Name: <span class="required">*</span>
-            <input type="text" id="businessName" name="businessName" title="Your Business Name" required autocomplete="organization">
-        </label>
-        <label for="membership">Membership Level: <span class="required">*</span>
-            <select id="membership" name="membership">
-                <option value="np">Non-Profit</option>
-                <option value="bronze">Bronze</option>
-                <option value="silver">Silver</option>
-                <option value="gold">Gold</option>
-            </select>
-        </label>
-        <label for="description">Business/Organization Description:
-            <textarea id="description" name="description" title="Describe Your Business" required rows="4"></textarea>
-        </label>
-        <input type="hidden" id="timestamp" name="timestamp">
-        <input type="submit" value="Submit Application">
-    </form>
-
-    <!-- Membership Level Cards -->
-    <div class="membership-cards">
-        <h2>Membership Levels</h2>
-        <div class="card" tabindex="0">
-            <h3>Non-Profit</h3>
-            <!-- <p>No cost membership for non-profit organizations.</p> -->
-            <button class="modal-trigger" data-target="modal-np">Learn More</button>
+<body>
+    <header>                           
+        <img src="images/logo.png" alt="Chamber Logo" class="logo" loading="lazy" width="200px" height="auto">
+        <div id="logo-text">
+            <h1>Tema Ghana Chamber of Commerce</h1>
         </div>
-        <div class="card" tabindex="0">
-            <h3>Bronze</h3>
-            <!-- <p>Basic membership with access to events.</p> -->
-            <button class="modal-trigger" data-target="modal-bronze">Learn More</button>
-        </div>
-        <div class="card" tabindex="0">
-            <h3>Silver</h3>
-            <!-- <p>Includes training and advertising discounts.</p> -->
-            <button class="modal-trigger" data-target="modal-silver">Learn More</button>
-        </div>
-        <div class="card" tabindex="0">
-            <h3>Gold</h3>
-            <!-- <p>Top-tier benefits including premium advertising.</p> -->
-            <button class="modal-trigger" data-target="modal-gold">Learn More</button>
-        </div>
-    </div>
+                    
+        <button class="menu-toggle">☰</button>
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li><a href="index.html" title="Home" target="_blank">Home</a></li>
+                <li><a href="directory.html" title="Directory" target="_blank">Directory</a></li>
+                <li><a href="join.html"  class="active" title="Join" target="_blank">Join</a></li>
+                <li><a href="discover.html" target="_blank" title="Discover">Discover</a></li>
+            </ul>
 
-    <!-- Modals using <dialog> -->
-    <dialog id="modal-np">
-        <button class="close-modal-x" aria-label="Close">&times;</button>
-        <h3>Non-Profit Membership Benefits</h3>
-        <ul>
-            <li>Access to events</li>
-            <li>Basic membership directory listing</li>
-            <li>No cost</li>
-        </ul>
-    </dialog>
-    <dialog id="modal-bronze">
-        <button class="close-modal-x" aria-label="Close">&times;</button>
-        <h3>Bronze Membership Benefits</h3>
-        <ul>
-            <li>Access to all events</li>
-            <li>Business spotlight opportunities</li>
-            <li>Discounted event fees</li>
-        </ul>
-    </dialog>
-    <dialog id="modal-silver">
-        <button class="close-modal-x" aria-label="Close">&times;</button>
-        <h3>Silver Membership Benefits</h3>
-        <ul>
-            <li>Includes Bronze benefits</li>
-            <li>Access to advanced training sessions</li>
-            <li>Advertising discounts</li>
-        </ul>
-    </dialog>
-    <dialog id="modal-gold">
-        <button class="close-modal-x" aria-label="Close">&times;</button>
-        <h3>Gold Membership Benefits</h3>
-        <ul>
-            <li>Includes Silver benefits</li>
-            <li>Premium advertising opportunities</li>
-            <li>Priority event registrations and sponsorship opportunities</li>
-        </ul>
-    </dialog>
-</main>    
+            <button id="theme-toggle-button">
+                <img src="images/dark.png" alt="Toggle Theme" width="15px" height="auto" loading="lazy">
+            </button>
+        </nav>      
+       
+    </header>
+
+    <main>
+        <h1>Become a Member</h1>
+        <section id ="join" >
+            <form action="thankyou.html" method="GET" class="formDesign">
+                <input type="hidden" id="timestamp" name="timestamp">
+                
+                <label>First Name*<input type="text" required name="first-name" autocomplete="given-name"></label>
+                <label>Last Name*<input type="text" required name="last-name" autocomplete="family-name"></label>
+                <label>Organizational Title<input type="text" name="org-title"
+                        title="Only accept alpha characters, hyphens, and spaces with a minimum of seven characters"
+                        autocomplete="organization-title" pattern="[A-Za-zÀ-ÿ\s\-]{7,}"></label>
+                <label>Email Address*<input type="email" required name="email" title="Enter a valid email address"
+                        autocomplete="email" placeholder="example@example.com"></label>
+                <label>Mobile Phone Number*<input type="tel" required name="phone-number"
+                        title="Enter a valid mobile phone number" autocomplete="tel"></label>
+                <label>Business/Organization's Name*<input type="text" required name="org-name" title="Enter a short name"
+                        autocomplete="organization"></label>
+            
+                <label>Membership Level
+                    <select name="membership" required>
+                        <option value=" " disabled selected>Select One of The Membership Levels</option>
+                        <option value="non-profit"> NP Membership</option>
+                        <option value="bronze"> Bronze Membership</option>
+                        <option value="silver"> Silver Membership</option>
+                        <option value="gold"> Gold Membership</option>
+                    </select>
+                </label>
+            
+                <label>Business/Organization's Description<textarea title="Write a short description about the company"
+                        name="org-description"></textarea></label>
+            
+                <input type="submit" value="Submit Application">
+            </form>            
+       
+            <section id="membership-level">
+                <h2>Membership Levels</h2>               
+                   <div class="member-card">
+                        <div>
+                            <h3>Non Profit Membership Level</h3>
+                            <p>Only Non-Profit Membership - Free</p>
+                        </div>
+                        <div>
+                            <h3>Bronze Membership Level</h3>
+                            <p>Only U$40 annually</p>
+                        </div>
+                        <div>
+                            <h3>Silver Membership Level</h3>
+                            <p>U$60 annually, your name will be on homepage.</p>
+                        </div>
+                        <div>
+                            <h3>Gold Membership Level</h3>
+                            <p>U$80 annually, your name will be on top of the page and homepage</p>
+                        </div>
+                    </div>                    
+            </section>
+        </section>       
 
     <script>
         // JavaScript to handle modal functionality
@@ -184,31 +119,36 @@
 
 <!-- Footer Section -->
 <footer>
-    <div class="footer-container">
-        <!-- Left Column -->
-        <div class="left">
-            Tema Ghana Chamber of Commerce&gt;
-            GN-1249-1666, 36 Microphone Street&gt; 
-            Matakeko, Tema, Ghana&gt;
-            Email: info@temaghanachamber.com&gt; 
-            Phone: (233) 559-169-117&gt;
-        </div>
-
-            <!-- Social media icons placeholder -->
-            <div class="center">
-                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
-                <a href="https://www.x.com" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
-                <a href="https://www.linkedin.com" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
-            </div>
-
-        <!-- Right Column -->
-         <div class="right">
-            <p>WDD231 Class Project</p>
-            <p>Charles Kingsley Ajeigbe</p>
-            <p>@<span id="currentyear"></span> Tema Ghana Chamber of Commerce</p>
-            <p>Last Modified:<span id="lastModified"></span></p>         
-        </div>
-    </div> 
+    <div id="first-footer-info">
+        <p>Tema Ghana Chamber of Commerce</p>
+        <p>36, Microphone Street, Afienya</p>
+        <p>Tema Ghana</p>
+        <p>info@temaghanachamber.com</p>
+        <p>+233 559 169 117</p>
+    </div>
+    <nav id="footer-social">
+        <a href="https://www.youtube.com/" target="_blank">
+            <img src="images/youtube-play.png" alt="YouTube logo">
+        </a>
+        <a href="https://x.com/home" target="_blank">
+            <img src="images/twitterx.png" alt="X (Twitter) logo">
+        </a>
+        <a href="https://www.facebook.com/" target="_blank">
+            <img src="images/facebook_color.webp" alt="Facebook logo">
+        </a>
+        <a href="https://www.linkedin.com/" target="_blank">
+            <img src="images/linkedin.png" alt="LinkedIn logo">
+        </a>
+    </nav>
+    <div id="second-footer-info">
+        <p>WDD231 Class Project</p>
+        <p>Charles Kingsley Ajeigbe</p>
+        <p>&copy; <span id="year"></span>Tema Ghana Chamber of Commerce</p>
+        <p><span id="lastModified"></span></p>
+    </div>
 </footer>
+</main>
 </body>
 </html>
+
+<!-- End of HTML Document -->

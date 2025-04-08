@@ -6,7 +6,7 @@
         { "name": "Charlie White", "address": "321 Pine St", "phone": "987-654-3210", "website": "https://www.gsa.gov.gh/made-in-ghana/", "image": "images/made-in-ghana.png", "membershipLevel": "Silver" },
         { "name": "Bob Johnson", "address": "654 Cedar St", "phone": "555-555-5555", "website": "https://www.haleon.com", "image": "images/panadol.png", "membershipLevel": "Bronze" },
         { "name": "Efo Larson", "address": "789 Elm St", "phone": "444-444-4444", "website": "https://www.diageo.com/en/", "image": "images/alvaro1.png", "membershipLevel": "Gold" },
-        { "name": "John Doe", "address": "123 Main St", "phone": "333-333-3333", "website": "https://thebftonline.com", "image": "images/b-and-ft.png", "membershipLevel": "Gold" },
+        { "name": "John Doe", "address": "123 Main St", "phone": "333-333-3333", "website": "https://thebftonline.com", "image": "images/b-and-ft.png", "membershipLevel": "Non-Profit" },
         { "name": "New Member", "address": "123 New St", "phone": "111-111-1111", "website": "https://www.b5plusgroup.com/", "image": "images/b5-group.png", "membershipLevel": "Bronze"}
     ]
   }
