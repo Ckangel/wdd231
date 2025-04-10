@@ -13,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">    
+    <link rel="stylesheet" href="styles/main.css">   
+    <link rel="stylesheet" href="styles/min.css">
+    <link rel="stylesheet" href="styles/normalize.css"> 
     <script src="scripts/main.js" defer></script>     
     <link rel="icon" href="favicon.ico">  
 </head>
@@ -32,19 +34,15 @@
                 <li><a href="join.html" title="Join" target="_blank">Join</a></li>
                 <li><a href="discover.html" target="_blank" title="Discover">Discover</a></li>
             </ul>
-
-            <button id="theme-toggle-button">
-                <img src="images/dark.png" alt="Toggle Theme" width="15px" height="auto" loading="lazy">
-            </button>
-        </nav>      
-       
+        </nav>
+        <button id="theme-toggle">🌙</button>
     </header>
-
+    <main>
  <!-- Hero Section -->
       
         <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-image">
-                <img src="images/hero-image.jpg" alt="Hero Image" loading="lazy" width="100%" height="auto">
+                <img src="images/hero-image.jpg" alt="Hero Image" loading="lazy" width="80%" height="auto">
             </div>       
             <div class="hero-text">
                 <button>Keynote Tickets</button>
@@ -53,67 +51,56 @@
 
     <main>
          <!-- Information Section -->
-         <h1>Directory</h1> 
-                     
-         <div id="events">
-            <h3>Upcoming Events</h3>
-            <ul>
-                <li>Meet and Greet Business Breakfast - 04/05/2025</li>
-                <li>Business After-Hours Networking Dinner - 04/09/2025</li>
-                <li>Business Expo Exhibition - 04/12/2025</li>
-                <li>Business Leadership Conference - 05/04/2025</li>
-                <li>Business Excelence Awards Gala - 05/25/2025</li>
-            </ul>
-        </div>
+         <section class="home">
 
-        <div id="current-weather">
-            <h3>Current Weather</h3>
-            <img id="weather-icon" src="images/weather-icon.webp" alt="Weather icon">
-            <div>
-                <p><span id="current-temp"></span></p>
-                <p id="description"></p>
-                <p id="high-temp"></p>
-                <p id="low-temp"></p>
-                <p id="humidity"></p>
-                <p id="sunrise"></p>
-                <p id="sunset"></p>
-        </div>
-        
-        </div> <!-- Closing current-weather div -->
+            <h1>Home</h1>            
+        </section>
 
-        <div id="weather-forecast">
-            <h3>Weather Forecast</h3>
-            <p id="today"></p>
-            <p id="next-day"></p>
-            <p id="next-day2"></p>
-        </div>
+        <div id="grid-container" class="grid">
+
+            <div id="grid-item1">
+                <h3>Upcoming Events</h3>
+                <ul>
+                    <li>Meet and Greet Business Breakfast - 04/05/2025</li>
+                    <li>Business After-Hours Networking Dinner - 04/09/2025</li>
+                    <li>Business Expo Exhibition - 04/12/2025</li>
+                    <li>Business Leadership Conference - 05/04/2025</li>
+                    <li>Business Excelence Awards Gala - 05/25/2025</li>
+                </ul>
+            </div>
+
+            <div id="grid-item2">
+                <h3>Current Weather</h3>
+                <img id="weather-icon" src="images/weather-icon.webp" alt="Weather icon">
+                <div>
+                    <p><span id="current-temp"></span></p>
+                    <p id="description"></p>
+                    <p id="high-temp"></p>
+                    <p id="low-temp"></p>
+                    <p id="humidity"></p>
+                    <p id="sunrise"></p>
+                    <p id="sunset"></p>
+            </div>
+            
+            </div> <!-- Closing current-weather div -->
+
+            <div id="grid-item3">
+                <h3>Weather Forecast</h3>
+                <p id="today"></p>
+                <p id="next-day"></p>
+                <p id="next-day2"></p>
+            </div>
+        </div> <!-- Closing grid-container div -->
 
     <!-- Members Section -->
-    <main>
-        <div id="menu-buttons">
-            <button id="menu-grid">Grid</button>
-            <button id="menu-list">List</button>
-        </div>
-        <section id="cards" class="grid">
-            <div class="card">
-                <img src="images/member1.jpg" alt="Member 1" loading="lazy" width="100%" height="auto">
-                <h2>Member 1</h2>
-                <p>Member 1 Description</p>
-            </div>
-            <div class="card">
-                <img src="images/member2.jpg" alt="Member 2" loading="lazy" width="100%" height="auto">
-                <h2>Member 2</h2>
-                <p>Member 2 Description</p>
-            </div>
-            <div class="card">
-                <img src="images/member3.jpg" alt="Member 3" loading="lazy" width="100%" height="auto">
-                <h2>Member 3</h2>
-                <p>Member 3 Description</p>
-            </div>
-                
-        </section>
-    </main> 
-
+    <div class="view-toggle">
+        <button id="grid-view">Grid View</button>
+        <button id="list-view">List View</button>
+    </div>
+    <section class="members" id="members">
+        <!-- Member information will be displayed here -->
+    </section>
+</main>
   <!-- Footer Section -->
   <footer>
     <div id="first-footer-info">

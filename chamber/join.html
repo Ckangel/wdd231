@@ -13,7 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">    
+    <link rel="stylesheet" href="styles/main.css">   
+    
+    <link rel="stylesheet" href="styles/min.css">
+    <link rel="stylesheet" href="styles/normalize.css"> 
+    
     <script src="scripts/main.js" defer></script>     
     <link rel="icon" href="favicon.ico">  
 </head>
@@ -32,14 +36,9 @@
                 <li><a href="join.html"  class="active" title="Join" target="_blank">Join</a></li>
                 <li><a href="discover.html" target="_blank" title="Discover">Discover</a></li>
             </ul>
-
-            <button id="theme-toggle-button">
-                <img src="images/dark.png" alt="Toggle Theme" width="15px" height="auto" loading="lazy">
-            </button>
-        </nav>      
-       
-    </header>
-
+            </nav>
+            <button id="theme-toggle">🌙</button>
+    </header>       
     <main>
         <h1>Become a Member</h1>
         <section id ="join" >
@@ -97,25 +96,6 @@
             </section>
         </section>       
 
-    <script>
-        // JavaScript to handle modal functionality
-        document.querySelectorAll('.modal-trigger').forEach(button => {
-            button.addEventListener('click', () => {
-                const target = button.getAttribute('data-target');
-                document.getElementById(target).showModal();
-            });
-        });
-
-        document.querySelectorAll('.close-modal-x').forEach(button => {
-            button.addEventListener('click', () => {
-                button.closest('dialog').close();
-            });
-        });
-
-        // Set the current year and last modified date
-        document.getElementById('currentyear').textContent = new Date().getFullYear();
-        document.getElementById('lastModified').textContent = document.lastModified;
-    </script>
 
 <!-- Footer Section -->
 <footer>

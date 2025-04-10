@@ -279,7 +279,7 @@ h2::before, h2::after {
 
 h3 {
     background-color: var(--secondary-color);
-    color: var(--text-color);    
+    color: black;    
     border-radius: 5px;
     padding: 10px;
     font-size: 20px;  
@@ -335,6 +335,12 @@ h3 {
     padding: 20px;
 }
 
+.featured-card {
+    border: 2px solid gold;
+    padding: 20px;
+    margin: 10px;
+}
+
 .grid {
     background-color: var(--text-color);
     padding: 15px;
@@ -352,6 +358,7 @@ h3 {
 .grid h3 {
     margin: 10px 0;
     font-size: 1.2rem;
+    text-decoration-color: black;
 }
 
 #featured-members p {
@@ -421,10 +428,12 @@ footer {
 }
 
 #cards {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
 }
+
 
 .grid-view {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -436,11 +445,7 @@ footer {
 }
 
 .list-view .member-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px;
-    border-bottom: 1px solid var(--text-color);
+    width: 100%;
 }
 
 .list-view .member-card img {
@@ -450,16 +455,22 @@ footer {
     border-radius: 10px;
 }
 
+.grid-view .member-card {
+    width: calc(33.333% - 20px);
+}
+
 .member-card {
+    border: 1px solid #ccc;
     background-color: var(--text-color);
-    padding: 15px;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: 5px;
     text-align: center;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
 }
 
 .member-card img {
-    max-width: 50%;
+    width: 100%;
     height: auto;
     border-radius: 5px;
 }
@@ -467,11 +478,13 @@ footer {
 .member-card h3 {
     margin: 10px 0;
     font-size: 1.2rem;
+    color: #333;
 }
 
 .member-card p {
     margin: 5px 0;
     font-size: 0.9rem;
+    color: #333;
 }
 
 .member-card a {
@@ -550,9 +563,10 @@ form {
     margin: 0 auto;
     background-color: transparent;
     animation: black-color 2s ease-in-out forwards;
+    color: #333;
 }
 
-.member-card p{
+.member-card p {
     color: black;
     animation: black-color 2s ease-in backwards;
     font-size: 14px;
@@ -665,14 +679,18 @@ form {
         padding-bottom: 85px;
     }
 
-    #weather-forecast{
+    #weather-forecast {
         padding: 5px;
         width: 100%;
     }
 
-    #featured-members{
-        grid-template-columns: 1fr;
+    #featured-members {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
     }
+
+    
     #menu-buttons {
         flex-direction: column;
         align-items: center;

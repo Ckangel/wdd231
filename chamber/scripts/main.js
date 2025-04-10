@@ -88,12 +88,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-  document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
     const membersContainer = document.getElementById("cards");
     const featuredContainer = document.getElementById("featured-members");
     const gridButton = document.getElementById("menu-grid");
-    const listButton = document.getElementById("menu-list");    
-    let isGridView = true; 
+    const listButton = document.getElementById("menu-list");
+    let isGridView = true;
 
     if (gridButton && listButton) {
         gridButton.addEventListener("click", () => {
@@ -111,7 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const response = await fetch("./data/members.json");
             if (!response.ok) throw new Error("Failed to fetch members");
-            const members = await response.json();
+            const data = await response.json();
+            const members = data.records;
 
             if (membersContainer) {
                 displayMembers(members);
@@ -137,46 +138,39 @@ document.addEventListener("DOMContentLoaded", function () {
             const memberCard = document.createElement("div");
             memberCard.classList.add("member-card");
 
+            if (member.membershipLevel === "Gold" || member.membershipLevel === "Silver") {
+                memberCard.classList.add("featured-card");
+            }
+
             memberCard.innerHTML = `
-                <img src="images/${member.image}" alt="${member.name}">
+                <img src="${member.image}" alt="${member.name}" loading="lazy">
                 <h3>${member.name}</h3>
-                <p>${member.description}</p>
+                <p>${member.description || 'No description available'}</p>
                 <p><strong>Address:</strong> ${member.address}</p>
                 <p><strong>Phone:</strong> ${member.phone}</p>
                 <p><strong>Website:</strong> <a href="${member.website}" target="_blank">Visit</a></p>
-                <p><strong>Membership Level:</strong> ${getMembershipLevel(member.membership)}</p>
+                <p><strong>Membership Level:</strong> ${member.membershipLevel}</p>
             `;
 
             membersContainer.appendChild(memberCard);
         });
     }
 
-    function getMembershipLevel(level) {
-        switch (level) {
-            case 1: return "Member";
-            case 2: return "Silver";
-            case 3: return "Gold";
-            default: return "Unknown";
-        }
-    }
-
-    if (membersContainer) {
-        membersContainer.classList.remove("hidden");
-    }
-
     function displayFeaturedMembers(members) {
-        featuredContainer.innerHTML = "";    
+        featuredContainer.innerHTML = "";
 
-        const shuffled = [...members].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const featuredMembers = members.filter(member => member.membershipLevel === "Gold" || member.membershipLevel === "Silver");
+
+        const shuffled = [...featuredMembers].sort(() => 0.5 - Math.random()).slice(0, 3);
 
         shuffled.forEach(member => {
             const memberCard = document.createElement("div");
-            memberCard.classList.add("member-card");
+            memberCard.classList.add("member-card", "featured-card");
 
             memberCard.innerHTML = `
-                <img src="images/${member.image}" alt="${member.name}">
+                <img src="${member.image}" alt="${member.name}" loading="lazy">
                 <h3>${member.name}</h3>
-                <p>${member.description}</p>
+                <p>${member.description || 'No description available'}</p>
                 <p><strong>Phone:</strong> ${member.phone}</p>
                 <p><strong>Website:</strong> <a href="${member.website}" target="_blank">Visit</a></p>
             `;
@@ -184,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
             featuredContainer.appendChild(memberCard);
         });
     }
-    
+
     fetchMembers();
 });
 
@@ -192,16 +186,17 @@ const form = document.querySelector('.formDesign');
 if (form) {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        const formData = new FormData(event.target);
-        const data = new URLSearchParams();
 
-        formData.forEach((value, key) => {
-            data.append(key, value);
-        });
+    const formData = new FormData(event.target);
+    const data = new URLSearchParams();
 
-        const url = 'thankyou.html?' + data.toString();
-        window.location.href = url;
+    formData.forEach((value, key) => {
+        data.append(key, value);
     });
+
+    const url = 'thankyou.html?' + data.toString();
+    window.location.href = url;
+});
 }
 
 document.addEventListener("DOMContentLoaded", function () {
