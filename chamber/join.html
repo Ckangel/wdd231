@@ -13,11 +13,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">   
-    
-    <link rel="stylesheet" href="styles/min.css">
-    <link rel="stylesheet" href="styles/normalize.css"> 
-    
+    <link rel="stylesheet" href="styles/min.css"> 
     <script src="scripts/main.js" defer></script>     
     <link rel="icon" href="favicon.ico">  
 </head>
@@ -27,16 +25,26 @@
         <div id="logo-text">
             <h1>Chamber Join Page</h1>
         </div>
-                    
-        <button class="menu-toggle">☰</button>
-        <nav class="main-nav">
+       <!-- <div class="theme-toggle-small">
+            <button id="theme-toggle-button-small"></button>
+            <img id="theme-image" src="images/light.png" alt="Theme Icon">
+        </div> -->
+        <div class="menu-toggle-small">
+            <button id="menu-toggle-button">☰</button>
+        </div>
+        <div class="theme-toggle-small">
+            <button id="theme-toggle-button-small"></button>
+            <img id="theme-image" src="images/light.png" alt="Theme Icon">
+        
+        </div>
+            <nav class="main-nav">
             <ul class="nav-links">
                 <li><a href="index.html" title="Home" target="_blank">Home</a></li>
                 <li><a href="directory.html" title="Directory" target="_blank">Directory</a></li>
                 <li><a href="join.html"  class="active" title="Join" target="_blank">Join</a></li>
                 <li><a href="discover.html" target="_blank" title="Discover">Discover</a></li>
             </ul>
-            <button id="theme-toggle">🌙</button>
+            <button id="theme-toggle"></button>
             </nav>
             
     </header>       

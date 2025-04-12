@@ -1,0 +1,50 @@
+[
+    {
+        "Company": "TechNova Inc.",
+        "Vacant Positions": "Executive Assistant",
+        "Minimum Qualification": "Master's Degree",
+        "Type of Job": "Remote",
+        "Salary Range": "$100,000 - $120,000",
+        "Due Date of Application Submission": "2025-05-08",
+        "Contact Us": {
+            "Email": "contact@technovainc.com",
+            "Phone": "+1-600-610-8744"
+        }
+    },
+    {
+        "Company": "AdminPro Solutions",
+        "Vacant Positions": "Accountant",
+        "Minimum Qualification": "Master's Degree",
+        "Type of Job": "Remote",
+        "Salary Range": "$60,000 - $80,000",
+        "Due Date of Application Submission": "2025-05-29",
+        "Contact Us": {
+            "Email": "contact@adminprosolutions.com",
+            "Phone": "+1-878-303-5863"
+        }
+    },
+    {
+        "Company": "DataLogic Systems",
+        "Vacant Positions": "Data Scientist",
+        "Minimum Qualification": "Bachelor's Degree in Computer Science",
+        "Type of Job": "Full-time",
+        "Salary Range": "$90,000 - $110,000",
+        "Due Date of Application Submission": "2025-06-15",
+        "Contact Us": {
+            "Email": "jobs@datalogicsystems.com",
+            "Phone": "+1-555-123-4567"
+        }
+    },
+    {
+        "Company": "CyberSecure Ltd.",
+        "Vacant Positions": "Cybersecurity Analyst",
+        "Minimum Qualification": "Bachelor's Degree in Information Security",
+        "Type of Job": "Part-time",
+        "Salary Range": "$50,000 - $70,000",
+        "Due Date of Application Submission": "2025-05-30",
+        "Contact Us": {
+            "Email": "careers@cybersecureltd.com",
+            "Phone": "+1-444-987-6543"
+        }
+    }
+]

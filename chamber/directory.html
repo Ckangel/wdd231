@@ -12,10 +12,11 @@
     <meta property="og:url" content="https://ckangel.github.io/wdd231/chamber/discover.html">  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">   
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/min.css">
-    <link rel="stylesheet" href="styles/normalize.css"> 
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/directory-small.css" media="screen and (max-width: 600px)">
     <script src="scripts/main.js" defer></script>     
     <link rel="icon" href="favicon.ico">  
 </head>
@@ -25,8 +26,14 @@
         <div id="logo-text">
             <h1>Tema Ghana Chamber of Commerce</h1>
         </div>
-                    
-        <button class="menu-toggle">☰</button>
+         <!-- <div class="theme-toggle-small">
+            <button id="theme-toggle-button-small"></button>
+            <img id="theme-image" src="images/light.png" alt="Theme Icon">
+        </div> -->
+        <div class="menu-toggle-small">
+            <button id="menu-toggle-button">☰</button>
+        </div>
+
         <nav class="main-nav">
             <ul class="nav-links">
                 <li><a href="index.html" title="Home" target="_blank">Home</a></li>
@@ -35,14 +42,18 @@
                 <li><a href="discover.html" target="_blank" title="Discover">Discover</a></li>
             </ul>
         </nav>
-        <button id="theme-toggle">🌙</button>
+        <div class="theme-toggle-small">
+            <button id="theme-toggle-button-small"></button>
+            <img id="theme-image" src="images/light.png" alt="Theme Icon">
+        </div>
+        <button id="theme-toggle"></button>
     </header>
     <main>
  <!-- Hero Section -->
       
         <section class="hero" aria-labelledby="hero-heading">
             <div class="hero-image">
-                <img src="images/hero-image.jpg" alt="Hero Image" loading="lazy" width="80%" height="auto">
+                <img src="images/hero-image.jpg" alt="Hero Image" loading="lazy">
             </div>       
             <div class="hero-text">
                 <button>Keynote Tickets</button>

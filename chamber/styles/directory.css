@@ -1,9 +1,12 @@
-:root {
-    --primary: #00BFFF;
-    --secondary: #096680;
-    --text: #333;
-    --bg: #f4f4f4;
-  }
+:root{
+    --primary-color: #D1BEB0;
+    --secondary-color: #AB9F9D;
+    --backround-color:  #BEAFA7;
+    --text-color: #000000;
+    --text-second-color: #E6C19D;
+    --second-color: black;
+    --background-color: #F4F4F4;
+}
 
 body {
     font-family: 'Poppins', 'Roboto', sans-serif;
@@ -400,10 +403,21 @@ dialog h3{
     color: darkred;
 }
 
-.cta-button{
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: var(--Primary-Color);
+    padding: 40px 20px;
+}
+
+.cta-button {
     max-width: 130%;
     display: inline-block;
-    padding: 1rem;
+    padding: 10px 20px;
     background-color: var(--Primary-Color);
     color: var(--Text-Color);
     text-decoration: none;
@@ -411,6 +425,23 @@ dialog h3{
     font-weight: bold;
     border-radius: 8px;
     transition: background-color 0.3s ease-out;
+}
+
+.cta-banner {
+    background-color: var(--Primary-Color);
+    color: var(--Text-Color);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 .cta-button:hover{

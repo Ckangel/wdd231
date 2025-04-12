@@ -206,7 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 //Add places
 document.addEventListener("DOMContentLoaded", async () => {
     const placeContainer = document.getElementById("placecards");

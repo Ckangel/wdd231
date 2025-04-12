@@ -1,0 +1,246 @@
+:root {
+    --primary-color:#6f42c1;
+    --primary-color-light:#6f42c1;
+    --secondary-color:#f8f9fa;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --dark-color: #343a40;
+    --link-color:  #007bff;
+    --font-family: 'Open Sans', sans-serif;
+}
+
+/* Basic Reset and Box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.main-nav {
+    display: none; /* Hidden by default on small screens */
+}
+
+.main-nav.open {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    display: block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #eee;
+}
+
+.hamburger-menu {
+    display: block; /* Visible on small screens */
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .hamburger-menu {
+        display: none; /* Hidden on larger screens */
+    }
+
+    .main-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    .main-nav.open {
+        display: flex;
+        position: static;
+        width: auto;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .nav-links {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-left: 1rem;
+    }
+
+    .nav-links li a {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Example content styling - adjust as needed */
+.hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.job-listing {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.job-listing h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+.job-listing img {
+    max-width: 100%;
+    height: auto; /* Intrinsic aspect ratio */
+}
+
+.apply-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.apply-form input[type="text"],
+.apply-form input[type="email"],
+.apply-form textarea,
+.apply-form button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.apply-form button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.apply-form button:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 5px;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Utility classes for design principles (example) */
+.container {
+    max-width: 960px;
+    margin: 0 auto; /* Alignment (center) */
+    padding: 1rem;
+}
+
+.section-title {
+    text-align: center; /* Alignment (center) */
+    margin-bottom: 1.5rem; /* Proximity (spacing around elements) */
+    color: #333; /* Contrast */
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Repetition (consistent grid layout) */
+    gap: 1rem; /* Proximity */
+}
+
+.white-space {
+    padding: 1rem 0; /* White-space (breathing room) */
+}
