@@ -16,6 +16,9 @@
     box-sizing: border-box;
 }
 
+/* ==========================
+ General Stying
+========================== */
 body {
     font-family: 'Roboto', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
@@ -205,6 +208,10 @@ h2 {
     border-radius: 5px;
 }
 
+#view-toggle {
+    margin-bottom: 20px;
+}
+    
 /* ==========================
  Animations
 ========================== */
@@ -347,7 +354,15 @@ h3 {
     grid-template-columns: 2fr 1fr 1fr; /* Defines the column ratio: 2:1:1 */
     gap: 10px; /* Adds spacing between grid items */
   }
-  
+
+/* ==========================
+ Members Section
+========================== */
+.members {
+    display: grid;
+    gap: 20px;
+}
+
 #featured-members {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -448,6 +463,7 @@ footer {
     height: auto;
 }
 
+
 #menu-buttons {
     display: flex;
     justify-content: center;
@@ -478,12 +494,11 @@ footer {
 }
 
 .grid-view {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .list-view {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
 }
 
 .list-view .member-card {
@@ -502,9 +517,10 @@ footer {
 }
 
 .member-card {
+    border: 1px solid #ccc;
     background-color: var(--secondary-color);
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 5px;
     text-align: center;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
