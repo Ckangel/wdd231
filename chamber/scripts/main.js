@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuToggle && nav) {
         menuToggle.addEventListener("click", function () {
             nav.classList.toggle("active");
-        });
+    });
     }
   
     document.addEventListener("DOMContentLoaded", function () {
@@ -98,12 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
+ 
+
+  document.addEventListener("DOMContentLoaded", async () => {
     const membersContainer = document.getElementById("cards");
     const featuredContainer = document.getElementById("featured-members");
     const gridButton = document.getElementById("menu-grid");
-    const listButton = document.getElementById("menu-list");
-    let isGridView = true;
+    const listButton = document.getElementById("menu-list");    
+    let isGridView = true; 
 
     if (gridButton && listButton) {
         gridButton.addEventListener("click", () => {
@@ -121,8 +123,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         try {
             const response = await fetch("./data/members.json");
             if (!response.ok) throw new Error("Failed to fetch members");
-            const data = await response.json();
-            const members = data.records;
+            const members = await response.json();
 
             if (membersContainer) {
                 displayMembers(members);
@@ -140,30 +141,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    document.addEventListener("DOMContentLoaded", async () => {
-        const spotlightContainer = document.getElementById('featured-members');
     
-        try {
-            const response = await fetch('data/members.json'); // Ensure the JSON file path is correct
-            const members = await response.json();
-    
-            // Filter spotlight members (e.g., Gold and Silver members)
-            const spotlightMembers = members.filter(member => member.membershipLevel === 'Gold' || member.membershipLevel === 'Silver');
-    
-            // Display spotlight members
-            spotlightContainer.innerHTML = spotlightMembers.map(member => `
-                <div class="spotlight-card">
-                    <img src="images/${member.image}" alt="${member.name}" loading="lazy">
-                    <h3>${member.name}</h3>
-                    <p>${member.description}</p>
-                    <a href="${member.website}" target="_blank">Visit Website</a>
-                </div>
-            `).join('');
-        } catch (error) {
-            console.error('Error fetching spotlight members:', error);
-        }
-    });
-    
+
     function displayMembers(members) {
         membersContainer.innerHTML = "";
         membersContainer.className = isGridView ? "grid-view" : "list-view";
@@ -172,39 +151,46 @@ document.addEventListener("DOMContentLoaded", async () => {
             const memberCard = document.createElement("div");
             memberCard.classList.add("member-card");
 
-            if (member.membershipLevel === "Gold" || member.membershipLevel === "Silver") {
-                memberCard.classList.add("featured-card");
-            }
-
             memberCard.innerHTML = `
-                <img src="${member.image}" alt="${member.name}" loading="lazy">
+                <img src="images/${member.image}" alt="${member.name}">
                 <h3>${member.name}</h3>
-                <p>${member.description || 'No description available'}</p>
+                <p>${member.description}</p>
                 <p><strong>Address:</strong> ${member.address}</p>
                 <p><strong>Phone:</strong> ${member.phone}</p>
                 <p><strong>Website:</strong> <a href="${member.website}" target="_blank">Visit</a></p>
-                <p><strong>Membership Level:</strong> ${member.membershipLevel}</p>
+                <p><strong>Membership Level:</strong> ${getMembershipLevel(member.membership)}</p>
             `;
 
             membersContainer.appendChild(memberCard);
         });
     }
 
+    function getMembershipLevel(level) {
+        switch (level) {
+            case 1: return "Member";
+            case 2: return "Silver";
+            case 3: return "Gold";
+            default: return "Unknown";
+        }
+    }
+
+    if (membersContainer) {
+        membersContainer.classList.remove("hidden");
+    }
+
     function displayFeaturedMembers(members) {
-        featuredContainer.innerHTML = "";
+        featuredContainer.innerHTML = "";    
 
-        const featuredMembers = members.filter(member => member.membershipLevel === "Gold" || member.membershipLevel === "Silver");
-
-        const shuffled = [...featuredMembers].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const shuffled = [...members].sort(() => 0.5 - Math.random()).slice(0, 3);
 
         shuffled.forEach(member => {
             const memberCard = document.createElement("div");
-            memberCard.classList.add("member-card", "featured-card");
+            memberCard.classList.add("member-card");
 
             memberCard.innerHTML = `
-                <img src="${member.image}" alt="${member.name}" loading="lazy">
+                <img src="images/${member.image}" alt="${member.name}">
                 <h3>${member.name}</h3>
-                <p>${member.description || 'No description available'}</p>
+                <p>${member.description}</p>
                 <p><strong>Phone:</strong> ${member.phone}</p>
                 <p><strong>Website:</strong> <a href="${member.website}" target="_blank">Visit</a></p>
             `;
@@ -212,25 +198,25 @@ document.addEventListener("DOMContentLoaded", async () => {
             featuredContainer.appendChild(memberCard);
         });
     }
-
+    
     fetchMembers();
 });
 
+        
 const form = document.querySelector('.formDesign');
 if (form) {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+        const formData = new FormData(event.target);
+        const data = new URLSearchParams();
 
-    const formData = new FormData(event.target);
-    const data = new URLSearchParams();
+        formData.forEach((value, key) => {
+            data.append(key, value);
+        });
 
-    formData.forEach((value, key) => {
-        data.append(key, value);
+        const url = 'thankyou.html?' + data.toString();
+        window.location.href = url;
     });
-
-    const url = 'thankyou.html?' + data.toString();
-    window.location.href = url;
-});
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -240,40 +226,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Fetch members data and render it dynamically
-document.addEventListener('DOMContentLoaded', () => {
-    const membersContainer = document.getElementById('members');
-    const gridViewButton = document.getElementById('grid-view');
-    const listViewButton = document.getElementById('list-view');
-
-    // Function to render members
-    const renderMembers = (layout) => {
-        fetch('members.json')
-            .then((response) => response.json())
-            .then((members) => {
-                membersContainer.innerHTML = ''; // Clear previous content
-                membersContainer.className = `members ${layout}`; // Update layout
-
-                members.forEach((member) => {
-                    const memberCard = document.createElement('div');
-                    memberCard.className = 'member-card';
-
-                    memberCard.innerHTML = `
-                        <h3>${member.name}</h3>
-                        <p>${member.email}</p>
-                        <p>${member.role}</p>
-                    `;
-
-                    membersContainer.appendChild(memberCard);
-                });
-            })
-            .catch((error) => console.error('Error fetching members:', error));
-    };
-
-    // Event Listeners for buttons
-    gridViewButton.addEventListener('click', () => renderMembers('grid-view'));
-    listViewButton.addEventListener('click', () => renderMembers('list-view'));
-});
 
 //Add places
 document.addEventListener("DOMContentLoaded", async () => {

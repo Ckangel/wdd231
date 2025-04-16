@@ -3,35 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Jobs Placements - Your Path to Opportunity</title>
+    <title>JobFinder Global - Your Path to Opportunity</title>
     <meta name="description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
     <link rel="icon" href="assets/logo.png" type="image/png">
-    <meta property="og:title" content="Global Jobs Placements - Your Path to Opportunity">
+    <meta property="og:title" content="JobFinder Global - Your Path to Opportunity">
     <meta property="og:description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
     <meta property="og:image" content="assets/logo.png">
-    <meta property="og:url" content="globaljobs.com.gh">
+    <meta property="og:url" content="[Your Website URL]">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Global Jobs Placements - Your Path to Opportunity">
+    <meta name="twitter:title" content="JobFinder Global - Your Path to Opportunity">
     <meta name="twitter:description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
     <meta name="twitter:image" content="assets/logo.png">
-    <link rel="stylesheet" href="styles/project-main.css">
-
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="js/app.js" as="script">
 </head>
-<body class="home">
-
-<header>
-    <div class="logo">
-        <img src="images/jobs-logo.png" alt="Global Jobs Placements Logo" loading="lazy">
-    </div>
-        <nav>   
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">JobFinder GH</a>
+        </div>
+        <nav class="main-nav">
+            <button class="hamburger-menu" aria-expanded="false" aria-controls="mobile-nav">
+                ☰ Menu
+            </button>
             <ul class="nav-links" id="mobile-nav">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html">Job Listings</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="apply.html" class="active">Apply Now</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
         <section class="hero">
             <h2>Find Your Dream Remote Job Globally</h2>
@@ -59,19 +60,6 @@
             <h3>Testimonials</h3>
             </section>
     </main>
-    <div id="searchModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h2>Find Your Next Opportunity</h2>
-            <form id="searchForm">
-                <label for="keywords"></label>
-                <input type="text" id="keywords" name="keywords" placeholder="Enter keywords or job title" required>
-           <label for="location"></label>
-                <input type="text" id="location" name="location" placeholder="Enter location" required>
-                <button type="submit"></button>
-            </form> 
-            </div>
-            </div>
     <footer>
         <div class="footer-container">
             <div class="left">
@@ -97,4 +85,3 @@
     <script src="scripts/main.js"></script>
 </body>
 </html>
-        

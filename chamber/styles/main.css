@@ -160,6 +160,7 @@ nav.main-nav .nav-links a.active {
 .hero img {
     width: 100%;
     height: auto;
+    position: absolute;
 }
 
 .hero a {

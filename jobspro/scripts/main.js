@@ -38,3 +38,21 @@ export function closeModal(modalId) {
         modal.style.display = "none";
     }
 }
+
+const searchButton = document.querySelector('.hero button');
+const searchModal = document.getElementById('searchModal');
+const closeButton = document.querySelector('.close-button');
+
+searchButton.addEventListener('click', () => {
+    searchModal.style.display = 'block';
+});
+
+closeButton.addEventListener('click', () => {
+    searchModal.style.display = 'none';
+});
+
+window.addEventListener('click', (event) => {
+    if (event.target == searchModal) {
+        searchModal.style.display = 'none';
+    }
+});
