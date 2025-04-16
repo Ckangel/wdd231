@@ -15,23 +15,28 @@
     <meta name="twitter:description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
     <meta name="twitter:image" content="assets/logo.png">
     <link rel="stylesheet" href="styles/project-main.css">
+    <link rel="stylesheet" href="styles/index.css">
 
 </head>
 <body class="home">
-
-<header>
-    <div class="logo">
-        <img src="images/jobs-logo.png" alt="Global Jobs Placements Logo" loading="lazy">
-    </div>
-        <nav>   
-            <ul class="nav-links" id="mobile-nav">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="jobs.html">Job Listings</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <header>
+        <div class="logo">
+          <img src="images/jobs-logo.png" alt="Business Logo" loading="lazy">
+        </div>
+        <h1>Global Jobs Placements</h1>
+          <button class="hamburger-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="jobs.html" class="nav-link">Job Listings</a></li>
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                </ul>
+            </nav>
+    </header>           
     <main>
         <section class="hero">
             <h2>Find Your Dream Remote Job Globally</h2>
@@ -54,10 +59,14 @@
         </section>
         <section class="featured-jobs">
             <h3>Featured Job Openings</h3>
-            </section>
-        <section class="testimonials">
-            <h3>Testimonials</h3>
-            </section>
+            <div id="featuredJobsContainer" class="job-list">
+                </div>
+        </section>
+        <section class="inspirational-quote">
+            <h3>Inspirational Quote</h3>
+            <blockquote id="quoteContainer" class="quote-animated">
+                </blockquote>
+        </section>
     </main>
     <div id="searchModal" class="modal">
         <div class="modal-content">

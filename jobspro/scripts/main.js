@@ -56,3 +56,29 @@ window.addEventListener('click', (event) => {
         searchModal.style.display = 'none';
     }
 });
+
+// main.js
+import { fetchFeaturedJobs } from './modules/fetchJobs.js';
+import { fetchQuote } from './modules/fetchQuote.js';
+import { handleSearchModal } from './modules/modal.js';
+import { handleHamburgerMenu } from './modules/hamburger.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchFeaturedJobs('[https://jsonplaceholder.typicode.com/todos/1](https://jsonplaceholder.typicode.com/todos/1)'); // Placeholder API
+    fetchQuote('[https://api.quotable.io/random](https://api.quotable.io/random)');
+    handleSearchModal();
+    handleHamburgerMenu();
+});
+
+// main.js
+import { fetchFeaturedJobs } from './modules/fetchJobs.js';
+import { fetchQuote } from './modules/fetchQuote.js';
+import { handleSearchModal } from './modules/modal.js';
+import { handleHamburgerMenu } from './modules/hamburger.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchFeaturedJobs('[https://jsonplaceholder.typicode.com/todos/1](https://jsonplaceholder.typicode.com/todos/1)'); // Placeholder API
+    fetchQuote('[https://api.quotable.io/random](https://api.quotable.io/random)');
+    handleSearchModal();
+    handleHamburgerMenu();
+});
