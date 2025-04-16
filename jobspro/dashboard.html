@@ -3,62 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JobFinder Global - Your Path to Opportunity</title>
-    <meta name="description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
-    <link rel="icon" href="assets/logo.png" type="image/png">
-    <meta property="og:title" content="JobFinder Global - Your Path to Opportunity">
-    <meta property="og:description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
-    <meta property="og:image" content="assets/logo.png">
-    <meta property="og:url" content="[Your Website URL]">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="JobFinder Global - Your Path to Opportunity">
-    <meta name="twitter:description" content="Find your dream job in Ghana. Browse listings, apply easily, and upload your resume.">
-    <meta name="twitter:image" content="assets/logo.png">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preload" href="js/app.js" as="script">
+    <title>Dashboard - Global Jobs Placements</title>
+    <meta name="description" content="User dashboard for Global Jobs Placements.">
+    <meta name="author" content="Charles K. Ajeigbe">
+    <link rel="stylesheet" href="styles/project-main.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<body>
+<body class="dashboard-page">
     <header>
         <div class="logo">
-            <a href="index.html">JobFinder GH</a>
+            <img src="images/jobs-logo.png" alt="Global Jobs Placements Logo" loading="lazy">
         </div>
-        <nav class="main-nav">
-            <button class="hamburger-menu" aria-expanded="false" aria-controls="mobile-nav">
-                ☰ Menu
-            </button>
-            <ul class="nav-links" id="mobile-nav">
+        <nav>
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html">Job Listings</a></li>
-                <li><a href="apply.html" class="active">Apply Now</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section class="hero">
-            <h2>Find Your Dream Remote Job Globally</h2>
-            <p>Connecting talented individuals in Ghana with leading remote companies worldwide.</p>
-            <button>Search Jobs</button>
-        </section>
-        <section class="benefits">
-            <h3>Benefits for Job Seekers</h3>
-            <ul>
-                <li>Create profiles and upload resumes.</li>
-                <li>Apply for a wide range of remote jobs.</li>
-                <li>Search and filter jobs easily.</li>
-            </ul>
-            <h3>Benefits for Employers</h3>
-            <ul>
-                <li>Post job listings to reach a global talent pool.</li>
-                <li>Review applications efficiently.</li>
-                <li>Trend job postings based on popularity.</li>
-            </ul>
-        </section>
-        <section class="featured-jobs">
-            <h3>Featured Job Openings</h3>
+        <div class="dashboard-tabs">
+            <button class="tab-button active" data-tab="jobseeker">Job Seeker</button>
+            <button class="tab-button" data-tab="employer">Employer</button>
+        </div>
+
+        <div id="jobseeker" class="dashboard-content active">
+            <h2>Job Seeker Dashboard</h2>
+            <section class="profile-management">
+                <h3>Profile Management</h3>
+                <button class="edit-profile-button">Edit Profile</button>
+                <div id="editProfileModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h3>Edit Your Profile</h3>
+                        <form id="profileForm">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email">
+                            <button type="submit">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
             </section>
-        <section class="testimonials">
-            <h3>Testimonials</h3>
+            <section class="resume-upload">
+                <h3>Resume Upload</h3>
+                <button class="upload-resume-button">Upload Resume</button>
+                <div id="uploadResumeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h3>Upload Your Resume</h3>
+                        <form id="resumeForm">
+                            <label for="resumeFile">Select File:</label>
+                            <input type="file" id="resumeFile" name="resumeFile">
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </div>
             </section>
+            <section class="applied-jobs">
+                <h3>Applied Jobs</h3>
+                <ul id="appliedJobList">
+                    <li>No jobs applied yet.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div id="employer" class="dashboard-content">
+            <h2>Employer Dashboard</h2>
+            <section class="job-posting">
+                <h3>Post New Job</h3>
+                <button class="post-job-button">Post a Job</button>
+                <div id="postJobModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-button">×</span>
+                        <h3>Post a New Job</h3>
+                        <form id="jobPostForm">
+                            <label for="jobTitle">Job Title:</label>
+                            <input type="text" id="jobTitle" name="jobTitle">
+                            <label for="jobDescription">Description:</label>
+                            <textarea id="jobDescription" name="jobDescription"></textarea>
+                            <button type="submit">Post Job</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="manage-listings">
+                <h3>Manage Job Listings</h3>
+                <ul id="jobListings">
+                    <li>No job listings yet.</li>
+                </ul>
+            </section>
+            <section class="applications">
+                <h3>Applications Received</h3>
+                <ul id="applicationsList">
+                    <li>No applications received yet.</li>
+                </ul>
+            </section>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -82,6 +125,6 @@
             </div>
         </div>
     </footer>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/dashboard.js"></script>
 </body>
 </html>

@@ -1,0 +1,115 @@
+/* styles for jobs.html */
+.job-filter {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+}
+
+.job-filter h2 {
+    color: #6f42c1;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.job-filter label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.job-filter input[type=text],
+.job-filter select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.job-filter button[type=submit] {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.job-filter button[type=submit]:hover {
+    opacity: 0.8;
+}
+
+.job-listings ul {
+    list-style: none;
+    padding: 0;
+}
+
+.job-listings ul li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.job-info h3 {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.job-meta {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.view-details-button {
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-details-button:hover {
+    opacity: 0.8;
+}
+
+/* Reusing basic modal styles from project-main.css */
+.modal-content #jobTitle {
+    color: #6f42c1;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content .apply-button {
+    background-color: #28a745;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto;
+    display: block;
+    margin-top: 1rem;
+}
+
+.modal-content .apply-button:hover {
+    opacity: 0.8;
+}
+
+/* Responsive Job Listings */
+@media screen and (max-width: 768px) {
+    .job-listings ul li {
+        grid-template-columns: 1fr;
+    }
+    .view-details-button {
+        width: 100%;
+    }
+}

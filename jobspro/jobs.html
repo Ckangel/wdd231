@@ -17,16 +17,17 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preload" href="js/app.js" as="script">
 </head>
-<body>
+<body class="jobs-page">
     <header>
         <div class="logo">
-            <a href="index.html">Global Jobs Placements</a>
+            <img src="images/jobs-logo.png" alt="Global Jobs Placements logo" loading="lazy">
         </div>
-        <nav class="main-nav">
+        <nav>
             <button class="hamburger-menu" aria-expanded="false" aria-controls="mobile-nav">
                 ☰ Menu
             </button>
-            <ul class="nav-links" id="mobile-nav">
+            
+            <ul> 
                 <li><a href="index.html">Home</a></li>
                 <li><a href="jobs.html" class="active">Job Listings</a></li>
                 <li><a href="apply.html">Apply Now</a></li>
@@ -35,12 +36,61 @@
     </header>
 
     <main>
-        </main>
+        <section class="job-filter">
+            <h2>Find Your Ideal Job</h2>
+            <form id="filterForm">
+                <label for="search">Search Keywords:</label>
+                <input type="text" id="search" name="search" placeholder="e.g., Remote, Developer, Marketing">
 
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="">All Categories</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Finance">Finance</option>
+                    </select>
+
+                <button type="submit">Filter Jobs</button>
+            </form>
+        </section>
+        <section class="job-listings">
+            <ul id="jobList">
+                </ul>
+        </section>
+        <div id="jobDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">×</span>
+                <h2 id="jobTitle"></h2>
+                <p><strong id="company"></strong></p>
+                <p><strong id="location"></strong></p>
+                <p id="description"></p>
+                <button class="apply-button">Apply Now</button>
+            </div>
+        </div>
+    </main>
     <footer>
-        <p>&copy; 2025 Global Jobs Placements Ghana</p>
+        <div class="footer-container">
+            <div class="left">
+                <p>Global Jobs Placements</p>
+                <p>GN-1249-1666, 36 Microphone Street</p>
+                <p>Matakeko, Tema, Ghana</p>
+                <p>Email: info@globaljobs.com</p>
+                <p>Phone: (233) 559-169-117</p>
+            </div>
+            <div class="center">
+                <a href="[https://www.youtube.com](https://www.youtube.com)" target="_blank"><img src="images/youtube-play.png" alt="YouTube" loading="lazy"></a>
+                <a href="[https://www.x.com](https://www.x.com)" target="_blank"><img src="images/twitterx.png" alt="Twitter" loading="lazy"></a>
+                <a href="[https://www.linkedin.com](https://www.linkedin.com)" target="_blank"><img src="images/linkedin.png" alt="LinkedIn" loading="lazy"></a>
+            </div>
+            <div class="right">
+                <p>WDD231 Class Project</p>
+                <p>Charles Kingsley Ajeigbe</p>
+                <p>© <span id="currentyear">2025</span> Global Jobs Placements. All rights reserved.</p>
+                <p>Last Modified: <span id="lastModified">4/4/2025</span></p>
+            </div>
+        </div>
     </footer>
-
-    <script type="module" src="js/app.js"></script>
+    <script src="scripts/jobs.js"></script>
 </body>
 </html>
