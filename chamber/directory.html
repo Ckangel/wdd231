@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/min.css">
+    <link rel="stylesheet" href="styles/directory.css"> 
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/directory-small.css" media="screen and (max-width: 600px)">
     <script src="scripts/main.js" defer></script>     
@@ -22,7 +22,7 @@
 </head>
 <body>
     <header>                           
-        <img src="images/logo.png" alt="Chamber Logo" class="logo" loading="lazy" width="200px" height="auto">
+        <img src="images/logo.png" alt="Chamber Logo" class="logo" loading="lazy">
         <div id="logo-text">
             <h1>Tema Ghana Chamber of Commerce</h1>
         </div>
@@ -46,7 +46,6 @@
             <button id="theme-toggle-button-small"></button>
             <img id="theme-image" src="images/light.png" alt="Theme Icon">
         </div>
-        <button id="theme-toggle"></button>
     </header>
     <main>
  <!-- Hero Section -->
@@ -104,13 +103,14 @@
         </div> <!-- Closing grid-container div -->
 
     <!-- Members Section -->
-    <div class="view-toggle">
+    <section id="view-toggle">
         <button id="grid-view">Grid View</button>
         <button id="list-view">List View</button>
-    </div>
-    <section class="members" id="members">
-        <!-- Member information will be displayed here -->
     </section>
+    <section class="members" id="members">
+        <!-- Members cards will automatically be displayed here -->
+    </section>
+    
 </main>
   <!-- Footer Section -->
   <footer>

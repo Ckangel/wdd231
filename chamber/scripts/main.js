@@ -1,3 +1,13 @@
+// Hamburger menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".main-nav");
+
+    menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("show");
+    });
+});
+
 // Lastmodified and menu button function
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
@@ -130,6 +140,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
+    document.addEventListener("DOMContentLoaded", async () => {
+        const spotlightContainer = document.getElementById('featured-members');
+    
+        try {
+            const response = await fetch('data/members.json'); // Ensure the JSON file path is correct
+            const members = await response.json();
+    
+            // Filter spotlight members (e.g., Gold and Silver members)
+            const spotlightMembers = members.filter(member => member.membershipLevel === 'Gold' || member.membershipLevel === 'Silver');
+    
+            // Display spotlight members
+            spotlightContainer.innerHTML = spotlightMembers.map(member => `
+                <div class="spotlight-card">
+                    <img src="images/${member.image}" alt="${member.name}" loading="lazy">
+                    <h3>${member.name}</h3>
+                    <p>${member.description}</p>
+                    <a href="${member.website}" target="_blank">Visit Website</a>
+                </div>
+            `).join('');
+        } catch (error) {
+            console.error('Error fetching spotlight members:', error);
+        }
+    });
+    
     function displayMembers(members) {
         membersContainer.innerHTML = "";
         membersContainer.className = isGridView ? "grid-view" : "list-view";
@@ -204,6 +238,41 @@ document.addEventListener("DOMContentLoaded", function () {
     if (timestampField) {
         timestampField.value = new Date().toISOString();
     }
+});
+
+// Fetch members data and render it dynamically
+document.addEventListener('DOMContentLoaded', () => {
+    const membersContainer = document.getElementById('members');
+    const gridViewButton = document.getElementById('grid-view');
+    const listViewButton = document.getElementById('list-view');
+
+    // Function to render members
+    const renderMembers = (layout) => {
+        fetch('members.json')
+            .then((response) => response.json())
+            .then((members) => {
+                membersContainer.innerHTML = ''; // Clear previous content
+                membersContainer.className = `members ${layout}`; // Update layout
+
+                members.forEach((member) => {
+                    const memberCard = document.createElement('div');
+                    memberCard.className = 'member-card';
+
+                    memberCard.innerHTML = `
+                        <h3>${member.name}</h3>
+                        <p>${member.email}</p>
+                        <p>${member.role}</p>
+                    `;
+
+                    membersContainer.appendChild(memberCard);
+                });
+            })
+            .catch((error) => console.error('Error fetching members:', error));
+    };
+
+    // Event Listeners for buttons
+    gridViewButton.addEventListener('click', () => renderMembers('grid-view'));
+    listViewButton.addEventListener('click', () => renderMembers('list-view'));
 });
 
 //Add places

@@ -1,11 +1,15 @@
-/* ===== BASE STYLES ===== */
+/* ==========================
+ Base Styles
+========================== */
 :root {
-    --primary: #00BFFF;
-    --secondary: #096680;
-    --text: #020703;
-    --bg: #f4f4f4;
-  }
-  
+  --primary-color: #D1BEB0;
+  --secondary-color: #AB9F9D;
+  --backround-color:  #BEAFA7;
+  --text-color: #000000;
+  --text-second-color: #E6C19D;
+  --second-color: black;
+}
+
   * {
     box-sizing: border-box;
     margin: 0;

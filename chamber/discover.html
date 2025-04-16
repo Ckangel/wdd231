@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tema Ghana Chamber of Commerce - Discover</title>
+    <title>Chamber of Commerce - Discover page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Discover page for chamber page where it promotes attractions and events in Greater Accra Region, Ghana.">
     <meta name="author" content="Charles Kingsley Ajeigbe">  
@@ -14,13 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/normalize.css">
-
-    <link rel="stylesheet" href="styles/directory-small.css" media="screen and (max-width: 600px)">   
-    <link rel="stylesheet" href="styles/main.css">   
-    
-    <link rel="stylesheet" href="styles/min.css"> 
-    
-    <script src="scripts/main.js" defer></script>
+    <link rel="stylesheet" href="styles/directory.css">
+    <link rel="stylesheet" href="styles/directory-small.css" media="screen and (max-width: 600px)"><script src="scripts/discover.js" defer></script>     <link rel="stylesheet" href="styles/min.css"> 
+    <link rel="stylesheet" href="styles/main.css">  
     <script src="scripts/discover.js" defer></script>
     <link rel="icon" href="favicon.ico">  
 </head>
@@ -39,19 +35,25 @@
                 <li><a href="join.html" title="Join" target="_blank">Join</a></li>
                 <li><a href="discover.html" class="active" target="_blank" title="Discover">Discover</a></li>
             </ul>
-            </nav><button id="theme-toggle"></button>
-        </header>  
-    <main>
-        <h1 class="main-discover">Tema Ghana Chamber of Commerce - Discover</h1>
-        <aside class="sidebar">
-            <p id="visit-message"></p>
-            </aside>
-            <p id="explore-massage">Explore the sites and natural attractions within our region.</p>
-        <section class="cards-container">
-            <!-- Cards will be dynamically populated here -->
-        </section>
+            </nav>
+            <div class="theme-toggle-small">
+                <button id="theme-toggle-button-small"></button>
+                <img id="theme-image" src="images/light.png" alt="Theme Icon">
+            </div>
+    </header> 
+    
+    <main class="grid-container">
+        <div class="sidebar">
         
-    </main>   
+        </div>
+
+        <div class="card-grid">
+
+        </div>
+        <div class="card-grid">
+            
+        </div>
+    </main>
 
     <footer>
         <div id="first-footer-info">

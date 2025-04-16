@@ -1,7 +1,7 @@
 /* ==========================
  Base Styles
 ========================== */
-:root{
+:root {
     --primary-color: #D1BEB0;
     --secondary-color: #AB9F9D;
     --backround-color:  #BEAFA7;
@@ -18,7 +18,7 @@
 
 body {
     font-family: 'Roboto', 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0px;
     padding: 0px;    
     background-color: var(--backround-color);
@@ -51,6 +51,17 @@ h1 {
     padding: 10px;
     font-weight: bold;     
 }
+
+
+.logo {
+    display: flex;
+    align-items: center;
+  }
+  
+.logo img {
+    height: 20px;
+    border-radius:100%;
+  }
 
 .main-nav {   
     display: flex;
@@ -144,7 +155,7 @@ nav.main-nav .nav-links a.active {
 }
 
 .hero img {
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
@@ -184,7 +195,7 @@ h2 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.call-to-action a{
+.call-to-action a {
     line-height: 2.5rem;
     background: var(--Secondary-Color);
     color: white;
@@ -394,14 +405,20 @@ h3 {
 }
 
 #featured-members a {
-    color: #0077cc;
+    color: var(--primary-color);
     text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-out;
+    padding: 5px 10px;
+    background-color: var(--text-color);
+    text-align: center;
 }
 
 #featured-members a:hover {
     text-decoration: underline;
 }
-
 
 footer {
     display: grid;
@@ -582,13 +599,13 @@ form {
     }
 }
 
-.member-card h3{
+.member-card h3 {
     margin: 0 auto;
     background-color: transparent;
     animation: black-color 2s ease-in-out forwards;
 }
 
-.member-card p{
+.member-card p               {
     color: black;
     animation: black-color 2s ease-in backwards;
     font-size: 14px;
@@ -697,17 +714,17 @@ form {
         align-items: center;
     }
 
-    #current-weather{
+    #current-weather {
         width: 100%;
         padding-bottom: 85px;
     }
 
-    #weather-forecast{
+    #weather-forecast {
         padding: 5px;
         width: 100%;
     }
 
-    #featured-members{
+    #featured-members {
         grid-template-columns: 1fr;
     }
     #menu-buttons {

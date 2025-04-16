@@ -1,8 +1,10 @@
 :root {
-    --primary: #00BFFF;
-    --secondary: #096680;
-    --text: #020703;
-    --bg: #f4f4f4;
+    --primary-color: #D1BEB0;
+    --secondary-color: #AB9F9D;
+    --backround-color:  #BEAFA7;
+    --text-color: #000000;
+    --text-second-color: #E6C19D;
+    --second-color: black;
 }
 
 @media (max-width: 768px) {
@@ -10,24 +12,57 @@
         display: block;
         visibility: visible;
     } */
-    .comp-name p{
-        font-size: 0.7rem;
-        text-align: center;
-        line-height: 0.1rem;
-    }
-
+    
     nav ul {
         /* flex-direction: column; */
         gap: 0.5rem;
         margin-left: 0;
     }
 
+    /* Hide navigation menu by default on smaller screens */
+.main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: var(--background-color);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
-    .call-to-action a{
+/* Show navigation menu when toggled */
+.main-nav.show {
+    display: flex;
+}
+
+/* Style the hamburger button */
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Hide hamburger button on larger screens */
+    }
+
+    .main-nav {
+        display: flex; /* Show navigation menu by default on larger screens */
+        position: static;
+        flex-direction: row;
+    }
+}
+
+    .call-to-action a {
         line-height: 1.5rem;
     }
 
-    .cta-button{
+    .cta-button {
         display: inline-block;
         padding: 1rem 2rem;
         background-color: var(--Primary-Color);
@@ -39,11 +74,11 @@
         transition: background-color 0.3s ease-out;
     }
 
-    main h1{
+    main h1 {
         text-align: center;
     }
 
-    .join-main form{
+    .join-main form {
         width: 90%; 
         /* max-width: 768px;  */
         margin: 0 auto; 
@@ -62,16 +97,7 @@
         overflow-x: hidden;
     }
 
-    .comp-name{
-        font-size: 0.8rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .menu-toggle-small{
+    .menu-toggle-small {
         order: 2;
         display: block;
         margin-left: 1rem;
@@ -147,7 +173,7 @@
         display: flex;
     }
 
-    .call-to-action{
+    .call-to-action {
         position: absolute;
         top: 60%;
         left: 50%;
@@ -158,7 +184,7 @@
         /* opacity: 0.9; */
     }
 
-    .cta-button{
+    .cta-button {
         width: 11rem;
         display: inline-block;
         padding: 0.5rem;
@@ -189,9 +215,6 @@
     .current-weather, .forecast{
         width: 90%;
         margin-bottom: 1rem;
-
-
-        
     }
 
     .spotlights-header h2{
@@ -242,7 +265,6 @@
         margin: 0.4rem;
     }
 
-
     footer {
         flex-direction: column;
     }
@@ -257,8 +279,6 @@
     }
 }
 
-
-
 /* Media queries for 375px */
 @media (max-width: 375px) {
     header {
@@ -269,23 +289,17 @@
         /* text-align: center; */
         padding: 1rem;
     }
-    .logo{
+    .logo {
         width: 30px;
         margin-left: 0.3rem;
     }
-
-    .comp-name {
-        text-align: center;
-        padding: 0.3rem;
-        /* line-height: 1rem; */
+    .logo img {
+        width: 100%;
+        height: auto;
     }
-
-    /* .comp-name h1 {
-        font-size: 1.2rem;
-    } */
-
-    .comp-name p {
-        font-size: 0.6rem;
+    .logo h1 {
+        font-size: 1.5rem;
+        margin-left: 0.5rem;
     }
 
     nav ul {
@@ -362,5 +376,64 @@
         margin: 0.4rem;
     }
 
+    .join-main {
+        flex-direction: column; /* Stack form and membership cards vertically */
+        gap: 20px; /* Add spacing between the form and membership cards */
 
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column for small screens */
+            grid-template-rows: auto auto; /* Auto height for sidebar and cards */
+            grid-template-areas:
+              "sidebar"
+              "cards";
+            gap: 1rem; /* Adjust the gap as needed */
+            padding: 1rem;
+          }
+          
+          .sidebar {
+            grid-area: sidebar;
+          }
+          
+          .cards-container {
+            grid-area: cards;
+            display: grid;
+            grid-template-columns: 1fr; /* Single column for cards on small screens */
+            gap: 1rem; /* Adjust the gap between cards */
+          }
+          
+          .card {
+            border: 1px solid #ccc; /* Basic card styling */
+            padding: 1rem;
+            text-align: center;
+          }
+          
+          .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 0.5rem;
+          }
+          
+          .card h2 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+          }
+          
+          .card address {
+            font-style: normal;
+            margin-bottom: 0.5rem;
+          }
+          
+          .card p {
+            margin-bottom: 1rem;
+          }
+          
+          .card button {
+            padding: 0.5rem 1rem;
+            background-color: #007bff; /* Example button color */
+            color: white;
+            border: none;
+            cursor: pointer;
+          }
+    }
 }

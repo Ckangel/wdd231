@@ -1,60 +1,52 @@
 {
-    "places": [
+    "data": [
       {
-        "images": ["images/kakum.jpg"],
         "name": "Kakum National Park",
         "description": "A tropical rainforest reserve with a famous canopy walkway, offering guided tours and wildlife spotting.",
         "address": "Cape Coast, Central Region, Ghana",
-        "website": "https://www.kakumnationalpark.info"
+        "images": ["images/kakum.jpg"]
       },
       {
-        "images": ["images/elmina2.jpg"],
         "name": "Elmina Castle",
         "description": "A UNESCO World Heritage Site and one of the oldest European buildings in sub-Saharan Africa, used in the trans-Atlantic slave trade.",
         "address": "Elmina, Central Region, Ghana",
-        "website": "https://www.castles.nl/elmina-castle"
+        "images": ["images/elmina.jpg"]
       },
       {
-        "images": ["images/movenpick.webp"],
         "name": "Mövenpick Ambassador Hotel",
         "description": "Luxurious 5-star hotel with ocean views, multiple restaurants, spa, and conference facilities.",
         "address": "Independence Avenue, Accra, Ghana",
-        "website": "https://movenpick.accor.com/en/africa/ghana.html"
+        "images": ["images/movenpick.webp"]
       },
       {
-        "images": ["images/wli.jpg"],
         "name": "Wli Waterfalls",
         "description": "The highest waterfall in West Africa, located in the lush Agumatsa Wildlife Sanctuary.",
         "address": "Wli, Volta Region, Ghana",
-        "website": "https://www.ghanatourism.gov.gh/explore/volta-region"
+        "images": ["images/wli.jpg"]
       },
       {
-        "images": ["images/kempinski2.avif"],
         "name": "Kempinski Hotel Gold Coast City",
         "description": "5-star luxury hotel with elegant rooms, fine dining, swimming pool, and spa in the heart of Accra.",
         "address": "PMB 66 - Ministries, Gamel Abdul Nasser Avenue, Accra, Ghana",
-        "website": "https://www.kempinski.com/en/hotel-gold-coast-city/"
+        "images": ["images/kempinski2.avif"]
       },
-      {
-        "images": ["images/mole.jpg"],
+      {  
         "name": "Mole National Park",
         "description": "Ghana's largest wildlife refuge, home to elephants, antelopes, and over 300 bird species.",
         "address": "Damongo, Savannah Region, Ghana",
-        "website": "https://www.molenationalpark.org"
+        "images": ["images/mole.jpg"]
       },
       {
-        "images": ["images/labadi2.jpg"],
         "name": "Labadi Beach Hotel",
         "description": "Premier 5-star beachfront hotel with tropical gardens, multiple pools, and conference facilities.",
         "address": "No. 1 La Bypass, Accra, Ghana",
-        "website": "https://www.labadibeachhotel.com"
+        "images": ["images/labadi2.jpg"]
       },
       {
-        "images": ["images/boti.jpg"],
         "name": "Boti Falls",
         "description": "Beautiful twin waterfalls in a forest setting with an umbrella rock formation nearby.",
         "address": "Boti, Eastern Region, Ghana",
-        "website": "https://www.ghanatourism.gov.gh/explore/eastern-region"
+        "images": ["images/boti.jpg"]
       }
     ]
   }

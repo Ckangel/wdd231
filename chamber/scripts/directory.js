@@ -112,9 +112,6 @@ function capitalizeWords(str) {
 
 fetchWeatherForecast();
 
-
-
-
 async function fetchMembers() {
     try {
         const response = await fetch('data/members.json');
@@ -226,7 +223,6 @@ document.addEventListener('keydown', (event) => {
         });
     }
 });
-
 
 // Populate the timestamp field with the current date and time
 document.addEventListener("DOMContentLoaded", () => {
